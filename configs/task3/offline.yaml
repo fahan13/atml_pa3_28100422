@@ -1,0 +1,23 @@
+seed: 6304
+order_seed: 6305
+data_root: data/ATML-PA3-Data
+results: results/task3
+cache: outputs/task3
+workers: 6
+datasets:
+  math: {folder: qwen25-math, kind: llm}
+  mathvista: {folder: qwen25vl-mathvista, kind: vlm}
+mathvista_meta:
+  url: https://raw.githubusercontent.com/lupantech/MathVista/c5acd37d75a8c8f9756cb66c78fe2e54fa2c31fb/data/testmini.json
+  sha1: c84c6b7e1022a2dfa2024938bccd42154ed75f2a
+  path: data/mathvista_testmini.json
+n_dev: 200
+n_live: 50
+n_orders: 10
+budgets: [1, 2, 4, 8, 16, 32]
+bootstrap: 1000
+adaptive:
+  checks: [4, 8, 16]
+  tau: [0.5, 0.625, 0.75, 0.875, 1.0]
+  gamma: [0.0, 0.1, 0.25, 0.5]
+  tolerance: 0.01

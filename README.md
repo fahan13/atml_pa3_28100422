@@ -18,6 +18,8 @@ common/      shared helpers (config loading, seeding, IO, timing, memory)
 configs/     one YAML per run; task1/base.yaml holds the shared recipe
 task1_ft/    data.py (MetaMathQA selection), lora.py (LoRA / OPLoRA), train.py (all five variants),
              merge.py, evaluate.py, qualitative.py, diagnostics.py
+task3_ttc/   answers.py (math-verify / MathVista normalization), prepare.py, select.py, offline.py,
+             signals.py, adaptive.py, live_generate.py, live_analyze.py
 tests/       sanity checks; outputs in results/sanity/
 scripts/     environment check and Kaggle run scripts
 report/      figure scripts and figures
@@ -70,11 +72,26 @@ To be added.
 
 ### Task 3
 
-To be added.
+Offline experiments (CPU; the supplied `ATML-PA3-Data` folder must be in `data/`):
+
+```bash
+python -m task3_ttc.prepare     # join and verify the three files, answer groups and grades, splits, rollout orders
+python -m task3_ttc.offline     # Steps 1-2: fixed budgets N = 1..32, all selection rules, oracle coverage, bootstrap CIs
+python -m task3_ttc.signals     # Step 3: length/score associations, confidence-vision correlation, tokenwise fusion
+python -m task3_ttc.adaptive    # Step 5: development-selected stopping rules, held-out evaluation
+```
+
+Live generation (Step 4, GPU) and its analysis (CPU):
+
+```bash
+bash scripts/run_task3_live.sh          # Kaggle, one shard of the 50 questions per T4
+python -m task3_ttc.live_analyze
+```
 
 ## 4. External code and data
 
 - `configs/task1/first_plot_questions.yaml`: the 24 qualitative prompts from the Emergent Misalignment evaluation suite (github.com/emergent-misalignment/emergent-misalignment, `evaluation/first_plot_questions.yaml`, commit `80c1196`).
 - Models and datasets are loaded from the Hugging Face Hub: `Qwen/Qwen3-0.6B`, `meta-math/MetaMathQA`, `openai/gsm8k`, `Rowan/hellaswag`.
 - Benchmarks use EleutherAI lm-evaluation-harness 0.4.13 with stock task definitions (`gsm8k_cot`, `hellaswag`, `boolq`, `arc_easy`). The HellaSwag context preprocessing in `task1_ft/diagnostics.py` reproduces the harness's `hellaswag/utils.py` so probe prompts match the benchmark format.
+- Task 3 MATH equivalence uses `math-verify` 0.9.0. MathVista normalization in `task3_ttc/answers.py` ports `normalize_extracted_answer` and `get_most_similar` from the official MathVista evaluation code (github.com/lupantech/MathVista, `evaluation/calculate_score.py`); question metadata is the official `data/testmini.json` at commit `c5acd37`, downloaded and checksum-verified by `task3_ttc/prepare.py`.
 - The LoRA and OPLoRA layers in `task1_ft/lora.py` are written for this assignment. The A-matrix initialization follows the uniform bound used by Hu et al. (LoRA) and PEFT; the projection follows Xiong and Xie (OPLoRA), Sections 3.2–3.3.

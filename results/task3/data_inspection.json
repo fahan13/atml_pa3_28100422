@@ -1,0 +1,999 @@
+{
+  "math": {
+    "generations": {
+      "rows": 32000,
+      "dtypes": {
+        "dataset": "object",
+        "model": "object",
+        "sample_id": "object",
+        "rollout_id": "int32",
+        "question_text": "object",
+        "generated_token_ids": "object",
+        "n_generated_text_tokens": "int32",
+        "hit_max_new_tokens": "bool",
+        "generated_text": "object",
+        "gold_answer": "object",
+        "extracted_answer": "object"
+      },
+      "first_row": {
+        "dataset": "math",
+        "model": "qwen2_5_3b_instruct",
+        "sample_id": "test:21",
+        "rollout_id": "0",
+        "question_text": "Mike paid $\\$1.25$ for a stamp three years ago. He was just offered double that amount for the stamp. Assuming the stamp's offer price doubles every three years, how many dollars will he be offered in 12 more years?",
+        "generated_token_ids": {
+          "len": 312,
+          "head": [
+            1249.0,
+            8253.0,
+            1246.0,
+            1753.0,
+            11268.0
+          ]
+        },
+        "n_generated_text_tokens": "312",
+        "hit_max_new_tokens": "False",
+        "generated_text": "To determine how much Mike will be offered for the stamp in 12 more years, we need to understand the pattern of the offer price. The problem states that the offer price doubles every three years.\n\nFirst, let's identify the current time frame and the future time frame:\n- Three years ago, the stamp was priced at \\$1.25.\n- We need to find the price 12 years from now.\n\nWe can break down the 12 years i",
+        "gold_answer": "\\$40",
+        "extracted_answer": "20"
+      },
+      "n_questions": 1000,
+      "datasets": [
+        "math"
+      ],
+      "sample_ids_head": [
+        "test:1000",
+        "test:1011",
+        "test:1013",
+        "test:1023",
+        "test:1041",
+        "test:1043",
+        "test:1052",
+        "test:1056",
+        "test:1067",
+        "test:1074"
+      ],
+      "null_extracted": 521,
+      "hit_max": 523,
+      "questions": [
+        {
+          "sample_id": "test:4958",
+          "question_text": "Let $\\mathbf{a},$ $\\mathbf{b},$ $\\mathbf{c}$ be three vectors such that $\\|\\mathbf{a}\\| = \\frac{1}{\\sqrt{2}},$ $\\|\\mathbf{b}\\| = \\frac{1}{\\sqrt{3}},$ $\\|\\mathbf{c}\\| = \\frac{1}{\\sqrt{6}},$ $\\|\\mathbf{a} + \\mathbf{b} + \\mathbf{c}\\| = 1,$ and\n\\[\\mathbf{a} = k (\\mathbf{b} \\times \\mathbf{c})\\]for some scalar $k.$  Find the angle between $\\mathbf{b}$ and $\\mathbf{c},$ in degrees.",
+          "gold": "90^\\circ"
+        },
+        {
+          "sample_id": "test:4279",
+          "question_text": "Twelve 1 by 1 squares form a rectangle, as shown. What is the total area of the shaded region? [asy]\nsize(4cm);defaultpen(linewidth(0.75));\n\n// Filled portions\nfill((0, 4)--(0, 0)--(2, 0)--cycle, gray(0.75));\nfill((0, 4)--(3, 4)--(3, 0)--cycle, gray(0.75));\n\n// grid\nint j;\nfor (j = 0; j < 4; ++j) {draw((j, 0)--(j, 4));}\nfor (j = 0; j < 5; ++j) {draw((0, j)--(3, j));}\n\n//diagonals\ndraw((0, 4)--(3, 0)); draw((0, 4)--(2, 0));\n[/asy]",
+          "gold": "10"
+        },
+        {
+          "sample_id": "test:1492",
+          "question_text": "What is the simplified value of $\\frac{10! + 11! + 12!}{10! + 11!}$?",
+          "gold": "12"
+        },
+        {
+          "sample_id": "test:2796",
+          "question_text": "Let $f(x) = \\sqrt{ax^2 + bx}$. For how many real values of $a$ is there at least one positive value of $b$ for which the domain of $f$ and the range of $f$ are the same set?",
+          "gold": "2"
+        },
+        {
+          "sample_id": "test:3348",
+          "question_text": "If $321_{b}$ is equal to the base 10 integer 57, find $b$ given that $b>0$.",
+          "gold": "4"
+        },
+        {
+          "sample_id": "test:4814",
+          "question_text": "Let $P$ be the convex polygon in the complex plane whose vertices are the roots of\n\\[z^7 + z^6 + z^5 + z^4 + z^3 + z^2 + z + 1 = 0.\\]The area of $P$ can be expressed in the form $\\frac{a + b \\sqrt{c}}{d},$ where $a,$ $b,$ $c,$ $d$ are positive integers, in simplest form.  Find $a + b + c + d.$",
+          "gold": "8"
+        },
+        {
+          "sample_id": "test:161",
+          "question_text": "Solve for the positive value of $x$ such that $\\sqrt[3]{x^2 - 4x + 4} = 16$.",
+          "gold": "66"
+        },
+        {
+          "sample_id": "test:1188",
+          "question_text": "$n$ fair 6-sided dice are simultaneously rolled. The probability that exactly two of them show a number other than 1 is $\\frac{25}{216}$. Find $n$.",
+          "gold": "4"
+        },
+        {
+          "sample_id": "test:1538",
+          "question_text": "The probability that a randomly thrown dart will land on a target is $\\frac{3}{8}$. What is the probability that the dart will not land on the target? Express your answer as a common fraction.",
+          "gold": "\\frac{5}{8}"
+        },
+        {
+          "sample_id": "test:3472",
+          "question_text": "What is the largest three-digit number in which the product of the digits is $12$?",
+          "gold": "621"
+        },
+        {
+          "sample_id": "test:2511",
+          "question_text": "The function $f(x)$ satisfies\n\\[f(x + y) = f(x) f(y)\\]for all real numbers $x$ and $y.$  If $f(2) = 9,$ find $f(5).$",
+          "gold": "243"
+        },
+        {
+          "sample_id": "test:2826",
+          "question_text": "Find all the integer roots of\n\\[2x^3 + 13x^2 - 23x + 8 = 0.\\]Enter all the integer roots, separated by commas.",
+          "gold": "-8,1"
+        },
+        {
+          "sample_id": "test:3892",
+          "question_text": "What is $5^3 - (3^2-5)^3$?",
+          "gold": "61"
+        },
+        {
+          "sample_id": "test:1230",
+          "question_text": "A standard die is rolled. What is the probability that the number shown is not an even prime?",
+          "gold": "\\frac{5}{6}"
+        },
+        {
+          "sample_id": "test:2913",
+          "question_text": "The numbers $\\sin x,$ $\\cos x,$ $\\tan x$ form a geometric sequence.  Find\n\\[\\cos^3 x + \\cos^2 x.\\]",
+          "gold": "1"
+        }
+      ],
+      "extracted_vs_gold": [
+        {
+          "sample_id": "test:2191",
+          "rollout_id": 3,
+          "extracted": "\\frac{20000}{2 + \\pi}",
+          "gold": "\\frac{20000}{\\pi}",
+          "tail": "\n     \\[\n     A = 100 \\times \\frac{200}{2 + \\pi}\n     \\]\n     \\[\n     A = \\frac{20000}{2 + \\pi}\n     \\]\n\n### Final Answer\nThe largest possible area of the field is:\n\\[\n\\boxed{\\frac{20000}{2 + \\pi}}\n\\]"
+        },
+        {
+          "sample_id": "test:354",
+          "rollout_id": 26,
+          "extracted": "-15",
+          "gold": "-15",
+          "tail": "e product of all possible integer values for \\( n \\), we multiply these values together:\n\n\\[\n5 \\times (-3) = -15\n\\]\n\nThus, the product of all possible integer values for \\( n \\) is:\n\n\\[\n\\boxed{-15}\n\\]"
+        },
+        {
+          "sample_id": "test:250",
+          "rollout_id": 20,
+          "extracted": "3",
+          "gold": "3",
+          "tail": "16 - 28 + 4b \\]\n\\[ \\Delta = 4b - 12 \\]\n\nStep 4: Set the discriminant equal to zero and solve for \\( b \\).\n\\[ 4b - 12 = 0 \\]\n\\[ 4b = 12 \\]\n\\[ b = 3 \\]\n\nTherefore, the value of \\( b \\) is \\(\\boxed{3}\\)."
+        },
+        {
+          "sample_id": "test:2787",
+          "rollout_id": 21,
+          "extracted": "x^2 - 10x + 41",
+          "gold": "x^2-10x+41",
+          "tail": " 10x + 25 + 16\n   \\]\n\n6. **Combine the constants:**\n   \\[\n   x^2 - 10x + 41\n   \\]\n\nTherefore, the quadratic equation with real coefficients that has \\(5-4i\\) as a root is:\n\\[\n\\boxed{x^2 - 10x + 41}\n\\]"
+        },
+        {
+          "sample_id": "test:511",
+          "rollout_id": 3,
+          "extracted": "13",
+          "gold": "13",
+          "tail": "2}) - (\\sqrt{3} + \\sqrt{6})\n\\]\n\nHere, we have \\(A = 2\\), \\(B = 2\\), \\(C = 3\\), and \\(D = 6\\). Therefore, the sum \\(A + B + C + D\\) is:\n\n\\[\n2 + 2 + 3 + 6 = 13\n\\]\n\nThe final answer is:\n\n\\[\n\\boxed{13}\n\\]"
+        },
+        {
+          "sample_id": "test:2618",
+          "rollout_id": 19,
+          "extracted": "\\frac{2x-7}{(x+1)(x-2)}",
+          "gold": "\\frac{2x-7}{(x+1)(x-2)}",
+          "tail": " the numerator:\n\n\\[\n3(x-2) - 1(x+1) = 3x - 6 - x - 1 = 2x - 7\n\\]\n\nThus, the expression becomes:\n\n\\[\n\\frac{2x - 7}{(x+1)(x-2)}\n\\]\n\nTherefore, the final answer is:\n\n\\[\n\\boxed{\\frac{2x-7}{(x+1)(x-2)}}\n\\]"
+        },
+        {
+          "sample_id": "test:4542",
+          "rollout_id": 27,
+          "extracted": "\\sqrt{5}",
+          "gold": "\\frac{1}{2}",
+          "tail": "e real, we re-evaluate our steps. The correct approach should be:\n\\[\ny^2 = 5\n\\]\n\\[\ny = \\sqrt{5} \\quad \\text{or} \\quad y = -\\sqrt{5}\n\\]\n\nGiven the context, the positive value is:\n\\[\n\\boxed{\\sqrt{5}}\n\\]"
+        },
+        {
+          "sample_id": "test:1485",
+          "rollout_id": 3,
+          "extracted": "2",
+          "gold": "2",
+          "tail": "m \\sqrt{64}}{2}\n\\]\n\\[\nk = \\frac{12 \\pm 8}{2}\n\\]\n\nThis gives us two solutions:\n\\[\nk = \\frac{12 + 8}{2} = 10\n\\]\n\\[\nk = \\frac{12 - 8}{2} = 2\n\\]\n\nThe smallest possible value of \\( k \\) is:\n\\[\n\\boxed{2}\n\\]"
+        },
+        {
+          "sample_id": "test:409",
+          "rollout_id": 19,
+          "extracted": "6",
+          "gold": "6",
+          "tail": "e the known values:\n\\[ I = \\frac{120 \\text{ volts}}{20 \\text{ ohms}} \\]\n\\[ I = 6 \\text{ amperes} \\]\n\nThus, the amount of current when the resistor has a resistance of 20 ohms is \\(\\boxed{6}\\) amperes."
+        },
+        {
+          "sample_id": "test:4456",
+          "rollout_id": 9,
+          "extracted": "B,E,G",
+          "gold": "\\text{B, E, G}",
+          "tail": "s \\(\\frac{10}{4} = \\frac{5}{2}\\), which is not \\(\\frac{2}{5}\\). So, this is not a direction vector for the line.\n\nThe correct options are (B), (E), and (G). Therefore, the answer is \\(\\boxed{B,E,G}\\)."
+        },
+        {
+          "sample_id": "test:401",
+          "rollout_id": 31,
+          "extracted": "17",
+          "gold": "17",
+          "tail": "usive. The number of integers from \\(-12\\) to \\(4\\) is:\n\n\\[ 4 - (-12) + 1 = 4 + 12 + 1 = 17 \\]\n\nTherefore, the number of integers in the solution to the inequality \\( |x + 4| < 9 \\) is \\(\\boxed{17}\\)."
+        },
+        {
+          "sample_id": "test:4516",
+          "rollout_id": 26,
+          "extracted": "\\frac{17\\sqrt{10}}{2}",
+          "gold": "\\frac{25 \\sqrt{10}}{4}",
+          "tail": "wo results together:\n\\[\nL = \\frac{9\\sqrt{10}}{4} + \\frac{25\\sqrt{10}}{4} = \\frac{34\\sqrt{10}}{4} = \\frac{17\\sqrt{10}}{2}\n\\]\n\nThus, the length of the paint trail is:\n\\[\n\\boxed{\\frac{17\\sqrt{10}}{2}}\n\\]"
+        },
+        {
+          "sample_id": "test:4533",
+          "rollout_id": 16,
+          "extracted": "90",
+          "gold": "30^\\circ",
+          "tail": "between the lines \\(PA\\) and \\(PB\\), which is a right angle (90 degrees) when the runners are directly opposite each other on the track.\n\nThus, the maximum value of \\(\\angle APB\\) is:\n\\[\n\\boxed{90}\n\\]"
+        },
+        {
+          "sample_id": "test:2451",
+          "rollout_id": 5,
+          "extracted": "16\\sqrt{3}",
+          "gold": "28",
+          "tail": "\\frac{2\\sqrt{3}}{3}\\right)^3 = 18 \\cdot \\frac{8 \\cdot 3\\sqrt{3}}{27} = 18 \\cdot \\frac{8\\sqrt{3}}{9} = 16\\sqrt{3}.\n\\]\n\nTherefore, the maximum value of the given expression is:\n\\[\n\\boxed{16\\sqrt{3}}.\n\\]"
+        },
+        {
+          "sample_id": "test:2731",
+          "rollout_id": 23,
+          "extracted": "8",
+          "gold": "10",
+          "tail": "+ 2 = 1,\n\\]\n\\[\np_3(1) = 1 + 1 = 2,\n\\]\n\\[\np_4(1) = 1 - 1 = 0.\n\\]\n\nFinally, we sum these values:\n\\[\np_1(1) + p_2(1) + p_3(1) + p_4(1) = 5 + 1 + 2 + 0 = 8.\n\\]\n\nThus, the final answer is:\n\\[\n\\boxed{8}.\n\\]"
+        },
+        {
+          "sample_id": "test:2880",
+          "rollout_id": 5,
+          "extracted": "\\frac{1}{18}",
+          "gold": "\\frac{1}{18}",
+          "tail": "2}{3}\\right) \\left(-\\frac{1}{2}\\right) \\left(-\\frac{1}{6}\\right) = \\frac{2 \\cdot 1 \\cdot 1}{3 \\cdot 2 \\cdot 6} = \\frac{2}{36} = \\frac{1}{18}.\n\\]\n\nTherefore, the answer is:\n\n\\[\n\\boxed{\\frac{1}{18}}.\n\\]"
+        },
+        {
+          "sample_id": "test:465",
+          "rollout_id": 11,
+          "extracted": "2",
+          "gold": "2",
+          "tail": "e we know \\(a = d\\), we can substitute \\(d\\) with \\(a\\) in the equation:\n\\[ a + 3a = 8 \\]\n\\[ 4a = 8 \\]\nSolving for \\(a\\):\n\\[ a = 2 \\]\n\nThus, the first term of the arithmetic sequence is \\(\\boxed{2}\\)."
+        },
+        {
+          "sample_id": "test:96",
+          "rollout_id": 15,
+          "extracted": "15",
+          "gold": "8",
+          "tail": "hares is still 120.\n   - To find the number of days, divide the total daily shares by the daily shares per person: \\( \\frac{120}{8} = 15 \\) days.\n\nThus, the supplies will last for \\(\\boxed{15}\\) days."
+        },
+        {
+          "sample_id": "test:3343",
+          "rollout_id": 2,
+          "extracted": "1",
+          "gold": "1",
+          "tail": " = 81 \\]\n\nNext, find the remainder when 81 is divided by 8:\n\\[ 81 \\div 8 = 10 \\text{ remainder } 1 \\]\n\\[ 81 \\equiv 1 \\pmod{8} \\]\n\nThus, the remainder when \\( 3^4 \\) is divided by 8 is:\n\\[ \\boxed{1} \\]"
+        },
+        {
+          "sample_id": "test:4390",
+          "rollout_id": 2,
+          "extracted": "75",
+          "gold": "75^\\circ",
+          "tail": "\nSince 75 degrees is already an acute angle (less than 90 degrees), we do not need to take the supplementary angle.\n\nThus, the acute angle formed by the hands of the clock at 3:30 is:\n\\[\n\\boxed{75}\n\\]"
+        },
+        {
+          "sample_id": "test:2797",
+          "rollout_id": 26,
+          "extracted": "\\sqrt{3}",
+          "gold": "\\sqrt{3}",
+          "tail": "\\). Therefore, the minimum distance \\( d \\) is:\n\\[\nd = \\sqrt{3}.\n\\]\nHence, the minimum possible distance between the point \\( P \\) on the graph of \\( xyz = 1 \\) and the origin is \\(\\boxed{\\sqrt{3}}\\)."
+        },
+        {
+          "sample_id": "test:1211",
+          "rollout_id": 31,
+          "extracted": "17280",
+          "gold": "17,\\!280",
+          "tail": "nit\".\n   \\[\n   6! \\times 4! = 720 \\times 24 = 17280\n   \\]\n\nTherefore, the number of ways the committee members can sit in a row of 9 chairs such that all 4 Democrats sit together is \\(\\boxed{17280}\\)."
+        },
+        {
+          "sample_id": "test:4258",
+          "rollout_id": 4,
+          "extracted": "12x - 34",
+          "gold": "-34 + 12x",
+          "tail": " 6x - 18 + 3x - 12\n\\]\nCombine like terms:\n\\[\n= 3x + 6x + 3x - 4 - 18 - 12\n\\]\n\\[\n= 12x - 34\n\\]\n\nThus, the total cost to buy one rambutan, two starfruit, and three dragonfruit is:\n\\[\n\\boxed{12x - 34}\n\\]"
+        },
+        {
+          "sample_id": "test:761",
+          "rollout_id": 14,
+          "extracted": "26000",
+          "gold": "26000",
+          "tail": " 513 + 487 = 1000\n\\]\n\nNow, we apply the difference of squares formula:\n\\[\n513^2 - 487^2 = (513 - 487)(513 + 487) = 26 \\times 1000 = 26000\n\\]\n\nThus, the value of \\(513^2 - 487^2\\) is \\(\\boxed{26000}\\)."
+        },
+        {
+          "sample_id": "test:1486",
+          "rollout_id": 9,
+          "extracted": "\\frac{1}{10}",
+          "gold": "\\frac{2}{5}",
+          "tail": "Total number of outcomes}} = \\frac{1}{10}\n   \\]\n\nThus, the probability that the sum of two randomly chosen numbers from \\(\\{1, 2, 3, 4, 5\\}\\) is greater than their product is \\(\\boxed{\\frac{1}{10}}\\)."
+        },
+        {
+          "sample_id": "test:3064",
+          "rollout_id": 16,
+          "extracted": null,
+          "gold": "9",
+          "tail": "s 37 \\times 35 \\times 33 \\times 31 \\times 29 \\times 27 \\times 25 \\times 23 \\times 21 \\times 19 \\times 17 \\times 15 \\times 13 \\times 11 \\times 9 \\times 7 \\times 5 = 35617809467656625387977986474609375\\"
+        },
+        {
+          "sample_id": "test:1257",
+          "rollout_id": 10,
+          "extracted": "\\frac{28}{75}",
+          "gold": "\\frac{11}{18}",
+          "tail": "\\frac{4}{15}\\right)\n\\]\n\\[\nP(\\text{Red after process}) = \\frac{12}{75} + \\frac{16}{75} = \\frac{28}{75}\n\\]\n\nThus, the probability that the ball selected from the jar is red is \\(\\boxed{\\frac{28}{75}}\\)."
+        },
+        {
+          "sample_id": "test:4873",
+          "rollout_id": 16,
+          "extracted": "\\frac{7\\pi}{12}",
+          "gold": "\\frac{3 \\pi}{4}",
+          "tail": "frac{1}{3} = \\frac{7}{3}\n\\]\n\nFinally, we multiply by \\(\\frac{\\pi}{4}\\):\n\n\\[\nA = \\frac{\\pi}{4} \\cdot \\frac{7}{3} = \\frac{7\\pi}{12}\n\\]\n\nThus, the area of the set \\(S\\) is:\n\n\\[\n\\boxed{\\frac{7\\pi}{12}}\n\\]"
+        },
+        {
+          "sample_id": "test:3422",
+          "rollout_id": 27,
+          "extracted": "39",
+          "gold": "39",
+          "tail": " - 423 = 39\n   \\]\n   Therefore:\n   \\[\n   462 \\equiv 39 \\pmod{47}\n   \\]\n   So:\n   \\[\n   x \\equiv 39 \\pmod{47}\n   \\]\n\nThe smallest positive integer \\(x\\) that satisfies the congruence is \\(\\boxed{39}\\)."
+        },
+        {
+          "sample_id": "test:1449",
+          "rollout_id": 18,
+          "extracted": "576",
+          "gold": "144",
+          "tail": "ricted arrangements:\n   \\[\n   720 - 144 = 576\n   \\]\n\nThus, the number of ways to seat 7 people around a round table such that Pierre, Rosa, and Thomas do not sit next to each other is \\(\\boxed{576}\\)."
+        },
+        {
+          "sample_id": "test:1233",
+          "rollout_id": 7,
+          "extracted": "\\frac{49}{54}",
+          "gold": "\\dfrac{49}{54}",
+          "tail": "e complement of the probability that all five dice show different numbers:\n   \\[\n   1 - \\frac{5}{54} = \\frac{54}{54} - \\frac{5}{54} = \\frac{49}{54}\n   \\]\n\n### Final Answer:\n\\[\n\\boxed{\\frac{49}{54}}\n\\]"
+        },
+        {
+          "sample_id": "test:2921",
+          "rollout_id": 10,
+          "extracted": "75",
+          "gold": "90",
+          "tail": "erms where \\( k \\equiv 2 \\pmod{3} \\). Therefore, the sum of the squares is:\n\\[\n15 \\cdot 2^2 + 15 \\cdot (-1)^2 = 15 \\cdot 4 + 15 \\cdot 1 = 60 + 15 = 75.\n\\]\n\nThus, the final answer is:\n\\[\n\\boxed{75}.\n\\]"
+        },
+        {
+          "sample_id": "test:2369",
+          "rollout_id": 1,
+          "extracted": "0",
+          "gold": "-\\frac{1}{4}",
+          "tail": "]\nAssume \\( f(2) = -2c - f(1) \\). Substitute back:\n\\[\n2c - 2c - f(1) + f(1) = 0,\n\\]\n\\[\n0 = 0.\n\\]\nThus, \\( f(0) = 0 \\) satisfies all conditions.\n\nTherefore, the value of \\( f(0) \\) is:\n\\[\n\\boxed{0}.\n\\]"
+        },
+        {
+          "sample_id": "test:706",
+          "rollout_id": 6,
+          "extracted": "12",
+          "gold": "12",
+          "tail": "c{2^8 \\cdot 3}{2^6}\n\\]\n\nWe can simplify this by dividing the powers of 2:\n\\[\n\\dfrac{2^8}{2^6} = 2^{8-6} = 2^2 = 4\n\\]\n\nSo the expression becomes:\n\\[\n4 \\cdot 3 = 12\n\\]\n\n### Final Answer\n\\[\n\\boxed{12}\n\\]"
+        },
+        {
+          "sample_id": "test:3808",
+          "rollout_id": 4,
+          "extracted": "\\frac{21\\pi}{2}",
+          "gold": "\\frac{21}{2}\\pi",
+          "tail": "t{Difference} = 24\\pi - \\frac{27\\pi}{2} = \\frac{48\\pi}{2} - \\frac{27\\pi}{2} = \\frac{21\\pi}{2} \\text{ square inches}\n\\]\nThus, Mark ate \\(\\boxed{\\frac{21\\pi}{2}}\\) more square inches of pizza than Jane."
+        },
+        {
+          "sample_id": "test:3498",
+          "rollout_id": 25,
+          "extracted": "162",
+          "gold": "8",
+          "tail": ", the total number of possible values for \\(x\\) is:\n\n\\[\n1 + 2 + 3 = 6\n\\]\n\nTherefore, the total number of possible values for \\(a\\) is:\n\n\\[\n27 \\times 6 = 162\n\\]\n\nThe final answer is:\n\n\\[\n\\boxed{162}\n\\]"
+        },
+        {
+          "sample_id": "test:1822",
+          "rollout_id": 5,
+          "extracted": "(7, 4)",
+          "gold": "(7,4)",
+          "tail": "2} = 7\n\\]\n\nCalculating the y-coordinate of the midpoint:\n\\[\n\\frac{0 + 8}{2} = \\frac{8}{2} = 4\n\\]\n\nTherefore, the midpoint of segment \\( s_2 \\) is \\((7, 4)\\).\n\nThe final answer is:\n\\[\n\\boxed{(7, 4)}\n\\]"
+        },
+        {
+          "sample_id": "test:626",
+          "rollout_id": 3,
+          "extracted": "\\frac{128}{75}",
+          "gold": "\\frac{128}{75}",
+          "tail": "6}{150}z = \\frac{128}{75}z. \\]\n\nNow, we need to find \\(\\dfrac{x + y + w}{z}\\):\n\\[ \\dfrac{x + y + w}{z} = \\dfrac{\\frac{128}{75}z}{z} = \\frac{128}{75}. \\]\n\nThus, the value is \\(\\boxed{\\frac{128}{75}}\\)."
+        },
+        {
+          "sample_id": "test:3007",
+          "rollout_id": 21,
+          "extracted": "0",
+          "gold": "-3",
+          "tail": " terms must be equal:\n   \\[\n   -6 = c - 6\n   \\]\n   Solve for \\( c \\):\n   \\[\n   c - 6 = -6\n   \\]\n   \\[\n   c = 0\n   \\]\n\nThus, the constant \\( c \\) that satisfies \\( f^{-1}(x) = f(x) \\) is \\(\\boxed{0}\\)."
+        },
+        {
+          "sample_id": "test:4315",
+          "rollout_id": 21,
+          "extracted": "0.15",
+          "gold": "0.15",
+          "tail": "ng down the next 0, making it 100, and divide 100 by 20, which gives us 5 with no remainder. So, the decimal representation of \\(\\frac{3}{20}\\) is 0.15.\n</think>\n\nThe final answer is \\(\\boxed{0.15}\\)."
+        }
+      ],
+      "distinct_extracted_per_question": {
+        "count": 1000.0,
+        "mean": 5.625,
+        "std": 5.905527093346558,
+        "min": 1.0,
+        "25%": 1.0,
+        "50%": 3.0,
+        "75%": 8.0,
+        "max": 32.0
+      }
+    },
+    "probability_metrics": {
+      "rows": 32000,
+      "dtypes": {
+        "dataset": "object",
+        "sample_id": "object",
+        "rollout_id": "int32",
+        "logp": "object",
+        "kl_u_p": "object"
+      },
+      "first_row": {
+        "dataset": "math",
+        "sample_id": "test:21",
+        "rollout_id": "0",
+        "logp": {
+          "len": 312,
+          "head": [
+            -0.5237336158752441,
+            -0.12767966091632843,
+            -0.008634849451482296,
+            -0.029761873185634613,
+            -0.004278078675270081
+          ]
+        },
+        "kl_u_p": {
+          "len": 312,
+          "head": [
+            19.946918487548828,
+            22.08594512939453,
+            25.86004638671875,
+            28.627422332763672,
+            18.345653533935547
+          ]
+        }
+      }
+    },
+    "alignment_first200": {
+      "joined": 200,
+      "len_ids_eq_logp": 200,
+      "len_ids_eq_kl": 200,
+      "len_ids_eq_n": 200
+    }
+  },
+  "mathvista": {
+    "generations": {
+      "rows": 32000,
+      "dtypes": {
+        "dataset": "object",
+        "model": "object",
+        "sample_id": "object",
+        "rollout_id": "int32",
+        "question_text": "object",
+        "generated_token_ids": "object",
+        "n_generated_text_tokens": "int32",
+        "hit_max_new_tokens": "bool",
+        "generated_text": "object",
+        "gold_answer": "object",
+        "extracted_answer": "object"
+      },
+      "first_row": {
+        "dataset": "mathvista",
+        "model": "qwen2_5_vl_3b",
+        "sample_id": "1",
+        "rollout_id": "0",
+        "question_text": "When a spring does work on an object, we cannot find the work by simply multiplying the spring force by the object's displacement. The reason is that there is no one value for the force-it changes. However, we can split the displacement up into an infinite number of tiny parts and then approximate the force in each as being constant. Integration sums the work done in all those parts. Here we use t",
+        "generated_token_ids": {
+          "len": 418,
+          "head": [
+            1249.0,
+            1477.0,
+            279.0,
+            6010.0,
+            17767.0
+          ]
+        },
+        "n_generated_text_tokens": "418",
+        "hit_max_new_tokens": "False",
+        "generated_text": "To find the distance \\( d \\) that the spring is compressed, we need to consider the conservation of energy. The kinetic energy of the canister is converted into the potential energy stored in the compressed spring.\n\nThe initial kinetic energy of the canister is given by:\n\\[ K = \\frac{1}{2} m v^2 \\]\n\nThe potential energy stored in the compressed spring is given by:\n\\[ U = \\frac{1}{2} k d^2 \\]\n\nAt t",
+        "gold_answer": "1.2",
+        "extracted_answer": "0.0115 \\, \\text{m}"
+      },
+      "n_questions": 1000,
+      "datasets": [
+        "mathvista"
+      ],
+      "sample_ids_head": [
+        "1",
+        "10",
+        "100",
+        "1000",
+        "101",
+        "102",
+        "103",
+        "104",
+        "105",
+        "106"
+      ],
+      "null_extracted": 3032,
+      "hit_max": 487,
+      "questions": [
+        {
+          "sample_id": "994",
+          "question_text": "Is Magenta greater than Web Maroon?\nA. yes\nB. no",
+          "gold": "A"
+        },
+        {
+          "sample_id": "860",
+          "question_text": "Miss Foley ran a sit-up competition among her P.E. students and monitored how many sit-ups each students could do. What is the largest number of sit-ups done? (Unit: sit-ups)",
+          "gold": "86"
+        },
+        {
+          "sample_id": "299",
+          "question_text": "What is the age gap between the center and the rightmost person?",
+          "gold": "22"
+        },
+        {
+          "sample_id": "554",
+          "question_text": "Is Burlywood the minimum?\nA. yes\nB. no",
+          "gold": "A"
+        },
+        {
+          "sample_id": "673",
+          "question_text": "Is the number of large green cars less than the number of brown rubber double buss?\nA. Yes\nB. No",
+          "gold": "B"
+        },
+        {
+          "sample_id": "972",
+          "question_text": "Is the number of yellow shiny utility bikes greater than the number of brown metallic cruisers?\nA. Yes\nB. No",
+          "gold": "B"
+        },
+        {
+          "sample_id": "28",
+          "question_text": "$\\overline{AB}$ is a diameter, $AC=8$ inches, and $BC=15$ inches. Find the radius of the circle.\nA. 7.5\nB. 8\nC. 8.5\nD. 17",
+          "gold": "C"
+        },
+        {
+          "sample_id": "232",
+          "question_text": "The diagram below is a model of two solutions. Each pink ball represents one particle of solute. Which solution has a higher concentration of pink particles?\nA. neither; their concentrations are the same\nB. Solution B\nC. Solution A",
+          "gold": "B"
+        },
+        {
+          "sample_id": "307",
+          "question_text": "Figure is an overhead view of the path taken by a race car driver as his car collides with the racetrack wall. Just before the collision, he is traveling at speed $v_i=70 \\mathrm{~m} / \\mathrm{s}$ along a straight line at $30^{\\circ}$ from the wall. Just after the collision, he is traveling at speed $v_f=50 \\mathrm{~m} / \\mathrm{s}$ along a straight line at $10^{\\circ}$ from the wall. His mass $m$ is $80 \\mathrm{~kg}$. The collision lasts for $14 \\mathrm{~ms}$. What is the magnitude of the average force on the driver during the collision?",
+          "gold": "2.58"
+        },
+        {
+          "sample_id": "707",
+          "question_text": "如图，a∥b，∠1＝60°，则∠2的大小是（）\nA. 60°\nB. 80°\nC. 100°\nD. 120°",
+          "gold": "D"
+        },
+        {
+          "sample_id": "497",
+          "question_text": "What is the value of the largest bar?",
+          "gold": "9"
+        },
+        {
+          "sample_id": "559",
+          "question_text": "what is the highest number shown on the black outer part of the watch?",
+          "gold": "55"
+        },
+        {
+          "sample_id": "785",
+          "question_text": "Part of an ecosystem is shown in this diagram. Imagine the algae and floating plants are prevented from growing. How will that most likely affect this ecosystem?\nA. The number of ducks will increase\nB. The number of minnows will increase\nC. There will be no effect on this ecosystem\nD. The number of aquatic crustaceans will decrease",
+          "gold": "D"
+        },
+        {
+          "sample_id": "240",
+          "question_text": "What is the age gap between these two people in image?",
+          "gold": "1"
+        },
+        {
+          "sample_id": "579",
+          "question_text": "What is the average number of documents required per shipment to export goods in Uganda per year?",
+          "gold": "7"
+        }
+      ],
+      "extracted_vs_gold": [
+        {
+          "sample_id": "428",
+          "rollout_id": 3,
+          "extracted": "10-15 years",
+          "gold": "28",
+          "tail": "a final answer:**\n   - Based on the information provided and the typical age differences in such settings, the age gap between the two people in the image is likely to be minimal.\n\n\\boxed{10-15 years}"
+        },
+        {
+          "sample_id": "62",
+          "rollout_id": 26,
+          "extracted": "C",
+          "gold": "A",
+          "tail": "：\n\n\\[EF = \\frac{1}{2} \\times BD = \\frac{1}{2} \\times \\sqrt{31.25}\\]\n\n计算这个值，我们得到：\n\n\\[EF = \\frac{\\sqrt{31.25}}{2}\\]\n\n由于这个值是一个无理数，我们无法直接给出一个简单的整数答案。但是，根据题目选项，我们可以推断出正确答案应该是选项C，即5.5。\n\n所以，最终答案是：\\boxed{5.5}"
+        },
+        {
+          "sample_id": "45",
+          "rollout_id": 20,
+          "extracted": "3",
+          "gold": "-3",
+          "tail": "nce in waiting time / Number of months\nRate of change = 3 minutes / 1 month\nRate of change = 3 minutes per month\n\nSo, the rate of change between August and September was 3 minutes per month.\n\\boxed{3}"
+        },
+        {
+          "sample_id": "551",
+          "rollout_id": 21,
+          "extracted": "14",
+          "gold": "14",
+          "tail": "tween these two rates:\n   - Highest rate (males) - Lowest rate (females) = 27% - 13% = 14%\n\nTherefore, the difference between the highest tattoos in males and the lowest in females is 14%.\n\n\\boxed{14}"
+        },
+        {
+          "sample_id": "101",
+          "rollout_id": 3,
+          "extracted": "A",
+          "gold": "C",
+          "tail": "rect as lanceolate.\n10. **Lobed**: This shape has a divided or segmented appearance, which is not as erect as lanceolate.\n\nBased on the descriptions, the most erect shape is **Lanceolate**.\n\n\\boxed{A}"
+        },
+        {
+          "sample_id": "512",
+          "rollout_id": 19,
+          "extracted": "\\frac{a}{3}",
+          "gold": "0.24",
+          "tail": " \\frac{\\frac{a^3}{6}}{\\frac{a^2}{2}} = \\frac{a^3}{6} \\cdot \\frac{2}{a^2} = \\frac{a}{3}\n     \\]\n\nThus, the y-coordinate of the center of mass of the isosceles right triangle is \\(\\boxed{\\frac{a}{3}}\\)."
+        },
+        {
+          "sample_id": "926",
+          "rollout_id": 27,
+          "extracted": "14.14",
+          "gold": "7.07",
+          "tail": "o get the numerical value, we use \\( \\pi \\approx 3.14159 \\):\n\\[ \\text{Area of the semicircle} \\approx \\frac{9 \\cdot 3.14159}{2} \\approx 14.1371 \\]\n\nRounding to two decimal places:\n\\[ \\boxed{14.14} \\]\n"
+        },
+        {
+          "sample_id": "294",
+          "rollout_id": 3,
+          "extracted": "8.99 \\times 10^{-2} \\, \\text{N}",
+          "gold": "0.17",
+          "tail": "es 10^{-2} + 4.495 \\times 10^{-2} = 8.99 \\times 10^{-2} \\, \\text{N}\n\\]\n\nTherefore, the \\( x \\)-component of the net electrostatic force on particle 3 is:\n\n\\[\n\\boxed{8.99 \\times 10^{-2} \\, \\text{N}}\n\\]"
+        },
+        {
+          "sample_id": "76",
+          "rollout_id": 19,
+          "extracted": "B",
+          "gold": "A",
+          "tail": " population because they are not in the same trophic level and do not compete for the same food source.\n\nTherefore, the fish population is not affected by the increase in pelicans.\n\n\\boxed{B. nothing}"
+        },
+        {
+          "sample_id": "907",
+          "rollout_id": 9,
+          "extracted": "1970",
+          "gold": "1970",
+          "tail": "ine the years when the value is below 0.2%:**\n   - From the comparison, we can see that the value is below 0.2% in 1970.\n\nTherefore, the military expenditure value was lower than 0.2% in \\boxed{1970}."
+        },
+        {
+          "sample_id": "74",
+          "rollout_id": 31,
+          "extracted": "47.6",
+          "gold": "47.6",
+          "tail": "ce:\n   - Difference = Largest bar - Smallest bar\n   - Difference = 100% - 52.4%\n   - Difference = 47.6%\n\nTherefore, the difference between the largest and smallest bar is 47.6%.\n</think>\n\n\\boxed{47.6}"
+        },
+        {
+          "sample_id": "919",
+          "rollout_id": 26,
+          "extracted": "7",
+          "gold": "7",
+          "tail": "om**: Sold 6 units, which is more than 3.\n\nAll items sold more than 3 units in at least one store. Therefore, the number of items that sold more than 3 units in at least one store is:\n\n\\[\n\\boxed{7}\n\\]"
+        },
+        {
+          "sample_id": "922",
+          "rollout_id": 16,
+          "extracted": "1",
+          "gold": "1",
+          "tail": "refore, the total value for the cousin bar is 8 + 2 = 10 units.\n\nFrom this analysis, we can see that the smallest individual element in the chart is 1 unit, which belongs to the poison bar.\n\n\\boxed{1}"
+        },
+        {
+          "sample_id": "483",
+          "rollout_id": 5,
+          "extracted": null,
+          "gold": "B",
+          "tail": "50^\\circ\\).\n\n6. **Determine \\(\\angle ADB\\):**\n   - Since \\(AE\\) is a tangent and \\(AD\\) is a secant, \\(\\angle ADB = \\angle CAD = 50^\\circ\\).\n\nTherefore, the degree of \\(\\angle ADB\\) is \\(\\boxed{50}\\)."
+        },
+        {
+          "sample_id": "540",
+          "rollout_id": 23,
+          "extracted": "C",
+          "gold": "A",
+          "tail": "e shape that is blue is therefore:\n\n\\[\n\\frac{\\text{Number of blue segments}}{\\text{Total number of segments}} = \\frac{6}{11}\n\\]\n\nSo, the fraction of the shape that is blue is \\(\\boxed{\\frac{6}{11}}\\)."
+        },
+        {
+          "sample_id": "571",
+          "rollout_id": 5,
+          "extracted": "A",
+          "gold": "B",
+          "tail": " lower point than where it started. The peaks and troughs are more pronounced and frequent compared to the other lines.\n\nGiven this analysis, Bubblegum is the roughest line among the three.\n\n\\boxed{A}"
+        },
+        {
+          "sample_id": "91",
+          "rollout_id": 11,
+          "extracted": "B",
+          "gold": "B",
+          "tail": "B. No"
+        },
+        {
+          "sample_id": "17",
+          "rollout_id": 15,
+          "extracted": "A",
+          "gold": "A",
+          "tail": "he length of \\( AB \\).\n\nLet's calculate \\( CD \\):\n\n\\[ CD = \\frac{1}{2} \\times AB \\]\n\nGiven \\( AB = 10 \\):\n\n\\[ CD = \\frac{1}{2} \\times 10 = 5 \\]\n\nSo, the length of \\( CD \\) is \\( 5 \\).\n\n\\[\n\\boxed{5}\n\\]"
+        },
+        {
+          "sample_id": "672",
+          "rollout_id": 2,
+          "extracted": "2.5",
+          "gold": "2",
+          "tail": "<think>\nThe ruler is marked in inches. The twig starts just past the 2-inch mark and ends just past the 3-inch mark. Therefore, the twig is approximately 2.5 inches long.\n</think>\n\\boxed{2.5}"
+        },
+        {
+          "sample_id": "890",
+          "rollout_id": 2,
+          "extracted": "A",
+          "gold": "A",
+          "tail": "of the Earth, and the Moon is only about 0.012 times the diameter of the Earth, the Sun is significantly larger than the Moon.\n\nGiven this information, the Sun is larger than the Moon.\n\n\\boxed{A. Sun}"
+        },
+        {
+          "sample_id": "555",
+          "rollout_id": 26,
+          "extracted": "B",
+          "gold": "B",
+          "tail": "mall orb. Given the typical size of a fist, a nest that is about the size of a fist would be significantly larger than the nest in the image.\n\nTherefore, the nest is not larger than a fist.\n\n\\boxed{B}"
+        },
+        {
+          "sample_id": "234",
+          "rollout_id": 31,
+          "extracted": "C",
+          "gold": "C",
+          "tail": "ngle ABC is an equilateral triangle. In an equilateral triangle, all sides are equal in length. Since AC = 6, it follows that AB = AC = 6.\n\nTherefore, the length of segment AB is 6.\n</think>\n\\boxed{C}"
+        },
+        {
+          "sample_id": "858",
+          "rollout_id": 4,
+          "extracted": "B",
+          "gold": "C",
+          "tail": "ll Shrimp seem to be a more direct and significant prey for seals, making their population more likely to increase if seals are removed.\n\nTherefore, the most likely answer is:\n\n\\boxed{B. Small Shrimp}"
+        },
+        {
+          "sample_id": "162",
+          "rollout_id": 14,
+          "extracted": "8",
+          "gold": "4",
+          "tail": "\n4. 25\n5. 26\n6. 27\n7. 28\n8. 29\n\nThere are 8 flocks that had at least 17 birds but fewer than 33 birds.\n\nTherefore, the number of flocks that had at least 17 birds but fewer than 33 birds is \\boxed{8}."
+        },
+        {
+          "sample_id": "295",
+          "rollout_id": 9,
+          "extracted": "3",
+          "gold": "3",
+          "tail": "of dots by the number of groups. The total number of dots is 9, and there are 3 groups.\n\nSo, we perform the division:\n\\[ 9 \\div 3 = 3 \\]\n\nTherefore, there are 3 dots in each group.\n</think>\n\n\\boxed{3}"
+        },
+        {
+          "sample_id": "611",
+          "rollout_id": 16,
+          "extracted": "0",
+          "gold": "0",
+          "tail": " 9\n\nSince we are looking for the number 56, which has a 6 in the ones place, we can see that it does not appear in this row.\n\nTherefore, the number of shipments that had exactly 56 boxes is \\boxed{0}."
+        },
+        {
+          "sample_id": "245",
+          "rollout_id": 10,
+          "extracted": "24",
+          "gold": "24",
+          "tail": "e of a mushroom pizza is $11.\nSo, the total cost of a grilled steak and a mushroom pizza is $13 + $11 = $24.\nTherefore, Damon needs $24 to buy a grilled steak and a mushroom pizza.\n</think>\n\\boxed{24}"
+        },
+        {
+          "sample_id": "982",
+          "rollout_id": 16,
+          "extracted": null,
+          "gold": "B",
+          "tail": "he question only mentions South Dakota and does not provide values for other border states, we can only conclude that South Dakota has a value between 1,859 and 2,320.\n\nTherefore, the answer is B. No."
+        },
+        {
+          "sample_id": "695",
+          "rollout_id": 27,
+          "extracted": "A",
+          "gold": "A",
+          "tail": " of 55.\n2. Dark Salmon is represented by a value of 81.\n\nComparing these values:\n81 (Dark Salmon) is greater than 55 (Dark Orchid).\n\nTherefore, Dark Salmon is greater than Dark Orchid.\n\n\\boxed{A. yes}"
+        },
+        {
+          "sample_id": "288",
+          "rollout_id": 18,
+          "extracted": "C",
+          "gold": "A",
+          "tail": "low the blue line (Diversity) at around λ2 = 0.4.\n\nTherefore, the percentage of Attack Effectiveness begins to be lower than that of Diversity in the range of 0.4 - 0.6.\n</think>\n\n\\boxed{C. 0.4 - 0.6}"
+        },
+        {
+          "sample_id": "242",
+          "rollout_id": 7,
+          "extracted": "B",
+          "gold": "C",
+          "tail": "   3x = 90\n   \\]\n   \\[\n   x = 30\n   \\]\n\n9. **Find \\( \\angle A \\):**\n   \\[\n   \\angle A = 3x = 3 \\times 30 = 90^\\circ\n   \\]\n\nTherefore, the measure of \\( \\angle A \\) is \\( 90^\\circ \\).\n\n\\[\n\\boxed{90}\n\\]"
+        },
+        {
+          "sample_id": "581",
+          "rollout_id": 10,
+          "extracted": "3",
+          "gold": "4",
+          "tail": "left with:\n- The large brown metallic cylinder.\n- The small red metallic cylinder.\n- The small red matte cylinder.\n\nSo, there are 3 objects left after removing the large matte cube.\n</think>\n\\boxed{3}"
+        },
+        {
+          "sample_id": "472",
+          "rollout_id": 1,
+          "extracted": "3",
+          "gold": "3",
+          "tail": "ntify the number of groups: There are 3 groups.\n3. Divide the total number of dots by the number of groups: \\( 9 \\div 3 = 3 \\).\n\nSo, there are 3 dots in each group.\n\nThe final answer is \\(\\boxed{3}\\)."
+        },
+        {
+          "sample_id": "148",
+          "rollout_id": 6,
+          "extracted": "A",
+          "gold": "D",
+          "tail": "pe. However, the base is narrower than in the hastate shape.\n\nBased on the descriptions, the hastate shape has the narrowest base, as it is pointed and tapers to a narrow point at the base.\n\n\\boxed{A}"
+        },
+        {
+          "sample_id": "769",
+          "rollout_id": 4,
+          "extracted": "B",
+          "gold": "B",
+          "tail": " 25 mL of solvent.\n\nSince 4 blue particles are more than 2 blue particles, Solution A has a higher concentration of blue particles.\n\nTherefore, the correct answer is B. Solution A.\n</think>\n\n\\boxed{B}"
+        },
+        {
+          "sample_id": "711",
+          "rollout_id": 25,
+          "extracted": "3",
+          "gold": "3",
+          "tail": "war.\n   - The person on the right is likely in their 20s or 30s, which is post-war.\n\n5. Conclusion:\n   - All three people in the image were born after the end of World War II.\n\nFinal answer: \\boxed{3}"
+        },
+        {
+          "sample_id": "353",
+          "rollout_id": 5,
+          "extracted": "100 \\text{ minutes}",
+          "gold": "130.4",
+          "tail": "ing a numerical solver, we find:\n\\[ T \\approx 100 \\text{ minutes} \\]\n\nSo, the time \\( T \\) after which the salt level is within \\( 2\\% \\) of \\( Q_L \\) is approximately \\(\\boxed{100 \\text{ minutes}}\\)."
+        },
+        {
+          "sample_id": "128",
+          "rollout_id": 3,
+          "extracted": "6",
+          "gold": "6",
+          "tail": "in the image, so we don't need to remove it.\n\n4. **Count the remaining objects:**\n   - We are left with 6 objects.\n\nTherefore, the number of objects left after the specified removals is \\(\\boxed{6}\\)."
+        },
+        {
+          "sample_id": "598",
+          "rollout_id": 21,
+          "extracted": "D",
+          "gold": "A",
+          "tail": "nota)**: The beak is straight.\n11. **Hawfinch (Coccothraustes coccothraustes)**: The beak is curved.\n\nAmong these, the **hawfinch (Coccothraustes coccothraustes)** has the most curved beak.\n\n\\boxed{D}"
+        },
+        {
+          "sample_id": "869",
+          "rollout_id": 21,
+          "extracted": "1",
+          "gold": "2",
+          "tail": "need to subtract these objects.\n3. There is one green rubber ball.\n\nAfter subtracting the yellow matte cube and the metal objects, we are left with only the green rubber ball.\n\nFinal answer: \\boxed{1}"
+        }
+      ],
+      "distinct_extracted_per_question": {
+        "count": 1000.0,
+        "mean": 4.533,
+        "std": 5.065626473751449,
+        "min": 0.0,
+        "25%": 2.0,
+        "50%": 3.0,
+        "75%": 5.0,
+        "max": 32.0
+      }
+    },
+    "probability_metrics": {
+      "rows": 32000,
+      "dtypes": {
+        "dataset": "object",
+        "sample_id": "object",
+        "rollout_id": "int32",
+        "logp": "object",
+        "kl_u_p": "object"
+      },
+      "first_row": {
+        "dataset": "mathvista",
+        "sample_id": "1",
+        "rollout_id": "0",
+        "logp": {
+          "len": 418,
+          "head": [
+            -0.7431570291519165,
+            -0.7457164525985718,
+            -0.012366876006126404,
+            -0.0446341447532177,
+            -0.13781608641147614
+          ]
+        },
+        "kl_u_p": {
+          "len": 418,
+          "head": [
+            9.101641654968262,
+            15.625941276550293,
+            18.065872192382812,
+            17.748451232910156,
+            16.597400665283203
+          ]
+        }
+      }
+    },
+    "attention_metrics": {
+      "rows": 32000,
+      "dtypes": {
+        "dataset": "object",
+        "sample_id": "object",
+        "rollout_id": "int32",
+        "n_image_tokens": "int32",
+        "n_prompt_text_tokens": "int32",
+        "n_generated_text_tokens": "object",
+        "img_attn_total": "object",
+        "prompt_text_attn_total": "object",
+        "generated_text_attn_total": "object"
+      },
+      "first_row": {
+        "dataset": "mathvista",
+        "sample_id": "1",
+        "rollout_id": "0",
+        "n_image_tokens": "1404",
+        "n_prompt_text_tokens": "227",
+        "n_generated_text_tokens": {
+          "len": 418,
+          "head": [
+            0.0,
+            1.0,
+            2.0,
+            3.0,
+            4.0
+          ]
+        },
+        "img_attn_total": {
+          "len": 418,
+          "head": [
+            0.062047481536865234,
+            0.05289455130696297,
+            0.04415751248598099,
+            0.0654057115316391,
+            0.05779429152607918
+          ]
+        },
+        "prompt_text_attn_total": {
+          "len": 418,
+          "head": [
+            0.5808424353599548,
+            0.42476820945739746,
+            0.37785351276397705,
+            0.38908565044403076,
+            0.36991259455680847
+          ]
+        },
+        "generated_text_attn_total": {
+          "len": 418,
+          "head": [
+            0.0,
+            0.11967823654413223,
+            0.17665314674377441,
+            0.18599478900432587,
+            0.21668964624404907
+          ]
+        }
+      }
+    },
+    "alignment_first200": {
+      "joined": 200,
+      "len_ids_eq_logp": 200,
+      "len_ids_eq_kl": 200,
+      "len_ids_eq_n": 200
+    }
+  }
+}

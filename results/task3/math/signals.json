@@ -1,0 +1,26 @@
+{
+  "split": "eval",
+  "n_questions": 800,
+  "n_mixed": 469,
+  "quartile": "top 8 vs bottom 8 of 32 rollouts by score, ties by rollout_id",
+  "scores": {
+    "length": {
+      "mean_spearman_with_correct_mixed": -0.076333788935889,
+      "quartile_gap_all": -0.0459375,
+      "quartile_gap_mixed": -0.07835820895522388,
+      "mean_spearman_with_length": null
+    },
+    "logp": {
+      "mean_spearman_with_correct_mixed": 0.13413517217878498,
+      "quartile_gap_all": 0.07828125,
+      "quartile_gap_mixed": 0.13352878464818763,
+      "mean_spearman_with_length": 0.22450990220048075
+    },
+    "selfcert": {
+      "mean_spearman_with_correct_mixed": 0.19787325252618204,
+      "quartile_gap_all": 0.1196875,
+      "quartile_gap_mixed": 0.20415778251599148,
+      "mean_spearman_with_length": -0.16109595817293734
+    }
+  }
+}

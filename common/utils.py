@@ -10,7 +10,6 @@ from pathlib import Path
 from typing import Any
 
 import numpy as np
-import torch
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -40,6 +39,8 @@ def load_config(path: str | Path) -> dict:
 
 
 def set_seed(seed: int) -> None:
+    import torch
+
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
@@ -48,6 +49,8 @@ def set_seed(seed: int) -> None:
 
 
 def rng_state() -> dict:
+    import torch
+
     return {
         "python": random.getstate(),
         "numpy": np.random.get_state(),
@@ -57,6 +60,8 @@ def rng_state() -> dict:
 
 
 def set_rng_state(state: dict) -> None:
+    import torch
+
     random.setstate(state["python"])
     np.random.set_state(state["numpy"])
     torch.set_rng_state(state["torch"])
@@ -103,7 +108,7 @@ def write_jsonl(path: str | Path, rows: list[dict]) -> None:
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
 
 
-def tensor_hash(t: torch.Tensor) -> str:
+def tensor_hash(t) -> str:
     return hashlib.sha1(t.detach().float().cpu().contiguous().numpy().tobytes()).hexdigest()
 
 
@@ -115,6 +120,8 @@ def size_gb(path: str | Path) -> float:
 
 
 def gpu_peak() -> dict:
+    import torch
+
     if not torch.cuda.is_available():
         return {"peak_allocated_gb": 0.0, "peak_reserved_gb": 0.0}
     return {
@@ -124,6 +131,7 @@ def gpu_peak() -> dict:
 
 
 def env_info() -> dict:
+    import torch
     import transformers
 
     info = {

@@ -1,0 +1,34 @@
+{
+  "rows": {
+    "generations": 32000,
+    "probability": 32000,
+    "joined": 32000
+  },
+  "questions": 1000,
+  "rollouts_per_question_all_32": true,
+  "token_ids_eq_length": 32000,
+  "logp_eq_length": 32000,
+  "kl_eq_length": 32000,
+  "zero_length_rollouts": 0,
+  "hit_max_new_tokens": 487,
+  "null_extracted": 3032,
+  "retained_tokens": 8961703,
+  "img_attn_total_eq_length": 32000,
+  "prompt_text_attn_total_eq_length": 32000,
+  "generated_text_attn_total_eq_length": 32000,
+  "prev_counts_are_range": 32000,
+  "all_aligned": true,
+  "timeouts_string_fallback": [],
+  "mixed_correctness_groups": 0,
+  "status_counts": {
+    "ok": 26986,
+    "missing": 3032,
+    "unparseable": 1889,
+    "similar_choice": 93
+  },
+  "no_answer_rollouts": 4921,
+  "seconds": 3.4947623999323696,
+  "pass_at_32": 0.894,
+  "rollout_accuracy": 0.5364375,
+  "zero_denominator_tokens": 0
+}

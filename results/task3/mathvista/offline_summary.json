@@ -1,0 +1,2341 @@
+{
+  "dataset": "mathvista",
+  "methods": [
+    "first",
+    "sc",
+    "logp",
+    "logp_rwc",
+    "selfcert",
+    "selfcert_rwc",
+    "shortest",
+    "vision",
+    "vision_rwc",
+    "visconf",
+    "visconf_rwc",
+    "visconf_token",
+    "visconf_token_rwc"
+  ],
+  "required_methods": [
+    "first",
+    "sc",
+    "logp",
+    "selfcert",
+    "selfcert_rwc",
+    "vision",
+    "vision_rwc",
+    "visconf",
+    "visconf_rwc"
+  ],
+  "budgets": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+  ],
+  "splits": {
+    "dev": {
+      "n_questions": 200,
+      "by_N": {
+        "1": {
+          "oracle": 0.5379999999999999,
+          "distinct_groups": 1.0,
+          "distinct_valid_groups": 0.87,
+          "no_answer_frac": 0.13,
+          "methods": {
+            "first": {
+              "acc": 0.5379999999999999,
+              "cost": 288.5645,
+              "sampling_failure": 0.4620000000000001,
+              "selection_failure": 0.0
+            },
+            "sc": {
+              "acc": 0.5379999999999999,
+              "cost": 288.5645,
+              "sampling_failure": 0.4620000000000001,
+              "selection_failure": 0.0
+            },
+            "logp": {
+              "acc": 0.5379999999999999,
+              "cost": 288.5645,
+              "sampling_failure": 0.4620000000000001,
+              "selection_failure": 0.0
+            },
+            "logp_rwc": {
+              "acc": 0.5379999999999999,
+              "cost": 288.5645,
+              "sampling_failure": 0.4620000000000001,
+              "selection_failure": 0.0
+            },
+            "selfcert": {
+              "acc": 0.5379999999999999,
+              "cost": 288.5645,
+              "sampling_failure": 0.4620000000000001,
+              "selection_failure": 0.0
+            },
+            "selfcert_rwc": {
+              "acc": 0.5379999999999999,
+              "cost": 288.5645,
+              "sampling_failure": 0.4620000000000001,
+              "selection_failure": 0.0
+            },
+            "shortest": {
+              "acc": 0.5379999999999999,
+              "cost": 288.5645,
+              "sampling_failure": 0.4620000000000001,
+              "selection_failure": 0.0
+            },
+            "vision": {
+              "acc": 0.5379999999999999,
+              "cost": 288.5645,
+              "sampling_failure": 0.4620000000000001,
+              "selection_failure": 0.0
+            },
+            "vision_rwc": {
+              "acc": 0.5379999999999999,
+              "cost": 288.5645,
+              "sampling_failure": 0.4620000000000001,
+              "selection_failure": 0.0
+            },
+            "visconf": {
+              "acc": 0.5379999999999999,
+              "cost": 288.5645,
+              "sampling_failure": 0.4620000000000001,
+              "selection_failure": 0.0
+            },
+            "visconf_rwc": {
+              "acc": 0.5379999999999999,
+              "cost": 288.5645,
+              "sampling_failure": 0.4620000000000001,
+              "selection_failure": 0.0
+            },
+            "visconf_token": {
+              "acc": 0.5379999999999999,
+              "cost": 288.5645,
+              "sampling_failure": 0.4620000000000001,
+              "selection_failure": 0.0
+            },
+            "visconf_token_rwc": {
+              "acc": 0.5379999999999999,
+              "cost": 288.5645,
+              "sampling_failure": 0.4620000000000001,
+              "selection_failure": 0.0
+            }
+          }
+        },
+        "2": {
+          "oracle": 0.6585,
+          "distinct_groups": 1.4334999999999996,
+          "distinct_valid_groups": 1.2285,
+          "no_answer_frac": 0.1285,
+          "methods": {
+            "first": {
+              "acc": 0.5379999999999999,
+              "cost": 288.5645,
+              "sampling_failure": 0.3415,
+              "selection_failure": 0.12050000000000005
+            },
+            "sc": {
+              "acc": 0.5379999999999999,
+              "cost": 571.8115,
+              "sampling_failure": 0.3415,
+              "selection_failure": 0.12050000000000005
+            },
+            "logp": {
+              "acc": 0.5425,
+              "cost": 571.8115,
+              "sampling_failure": 0.3415,
+              "selection_failure": 0.11599999999999999
+            },
+            "logp_rwc": {
+              "acc": 0.5425,
+              "cost": 571.8115,
+              "sampling_failure": 0.3415,
+              "selection_failure": 0.11599999999999999
+            },
+            "selfcert": {
+              "acc": 0.5614999999999999,
+              "cost": 571.8115,
+              "sampling_failure": 0.3415,
+              "selection_failure": 0.09700000000000009
+            },
+            "selfcert_rwc": {
+              "acc": 0.5614999999999999,
+              "cost": 571.8115,
+              "sampling_failure": 0.3415,
+              "selection_failure": 0.09700000000000009
+            },
+            "shortest": {
+              "acc": 0.5459999999999999,
+              "cost": 571.8115,
+              "sampling_failure": 0.3415,
+              "selection_failure": 0.11250000000000004
+            },
+            "vision": {
+              "acc": 0.5439999999999999,
+              "cost": 571.8115,
+              "sampling_failure": 0.3415,
+              "selection_failure": 0.11450000000000005
+            },
+            "vision_rwc": {
+              "acc": 0.5439999999999999,
+              "cost": 571.8115,
+              "sampling_failure": 0.3415,
+              "selection_failure": 0.11450000000000005
+            },
+            "visconf": {
+              "acc": 0.5565000000000001,
+              "cost": 571.8115,
+              "sampling_failure": 0.3415,
+              "selection_failure": 0.10199999999999987
+            },
+            "visconf_rwc": {
+              "acc": 0.5565000000000001,
+              "cost": 571.8115,
+              "sampling_failure": 0.3415,
+              "selection_failure": 0.10199999999999987
+            },
+            "visconf_token": {
+              "acc": 0.5545,
+              "cost": 571.8115,
+              "sampling_failure": 0.3415,
+              "selection_failure": 0.10399999999999998
+            },
+            "visconf_token_rwc": {
+              "acc": 0.5545,
+              "cost": 571.8115,
+              "sampling_failure": 0.3415,
+              "selection_failure": 0.10399999999999998
+            }
+          }
+        },
+        "4": {
+          "oracle": 0.7490000000000001,
+          "distinct_groups": 1.9864999999999997,
+          "distinct_valid_groups": 1.6740000000000002,
+          "no_answer_frac": 0.131875,
+          "methods": {
+            "first": {
+              "acc": 0.5379999999999999,
+              "cost": 288.5645,
+              "sampling_failure": 0.2509999999999999,
+              "selection_failure": 0.2110000000000002
+            },
+            "sc": {
+              "acc": 0.5794999999999999,
+              "cost": 1145.599,
+              "sampling_failure": 0.2509999999999999,
+              "selection_failure": 0.1695000000000002
+            },
+            "logp": {
+              "acc": 0.541,
+              "cost": 1145.599,
+              "sampling_failure": 0.2509999999999999,
+              "selection_failure": 0.20800000000000007
+            },
+            "logp_rwc": {
+              "acc": 0.56,
+              "cost": 1145.599,
+              "sampling_failure": 0.2509999999999999,
+              "selection_failure": 0.18900000000000006
+            },
+            "selfcert": {
+              "acc": 0.5665,
+              "cost": 1145.599,
+              "sampling_failure": 0.2509999999999999,
+              "selection_failure": 0.1825000000000001
+            },
+            "selfcert_rwc": {
+              "acc": 0.583,
+              "cost": 1145.599,
+              "sampling_failure": 0.2509999999999999,
+              "selection_failure": 0.16600000000000015
+            },
+            "shortest": {
+              "acc": 0.541,
+              "cost": 1145.599,
+              "sampling_failure": 0.2509999999999999,
+              "selection_failure": 0.20800000000000007
+            },
+            "vision": {
+              "acc": 0.5295000000000001,
+              "cost": 1145.599,
+              "sampling_failure": 0.2509999999999999,
+              "selection_failure": 0.21950000000000003
+            },
+            "vision_rwc": {
+              "acc": 0.5595,
+              "cost": 1145.599,
+              "sampling_failure": 0.2509999999999999,
+              "selection_failure": 0.1895000000000001
+            },
+            "visconf": {
+              "acc": 0.556,
+              "cost": 1145.599,
+              "sampling_failure": 0.2509999999999999,
+              "selection_failure": 0.19300000000000006
+            },
+            "visconf_rwc": {
+              "acc": 0.578,
+              "cost": 1145.599,
+              "sampling_failure": 0.2509999999999999,
+              "selection_failure": 0.17100000000000015
+            },
+            "visconf_token": {
+              "acc": 0.552,
+              "cost": 1145.599,
+              "sampling_failure": 0.2509999999999999,
+              "selection_failure": 0.19700000000000006
+            },
+            "visconf_token_rwc": {
+              "acc": 0.5745,
+              "cost": 1145.599,
+              "sampling_failure": 0.2509999999999999,
+              "selection_failure": 0.1745000000000001
+            }
+          }
+        },
+        "8": {
+          "oracle": 0.82,
+          "distinct_groups": 2.6385,
+          "distinct_valid_groups": 2.222,
+          "no_answer_frac": 0.1325,
+          "methods": {
+            "first": {
+              "acc": 0.5379999999999999,
+              "cost": 288.5645,
+              "sampling_failure": 0.18000000000000005,
+              "selection_failure": 0.28200000000000003
+            },
+            "sc": {
+              "acc": 0.606,
+              "cost": 2289.7270000000003,
+              "sampling_failure": 0.18000000000000005,
+              "selection_failure": 0.21399999999999997
+            },
+            "logp": {
+              "acc": 0.534,
+              "cost": 2289.7270000000003,
+              "sampling_failure": 0.18000000000000005,
+              "selection_failure": 0.2859999999999999
+            },
+            "logp_rwc": {
+              "acc": 0.5925,
+              "cost": 2289.7270000000003,
+              "sampling_failure": 0.18000000000000005,
+              "selection_failure": 0.22749999999999992
+            },
+            "selfcert": {
+              "acc": 0.5670000000000001,
+              "cost": 2289.7270000000003,
+              "sampling_failure": 0.18000000000000005,
+              "selection_failure": 0.2529999999999999
+            },
+            "selfcert_rwc": {
+              "acc": 0.5990000000000001,
+              "cost": 2289.7270000000003,
+              "sampling_failure": 0.18000000000000005,
+              "selection_failure": 0.22099999999999986
+            },
+            "shortest": {
+              "acc": 0.5485,
+              "cost": 2289.7270000000003,
+              "sampling_failure": 0.18000000000000005,
+              "selection_failure": 0.27149999999999996
+            },
+            "vision": {
+              "acc": 0.522,
+              "cost": 2289.7270000000003,
+              "sampling_failure": 0.18000000000000005,
+              "selection_failure": 0.29799999999999993
+            },
+            "vision_rwc": {
+              "acc": 0.5865,
+              "cost": 2289.7270000000003,
+              "sampling_failure": 0.18000000000000005,
+              "selection_failure": 0.23349999999999993
+            },
+            "visconf": {
+              "acc": 0.55,
+              "cost": 2289.7270000000003,
+              "sampling_failure": 0.18000000000000005,
+              "selection_failure": 0.2699999999999999
+            },
+            "visconf_rwc": {
+              "acc": 0.5985,
+              "cost": 2289.7270000000003,
+              "sampling_failure": 0.18000000000000005,
+              "selection_failure": 0.22149999999999992
+            },
+            "visconf_token": {
+              "acc": 0.5455,
+              "cost": 2289.7270000000003,
+              "sampling_failure": 0.18000000000000005,
+              "selection_failure": 0.27449999999999997
+            },
+            "visconf_token_rwc": {
+              "acc": 0.594,
+              "cost": 2289.7270000000003,
+              "sampling_failure": 0.18000000000000005,
+              "selection_failure": 0.22599999999999998
+            }
+          }
+        },
+        "16": {
+          "oracle": 0.8690000000000001,
+          "distinct_groups": 3.3789999999999996,
+          "distinct_valid_groups": 2.8489999999999998,
+          "no_answer_frac": 0.13434374999999998,
+          "methods": {
+            "first": {
+              "acc": 0.5379999999999999,
+              "cost": 288.5645,
+              "sampling_failure": 0.1309999999999999,
+              "selection_failure": 0.3310000000000002
+            },
+            "sc": {
+              "acc": 0.6175,
+              "cost": 4604.7744999999995,
+              "sampling_failure": 0.1309999999999999,
+              "selection_failure": 0.25150000000000006
+            },
+            "logp": {
+              "acc": 0.5305,
+              "cost": 4604.7744999999995,
+              "sampling_failure": 0.1309999999999999,
+              "selection_failure": 0.33850000000000013
+            },
+            "logp_rwc": {
+              "acc": 0.6100000000000001,
+              "cost": 4604.7744999999995,
+              "sampling_failure": 0.1309999999999999,
+              "selection_failure": 0.259
+            },
+            "selfcert": {
+              "acc": 0.5655,
+              "cost": 4604.7744999999995,
+              "sampling_failure": 0.1309999999999999,
+              "selection_failure": 0.3035000000000001
+            },
+            "selfcert_rwc": {
+              "acc": 0.6135,
+              "cost": 4604.7744999999995,
+              "sampling_failure": 0.1309999999999999,
+              "selection_failure": 0.25550000000000006
+            },
+            "shortest": {
+              "acc": 0.527,
+              "cost": 4604.7744999999995,
+              "sampling_failure": 0.1309999999999999,
+              "selection_failure": 0.3420000000000001
+            },
+            "vision": {
+              "acc": 0.5155000000000001,
+              "cost": 4604.7744999999995,
+              "sampling_failure": 0.1309999999999999,
+              "selection_failure": 0.35350000000000004
+            },
+            "vision_rwc": {
+              "acc": 0.6095,
+              "cost": 4604.7744999999995,
+              "sampling_failure": 0.1309999999999999,
+              "selection_failure": 0.25950000000000006
+            },
+            "visconf": {
+              "acc": 0.55,
+              "cost": 4604.7744999999995,
+              "sampling_failure": 0.1309999999999999,
+              "selection_failure": 0.31900000000000006
+            },
+            "visconf_rwc": {
+              "acc": 0.6149999999999999,
+              "cost": 4604.7744999999995,
+              "sampling_failure": 0.1309999999999999,
+              "selection_failure": 0.2540000000000002
+            },
+            "visconf_token": {
+              "acc": 0.5455,
+              "cost": 4604.7744999999995,
+              "sampling_failure": 0.1309999999999999,
+              "selection_failure": 0.3235000000000001
+            },
+            "visconf_token_rwc": {
+              "acc": 0.6135,
+              "cost": 4604.7744999999995,
+              "sampling_failure": 0.1309999999999999,
+              "selection_failure": 0.25550000000000006
+            }
+          }
+        },
+        "32": {
+          "oracle": 0.89,
+          "distinct_groups": 4.18,
+          "distinct_valid_groups": 3.53,
+          "no_answer_frac": 0.13453125,
+          "methods": {
+            "first": {
+              "acc": 0.5379999999999999,
+              "cost": 288.5645,
+              "sampling_failure": 0.10999999999999999,
+              "selection_failure": 0.3520000000000001
+            },
+            "sc": {
+              "acc": 0.6425,
+              "cost": 9217.485,
+              "sampling_failure": 0.10999999999999999,
+              "selection_failure": 0.24750000000000005
+            },
+            "logp": {
+              "acc": 0.54,
+              "cost": 9217.485,
+              "sampling_failure": 0.10999999999999999,
+              "selection_failure": 0.35
+            },
+            "logp_rwc": {
+              "acc": 0.64,
+              "cost": 9217.485,
+              "sampling_failure": 0.10999999999999999,
+              "selection_failure": 0.25
+            },
+            "selfcert": {
+              "acc": 0.555,
+              "cost": 9217.485,
+              "sampling_failure": 0.10999999999999999,
+              "selection_failure": 0.33499999999999996
+            },
+            "selfcert_rwc": {
+              "acc": 0.6335000000000001,
+              "cost": 9217.485,
+              "sampling_failure": 0.10999999999999999,
+              "selection_failure": 0.25649999999999995
+            },
+            "shortest": {
+              "acc": 0.5109999999999999,
+              "cost": 9217.485,
+              "sampling_failure": 0.10999999999999999,
+              "selection_failure": 0.3790000000000001
+            },
+            "vision": {
+              "acc": 0.495,
+              "cost": 9217.485,
+              "sampling_failure": 0.10999999999999999,
+              "selection_failure": 0.395
+            },
+            "vision_rwc": {
+              "acc": 0.63,
+              "cost": 9217.485,
+              "sampling_failure": 0.10999999999999999,
+              "selection_failure": 0.26
+            },
+            "visconf": {
+              "acc": 0.545,
+              "cost": 9217.485,
+              "sampling_failure": 0.10999999999999999,
+              "selection_failure": 0.345
+            },
+            "visconf_rwc": {
+              "acc": 0.63,
+              "cost": 9217.485,
+              "sampling_failure": 0.10999999999999999,
+              "selection_failure": 0.26
+            },
+            "visconf_token": {
+              "acc": 0.545,
+              "cost": 9217.485,
+              "sampling_failure": 0.10999999999999999,
+              "selection_failure": 0.345
+            },
+            "visconf_token_rwc": {
+              "acc": 0.63,
+              "cost": 9217.485,
+              "sampling_failure": 0.10999999999999999,
+              "selection_failure": 0.26
+            }
+          }
+        }
+      }
+    },
+    "eval": {
+      "n_questions": 800,
+      "by_N": {
+        "1": {
+          "oracle": 0.537375,
+          "distinct_groups": 1.0,
+          "distinct_valid_groups": 0.843,
+          "no_answer_frac": 0.157,
+          "methods": {
+            "first": {
+              "acc": 0.537375,
+              "cost": 280.756875,
+              "sampling_failure": 0.46262499999999995,
+              "selection_failure": 0.0
+            },
+            "sc": {
+              "acc": 0.537375,
+              "cost": 280.756875,
+              "sampling_failure": 0.46262499999999995,
+              "selection_failure": 0.0
+            },
+            "logp": {
+              "acc": 0.537375,
+              "cost": 280.756875,
+              "sampling_failure": 0.46262499999999995,
+              "selection_failure": 0.0
+            },
+            "logp_rwc": {
+              "acc": 0.537375,
+              "cost": 280.756875,
+              "sampling_failure": 0.46262499999999995,
+              "selection_failure": 0.0
+            },
+            "selfcert": {
+              "acc": 0.537375,
+              "cost": 280.756875,
+              "sampling_failure": 0.46262499999999995,
+              "selection_failure": 0.0
+            },
+            "selfcert_rwc": {
+              "acc": 0.537375,
+              "cost": 280.756875,
+              "sampling_failure": 0.46262499999999995,
+              "selection_failure": 0.0
+            },
+            "shortest": {
+              "acc": 0.537375,
+              "cost": 280.756875,
+              "sampling_failure": 0.46262499999999995,
+              "selection_failure": 0.0
+            },
+            "vision": {
+              "acc": 0.537375,
+              "cost": 280.756875,
+              "sampling_failure": 0.46262499999999995,
+              "selection_failure": 0.0
+            },
+            "vision_rwc": {
+              "acc": 0.537375,
+              "cost": 280.756875,
+              "sampling_failure": 0.46262499999999995,
+              "selection_failure": 0.0
+            },
+            "visconf": {
+              "acc": 0.537375,
+              "cost": 280.756875,
+              "sampling_failure": 0.46262499999999995,
+              "selection_failure": 0.0
+            },
+            "visconf_rwc": {
+              "acc": 0.537375,
+              "cost": 280.756875,
+              "sampling_failure": 0.46262499999999995,
+              "selection_failure": 0.0
+            },
+            "visconf_token": {
+              "acc": 0.537375,
+              "cost": 280.756875,
+              "sampling_failure": 0.46262499999999995,
+              "selection_failure": 0.0
+            },
+            "visconf_token_rwc": {
+              "acc": 0.537375,
+              "cost": 280.756875,
+              "sampling_failure": 0.46262499999999995,
+              "selection_failure": 0.0
+            }
+          }
+        },
+        "2": {
+          "oracle": 0.6665000000000001,
+          "distinct_groups": 1.4182499999999998,
+          "distinct_valid_groups": 1.178625,
+          "no_answer_frac": 0.1595,
+          "methods": {
+            "first": {
+              "acc": 0.537375,
+              "cost": 280.756875,
+              "sampling_failure": 0.3334999999999999,
+              "selection_failure": 0.12912500000000005
+            },
+            "sc": {
+              "acc": 0.537375,
+              "cost": 556.37925,
+              "sampling_failure": 0.3334999999999999,
+              "selection_failure": 0.12912500000000005
+            },
+            "logp": {
+              "acc": 0.5425,
+              "cost": 556.37925,
+              "sampling_failure": 0.3334999999999999,
+              "selection_failure": 0.12400000000000011
+            },
+            "logp_rwc": {
+              "acc": 0.5425,
+              "cost": 556.37925,
+              "sampling_failure": 0.3334999999999999,
+              "selection_failure": 0.12400000000000011
+            },
+            "selfcert": {
+              "acc": 0.5513750000000001,
+              "cost": 556.37925,
+              "sampling_failure": 0.3334999999999999,
+              "selection_failure": 0.11512500000000003
+            },
+            "selfcert_rwc": {
+              "acc": 0.5513750000000001,
+              "cost": 556.37925,
+              "sampling_failure": 0.3334999999999999,
+              "selection_failure": 0.11512500000000003
+            },
+            "shortest": {
+              "acc": 0.54625,
+              "cost": 556.37925,
+              "sampling_failure": 0.3334999999999999,
+              "selection_failure": 0.12025000000000008
+            },
+            "vision": {
+              "acc": 0.545875,
+              "cost": 556.37925,
+              "sampling_failure": 0.3334999999999999,
+              "selection_failure": 0.1206250000000001
+            },
+            "vision_rwc": {
+              "acc": 0.545875,
+              "cost": 556.37925,
+              "sampling_failure": 0.3334999999999999,
+              "selection_failure": 0.1206250000000001
+            },
+            "visconf": {
+              "acc": 0.557625,
+              "cost": 556.37925,
+              "sampling_failure": 0.3334999999999999,
+              "selection_failure": 0.10887500000000006
+            },
+            "visconf_rwc": {
+              "acc": 0.557625,
+              "cost": 556.37925,
+              "sampling_failure": 0.3334999999999999,
+              "selection_failure": 0.10887500000000006
+            },
+            "visconf_token": {
+              "acc": 0.555,
+              "cost": 556.37925,
+              "sampling_failure": 0.3334999999999999,
+              "selection_failure": 0.11150000000000004
+            },
+            "visconf_token_rwc": {
+              "acc": 0.555,
+              "cost": 556.37925,
+              "sampling_failure": 0.3334999999999999,
+              "selection_failure": 0.11150000000000004
+            }
+          }
+        },
+        "4": {
+          "oracle": 0.759875,
+          "distinct_groups": 1.92,
+          "distinct_valid_groups": 1.584375,
+          "no_answer_frac": 0.15903125,
+          "methods": {
+            "first": {
+              "acc": 0.537375,
+              "cost": 280.756875,
+              "sampling_failure": 0.24012500000000003,
+              "selection_failure": 0.22249999999999992
+            },
+            "sc": {
+              "acc": 0.58425,
+              "cost": 1114.0815,
+              "sampling_failure": 0.24012500000000003,
+              "selection_failure": 0.17562499999999992
+            },
+            "logp": {
+              "acc": 0.53875,
+              "cost": 1114.0815,
+              "sampling_failure": 0.24012500000000003,
+              "selection_failure": 0.22112500000000002
+            },
+            "logp_rwc": {
+              "acc": 0.560625,
+              "cost": 1114.0815,
+              "sampling_failure": 0.24012500000000003,
+              "selection_failure": 0.19924999999999993
+            },
+            "selfcert": {
+              "acc": 0.5516249999999999,
+              "cost": 1114.0815,
+              "sampling_failure": 0.24012500000000003,
+              "selection_failure": 0.20825000000000005
+            },
+            "selfcert_rwc": {
+              "acc": 0.5703750000000001,
+              "cost": 1114.0815,
+              "sampling_failure": 0.24012500000000003,
+              "selection_failure": 0.1894999999999999
+            },
+            "shortest": {
+              "acc": 0.544625,
+              "cost": 1114.0815,
+              "sampling_failure": 0.24012500000000003,
+              "selection_failure": 0.21524999999999994
+            },
+            "vision": {
+              "acc": 0.541375,
+              "cost": 1114.0815,
+              "sampling_failure": 0.24012500000000003,
+              "selection_failure": 0.21849999999999992
+            },
+            "vision_rwc": {
+              "acc": 0.568125,
+              "cost": 1114.0815,
+              "sampling_failure": 0.24012500000000003,
+              "selection_failure": 0.19174999999999998
+            },
+            "visconf": {
+              "acc": 0.56575,
+              "cost": 1114.0815,
+              "sampling_failure": 0.24012500000000003,
+              "selection_failure": 0.194125
+            },
+            "visconf_rwc": {
+              "acc": 0.5783750000000001,
+              "cost": 1114.0815,
+              "sampling_failure": 0.24012500000000003,
+              "selection_failure": 0.18149999999999988
+            },
+            "visconf_token": {
+              "acc": 0.56475,
+              "cost": 1114.0815,
+              "sampling_failure": 0.24012500000000003,
+              "selection_failure": 0.195125
+            },
+            "visconf_token_rwc": {
+              "acc": 0.5795,
+              "cost": 1114.0815,
+              "sampling_failure": 0.24012500000000003,
+              "selection_failure": 0.18037499999999995
+            }
+          }
+        },
+        "8": {
+          "oracle": 0.828875,
+          "distinct_groups": 2.512,
+          "distinct_valid_groups": 2.070625,
+          "no_answer_frac": 0.1601875,
+          "methods": {
+            "first": {
+              "acc": 0.537375,
+              "cost": 280.756875,
+              "sampling_failure": 0.17112499999999997,
+              "selection_failure": 0.2915
+            },
+            "sc": {
+              "acc": 0.5992500000000001,
+              "cost": 2234.0879999999997,
+              "sampling_failure": 0.17112499999999997,
+              "selection_failure": 0.22962499999999997
+            },
+            "logp": {
+              "acc": 0.5215,
+              "cost": 2234.0879999999997,
+              "sampling_failure": 0.17112499999999997,
+              "selection_failure": 0.30737500000000006
+            },
+            "logp_rwc": {
+              "acc": 0.584875,
+              "cost": 2234.0879999999997,
+              "sampling_failure": 0.17112499999999997,
+              "selection_failure": 0.244
+            },
+            "selfcert": {
+              "acc": 0.5523750000000001,
+              "cost": 2234.0879999999997,
+              "sampling_failure": 0.17112499999999997,
+              "selection_failure": 0.27649999999999997
+            },
+            "selfcert_rwc": {
+              "acc": 0.595125,
+              "cost": 2234.0879999999997,
+              "sampling_failure": 0.17112499999999997,
+              "selection_failure": 0.23375
+            },
+            "shortest": {
+              "acc": 0.545,
+              "cost": 2234.0879999999997,
+              "sampling_failure": 0.17112499999999997,
+              "selection_failure": 0.283875
+            },
+            "vision": {
+              "acc": 0.53775,
+              "cost": 2234.0879999999997,
+              "sampling_failure": 0.17112499999999997,
+              "selection_failure": 0.2911250000000001
+            },
+            "vision_rwc": {
+              "acc": 0.5998749999999999,
+              "cost": 2234.0879999999997,
+              "sampling_failure": 0.17112499999999997,
+              "selection_failure": 0.2290000000000001
+            },
+            "visconf": {
+              "acc": 0.5646249999999999,
+              "cost": 2234.0879999999997,
+              "sampling_failure": 0.17112499999999997,
+              "selection_failure": 0.2642500000000001
+            },
+            "visconf_rwc": {
+              "acc": 0.606,
+              "cost": 2234.0879999999997,
+              "sampling_failure": 0.17112499999999997,
+              "selection_failure": 0.22287500000000005
+            },
+            "visconf_token": {
+              "acc": 0.557125,
+              "cost": 2234.0879999999997,
+              "sampling_failure": 0.17112499999999997,
+              "selection_failure": 0.27175000000000005
+            },
+            "visconf_token_rwc": {
+              "acc": 0.605,
+              "cost": 2234.0879999999997,
+              "sampling_failure": 0.17112499999999997,
+              "selection_failure": 0.22387500000000005
+            }
+          }
+        },
+        "16": {
+          "oracle": 0.870625,
+          "distinct_groups": 3.178375,
+          "distinct_valid_groups": 2.639875,
+          "no_answer_frac": 0.15864062499999998,
+          "methods": {
+            "first": {
+              "acc": 0.537375,
+              "cost": 280.756875,
+              "sampling_failure": 0.12937500000000002,
+              "selection_failure": 0.33324999999999994
+            },
+            "sc": {
+              "acc": 0.612125,
+              "cost": 4456.150874999999,
+              "sampling_failure": 0.12937500000000002,
+              "selection_failure": 0.25849999999999995
+            },
+            "logp": {
+              "acc": 0.503875,
+              "cost": 4456.150874999999,
+              "sampling_failure": 0.12937500000000002,
+              "selection_failure": 0.36675
+            },
+            "logp_rwc": {
+              "acc": 0.602,
+              "cost": 4456.150874999999,
+              "sampling_failure": 0.12937500000000002,
+              "selection_failure": 0.268625
+            },
+            "selfcert": {
+              "acc": 0.5429999999999999,
+              "cost": 4456.150874999999,
+              "sampling_failure": 0.12937500000000002,
+              "selection_failure": 0.32762500000000006
+            },
+            "selfcert_rwc": {
+              "acc": 0.616375,
+              "cost": 4456.150874999999,
+              "sampling_failure": 0.12937500000000002,
+              "selection_failure": 0.25425
+            },
+            "shortest": {
+              "acc": 0.543375,
+              "cost": 4456.150874999999,
+              "sampling_failure": 0.12937500000000002,
+              "selection_failure": 0.32724999999999993
+            },
+            "vision": {
+              "acc": 0.53825,
+              "cost": 4456.150874999999,
+              "sampling_failure": 0.12937500000000002,
+              "selection_failure": 0.332375
+            },
+            "vision_rwc": {
+              "acc": 0.616375,
+              "cost": 4456.150874999999,
+              "sampling_failure": 0.12937500000000002,
+              "selection_failure": 0.25425
+            },
+            "visconf": {
+              "acc": 0.571375,
+              "cost": 4456.150874999999,
+              "sampling_failure": 0.12937500000000002,
+              "selection_failure": 0.29925
+            },
+            "visconf_rwc": {
+              "acc": 0.62175,
+              "cost": 4456.150874999999,
+              "sampling_failure": 0.12937500000000002,
+              "selection_failure": 0.24887499999999996
+            },
+            "visconf_token": {
+              "acc": 0.563875,
+              "cost": 4456.150874999999,
+              "sampling_failure": 0.12937500000000002,
+              "selection_failure": 0.30674999999999997
+            },
+            "visconf_token_rwc": {
+              "acc": 0.619625,
+              "cost": 4456.150874999999,
+              "sampling_failure": 0.12937500000000002,
+              "selection_failure": 0.251
+            }
+          }
+        },
+        "32": {
+          "oracle": 0.895,
+          "distinct_groups": 3.93875,
+          "distinct_valid_groups": 3.30625,
+          "no_answer_frac": 0.15859375,
+          "methods": {
+            "first": {
+              "acc": 0.537375,
+              "cost": 280.756875,
+              "sampling_failure": 0.10499999999999998,
+              "selection_failure": 0.35762499999999997
+            },
+            "sc": {
+              "acc": 0.616,
+              "cost": 8897.7575,
+              "sampling_failure": 0.10499999999999998,
+              "selection_failure": 0.279
+            },
+            "logp": {
+              "acc": 0.48125,
+              "cost": 8897.7575,
+              "sampling_failure": 0.10499999999999998,
+              "selection_failure": 0.41375
+            },
+            "logp_rwc": {
+              "acc": 0.6075,
+              "cost": 8897.7575,
+              "sampling_failure": 0.10499999999999998,
+              "selection_failure": 0.2875
+            },
+            "selfcert": {
+              "acc": 0.54625,
+              "cost": 8897.7575,
+              "sampling_failure": 0.10499999999999998,
+              "selection_failure": 0.34875
+            },
+            "selfcert_rwc": {
+              "acc": 0.625,
+              "cost": 8897.7575,
+              "sampling_failure": 0.10499999999999998,
+              "selection_failure": 0.27
+            },
+            "shortest": {
+              "acc": 0.53875,
+              "cost": 8897.7575,
+              "sampling_failure": 0.10499999999999998,
+              "selection_failure": 0.35625000000000007
+            },
+            "vision": {
+              "acc": 0.53625,
+              "cost": 8897.7575,
+              "sampling_failure": 0.10499999999999998,
+              "selection_failure": 0.35875
+            },
+            "vision_rwc": {
+              "acc": 0.62875,
+              "cost": 8897.7575,
+              "sampling_failure": 0.10499999999999998,
+              "selection_failure": 0.26625
+            },
+            "visconf": {
+              "acc": 0.5775,
+              "cost": 8897.7575,
+              "sampling_failure": 0.10499999999999998,
+              "selection_failure": 0.3175
+            },
+            "visconf_rwc": {
+              "acc": 0.63125,
+              "cost": 8897.7575,
+              "sampling_failure": 0.10499999999999998,
+              "selection_failure": 0.26375000000000004
+            },
+            "visconf_token": {
+              "acc": 0.5625,
+              "cost": 8897.7575,
+              "sampling_failure": 0.10499999999999998,
+              "selection_failure": 0.3325
+            },
+            "visconf_token_rwc": {
+              "acc": 0.62625,
+              "cost": 8897.7575,
+              "sampling_failure": 0.10499999999999998,
+              "selection_failure": 0.26875000000000004
+            }
+          }
+        }
+      }
+    },
+    "all": {
+      "n_questions": 1000,
+      "by_N": {
+        "1": {
+          "oracle": 0.5375,
+          "distinct_groups": 1.0,
+          "distinct_valid_groups": 0.8483999999999999,
+          "no_answer_frac": 0.1516,
+          "methods": {
+            "first": {
+              "acc": 0.5375,
+              "cost": 282.3184,
+              "sampling_failure": 0.4625,
+              "selection_failure": 0.0
+            },
+            "sc": {
+              "acc": 0.5375,
+              "cost": 282.3184,
+              "sampling_failure": 0.4625,
+              "selection_failure": 0.0
+            },
+            "logp": {
+              "acc": 0.5375,
+              "cost": 282.3184,
+              "sampling_failure": 0.4625,
+              "selection_failure": 0.0
+            },
+            "logp_rwc": {
+              "acc": 0.5375,
+              "cost": 282.3184,
+              "sampling_failure": 0.4625,
+              "selection_failure": 0.0
+            },
+            "selfcert": {
+              "acc": 0.5375,
+              "cost": 282.3184,
+              "sampling_failure": 0.4625,
+              "selection_failure": 0.0
+            },
+            "selfcert_rwc": {
+              "acc": 0.5375,
+              "cost": 282.3184,
+              "sampling_failure": 0.4625,
+              "selection_failure": 0.0
+            },
+            "shortest": {
+              "acc": 0.5375,
+              "cost": 282.3184,
+              "sampling_failure": 0.4625,
+              "selection_failure": 0.0
+            },
+            "vision": {
+              "acc": 0.5375,
+              "cost": 282.3184,
+              "sampling_failure": 0.4625,
+              "selection_failure": 0.0
+            },
+            "vision_rwc": {
+              "acc": 0.5375,
+              "cost": 282.3184,
+              "sampling_failure": 0.4625,
+              "selection_failure": 0.0
+            },
+            "visconf": {
+              "acc": 0.5375,
+              "cost": 282.3184,
+              "sampling_failure": 0.4625,
+              "selection_failure": 0.0
+            },
+            "visconf_rwc": {
+              "acc": 0.5375,
+              "cost": 282.3184,
+              "sampling_failure": 0.4625,
+              "selection_failure": 0.0
+            },
+            "visconf_token": {
+              "acc": 0.5375,
+              "cost": 282.3184,
+              "sampling_failure": 0.4625,
+              "selection_failure": 0.0
+            },
+            "visconf_token_rwc": {
+              "acc": 0.5375,
+              "cost": 282.3184,
+              "sampling_failure": 0.4625,
+              "selection_failure": 0.0
+            }
+          }
+        },
+        "2": {
+          "oracle": 0.6648999999999999,
+          "distinct_groups": 1.4213,
+          "distinct_valid_groups": 1.1885999999999999,
+          "no_answer_frac": 0.15330000000000002,
+          "methods": {
+            "first": {
+              "acc": 0.5375,
+              "cost": 282.3184,
+              "sampling_failure": 0.33510000000000006,
+              "selection_failure": 0.12739999999999996
+            },
+            "sc": {
+              "acc": 0.5375,
+              "cost": 559.4657,
+              "sampling_failure": 0.33510000000000006,
+              "selection_failure": 0.12739999999999996
+            },
+            "logp": {
+              "acc": 0.5425,
+              "cost": 559.4657,
+              "sampling_failure": 0.33510000000000006,
+              "selection_failure": 0.12239999999999995
+            },
+            "logp_rwc": {
+              "acc": 0.5425,
+              "cost": 559.4657,
+              "sampling_failure": 0.33510000000000006,
+              "selection_failure": 0.12239999999999995
+            },
+            "selfcert": {
+              "acc": 0.5534000000000001,
+              "cost": 559.4657,
+              "sampling_failure": 0.33510000000000006,
+              "selection_failure": 0.11149999999999982
+            },
+            "selfcert_rwc": {
+              "acc": 0.5534000000000001,
+              "cost": 559.4657,
+              "sampling_failure": 0.33510000000000006,
+              "selection_failure": 0.11149999999999982
+            },
+            "shortest": {
+              "acc": 0.5462,
+              "cost": 559.4657,
+              "sampling_failure": 0.33510000000000006,
+              "selection_failure": 0.11869999999999992
+            },
+            "vision": {
+              "acc": 0.5455,
+              "cost": 559.4657,
+              "sampling_failure": 0.33510000000000006,
+              "selection_failure": 0.11939999999999995
+            },
+            "vision_rwc": {
+              "acc": 0.5455,
+              "cost": 559.4657,
+              "sampling_failure": 0.33510000000000006,
+              "selection_failure": 0.11939999999999995
+            },
+            "visconf": {
+              "acc": 0.5574000000000001,
+              "cost": 559.4657,
+              "sampling_failure": 0.33510000000000006,
+              "selection_failure": 0.10749999999999982
+            },
+            "visconf_rwc": {
+              "acc": 0.5574000000000001,
+              "cost": 559.4657,
+              "sampling_failure": 0.33510000000000006,
+              "selection_failure": 0.10749999999999982
+            },
+            "visconf_token": {
+              "acc": 0.5549,
+              "cost": 559.4657,
+              "sampling_failure": 0.33510000000000006,
+              "selection_failure": 0.10999999999999999
+            },
+            "visconf_token_rwc": {
+              "acc": 0.5549,
+              "cost": 559.4657,
+              "sampling_failure": 0.33510000000000006,
+              "selection_failure": 0.10999999999999999
+            }
+          }
+        },
+        "4": {
+          "oracle": 0.7577,
+          "distinct_groups": 1.9333000000000002,
+          "distinct_valid_groups": 1.6023,
+          "no_answer_frac": 0.1536,
+          "methods": {
+            "first": {
+              "acc": 0.5375,
+              "cost": 282.3184,
+              "sampling_failure": 0.24229999999999996,
+              "selection_failure": 0.22020000000000006
+            },
+            "sc": {
+              "acc": 0.5832999999999999,
+              "cost": 1120.385,
+              "sampling_failure": 0.24229999999999996,
+              "selection_failure": 0.1744000000000001
+            },
+            "logp": {
+              "acc": 0.5392,
+              "cost": 1120.385,
+              "sampling_failure": 0.24229999999999996,
+              "selection_failure": 0.21850000000000003
+            },
+            "logp_rwc": {
+              "acc": 0.5605,
+              "cost": 1120.385,
+              "sampling_failure": 0.24229999999999996,
+              "selection_failure": 0.19720000000000004
+            },
+            "selfcert": {
+              "acc": 0.5545999999999999,
+              "cost": 1120.385,
+              "sampling_failure": 0.24229999999999996,
+              "selection_failure": 0.20310000000000017
+            },
+            "selfcert_rwc": {
+              "acc": 0.5729000000000001,
+              "cost": 1120.385,
+              "sampling_failure": 0.24229999999999996,
+              "selection_failure": 0.18479999999999996
+            },
+            "shortest": {
+              "acc": 0.5438999999999999,
+              "cost": 1120.385,
+              "sampling_failure": 0.24229999999999996,
+              "selection_failure": 0.2138000000000001
+            },
+            "vision": {
+              "acc": 0.539,
+              "cost": 1120.385,
+              "sampling_failure": 0.24229999999999996,
+              "selection_failure": 0.2187
+            },
+            "vision_rwc": {
+              "acc": 0.5664000000000001,
+              "cost": 1120.385,
+              "sampling_failure": 0.24229999999999996,
+              "selection_failure": 0.19129999999999991
+            },
+            "visconf": {
+              "acc": 0.5638,
+              "cost": 1120.385,
+              "sampling_failure": 0.24229999999999996,
+              "selection_failure": 0.19390000000000007
+            },
+            "visconf_rwc": {
+              "acc": 0.5783,
+              "cost": 1120.385,
+              "sampling_failure": 0.24229999999999996,
+              "selection_failure": 0.1794
+            },
+            "visconf_token": {
+              "acc": 0.5622,
+              "cost": 1120.385,
+              "sampling_failure": 0.24229999999999996,
+              "selection_failure": 0.1955
+            },
+            "visconf_token_rwc": {
+              "acc": 0.5785,
+              "cost": 1120.385,
+              "sampling_failure": 0.24229999999999996,
+              "selection_failure": 0.17920000000000003
+            }
+          }
+        },
+        "8": {
+          "oracle": 0.8271000000000001,
+          "distinct_groups": 2.5373,
+          "distinct_valid_groups": 2.1009,
+          "no_answer_frac": 0.15465,
+          "methods": {
+            "first": {
+              "acc": 0.5375,
+              "cost": 282.3184,
+              "sampling_failure": 0.17289999999999994,
+              "selection_failure": 0.2896000000000001
+            },
+            "sc": {
+              "acc": 0.6006,
+              "cost": 2245.2158,
+              "sampling_failure": 0.17289999999999994,
+              "selection_failure": 0.22650000000000003
+            },
+            "logp": {
+              "acc": 0.524,
+              "cost": 2245.2158,
+              "sampling_failure": 0.17289999999999994,
+              "selection_failure": 0.30310000000000004
+            },
+            "logp_rwc": {
+              "acc": 0.5864,
+              "cost": 2245.2158,
+              "sampling_failure": 0.17289999999999994,
+              "selection_failure": 0.24070000000000003
+            },
+            "selfcert": {
+              "acc": 0.5552999999999999,
+              "cost": 2245.2158,
+              "sampling_failure": 0.17289999999999994,
+              "selection_failure": 0.27180000000000015
+            },
+            "selfcert_rwc": {
+              "acc": 0.5959,
+              "cost": 2245.2158,
+              "sampling_failure": 0.17289999999999994,
+              "selection_failure": 0.23120000000000007
+            },
+            "shortest": {
+              "acc": 0.5457,
+              "cost": 2245.2158,
+              "sampling_failure": 0.17289999999999994,
+              "selection_failure": 0.2814000000000001
+            },
+            "vision": {
+              "acc": 0.5346000000000001,
+              "cost": 2245.2158,
+              "sampling_failure": 0.17289999999999994,
+              "selection_failure": 0.2925
+            },
+            "vision_rwc": {
+              "acc": 0.5972000000000001,
+              "cost": 2245.2158,
+              "sampling_failure": 0.17289999999999994,
+              "selection_failure": 0.2299
+            },
+            "visconf": {
+              "acc": 0.5617000000000001,
+              "cost": 2245.2158,
+              "sampling_failure": 0.17289999999999994,
+              "selection_failure": 0.26539999999999997
+            },
+            "visconf_rwc": {
+              "acc": 0.6045,
+              "cost": 2245.2158,
+              "sampling_failure": 0.17289999999999994,
+              "selection_failure": 0.22260000000000002
+            },
+            "visconf_token": {
+              "acc": 0.5548,
+              "cost": 2245.2158,
+              "sampling_failure": 0.17289999999999994,
+              "selection_failure": 0.2723000000000001
+            },
+            "visconf_token_rwc": {
+              "acc": 0.6028,
+              "cost": 2245.2158,
+              "sampling_failure": 0.17289999999999994,
+              "selection_failure": 0.22430000000000005
+            }
+          }
+        },
+        "16": {
+          "oracle": 0.8703,
+          "distinct_groups": 3.2185,
+          "distinct_valid_groups": 2.6816999999999998,
+          "no_answer_frac": 0.15378125,
+          "methods": {
+            "first": {
+              "acc": 0.5375,
+              "cost": 282.3184,
+              "sampling_failure": 0.12970000000000004,
+              "selection_failure": 0.3328
+            },
+            "sc": {
+              "acc": 0.6132000000000001,
+              "cost": 4485.875599999999,
+              "sampling_failure": 0.12970000000000004,
+              "selection_failure": 0.2570999999999999
+            },
+            "logp": {
+              "acc": 0.5092000000000001,
+              "cost": 4485.875599999999,
+              "sampling_failure": 0.12970000000000004,
+              "selection_failure": 0.36109999999999987
+            },
+            "logp_rwc": {
+              "acc": 0.6036,
+              "cost": 4485.875599999999,
+              "sampling_failure": 0.12970000000000004,
+              "selection_failure": 0.26669999999999994
+            },
+            "selfcert": {
+              "acc": 0.5475,
+              "cost": 4485.875599999999,
+              "sampling_failure": 0.12970000000000004,
+              "selection_failure": 0.3228
+            },
+            "selfcert_rwc": {
+              "acc": 0.6157999999999999,
+              "cost": 4485.875599999999,
+              "sampling_failure": 0.12970000000000004,
+              "selection_failure": 0.25450000000000006
+            },
+            "shortest": {
+              "acc": 0.5401000000000001,
+              "cost": 4485.875599999999,
+              "sampling_failure": 0.12970000000000004,
+              "selection_failure": 0.3301999999999998
+            },
+            "vision": {
+              "acc": 0.5337000000000001,
+              "cost": 4485.875599999999,
+              "sampling_failure": 0.12970000000000004,
+              "selection_failure": 0.3365999999999999
+            },
+            "vision_rwc": {
+              "acc": 0.615,
+              "cost": 4485.875599999999,
+              "sampling_failure": 0.12970000000000004,
+              "selection_failure": 0.25529999999999997
+            },
+            "visconf": {
+              "acc": 0.5670999999999999,
+              "cost": 4485.875599999999,
+              "sampling_failure": 0.12970000000000004,
+              "selection_failure": 0.3032
+            },
+            "visconf_rwc": {
+              "acc": 0.6204000000000001,
+              "cost": 4485.875599999999,
+              "sampling_failure": 0.12970000000000004,
+              "selection_failure": 0.2498999999999999
+            },
+            "visconf_token": {
+              "acc": 0.5602,
+              "cost": 4485.875599999999,
+              "sampling_failure": 0.12970000000000004,
+              "selection_failure": 0.31009999999999993
+            },
+            "visconf_token_rwc": {
+              "acc": 0.6184,
+              "cost": 4485.875599999999,
+              "sampling_failure": 0.12970000000000004,
+              "selection_failure": 0.2519
+            }
+          }
+        },
+        "32": {
+          "oracle": 0.894,
+          "distinct_groups": 3.987,
+          "distinct_valid_groups": 3.351,
+          "no_answer_frac": 0.15378125,
+          "methods": {
+            "first": {
+              "acc": 0.5375,
+              "cost": 282.3184,
+              "sampling_failure": 0.10599999999999998,
+              "selection_failure": 0.35650000000000004
+            },
+            "sc": {
+              "acc": 0.6213,
+              "cost": 8961.703,
+              "sampling_failure": 0.10599999999999998,
+              "selection_failure": 0.27270000000000005
+            },
+            "logp": {
+              "acc": 0.493,
+              "cost": 8961.703,
+              "sampling_failure": 0.10599999999999998,
+              "selection_failure": 0.401
+            },
+            "logp_rwc": {
+              "acc": 0.614,
+              "cost": 8961.703,
+              "sampling_failure": 0.10599999999999998,
+              "selection_failure": 0.28
+            },
+            "selfcert": {
+              "acc": 0.548,
+              "cost": 8961.703,
+              "sampling_failure": 0.10599999999999998,
+              "selection_failure": 0.346
+            },
+            "selfcert_rwc": {
+              "acc": 0.6267,
+              "cost": 8961.703,
+              "sampling_failure": 0.10599999999999998,
+              "selection_failure": 0.2673
+            },
+            "shortest": {
+              "acc": 0.5332,
+              "cost": 8961.703,
+              "sampling_failure": 0.10599999999999998,
+              "selection_failure": 0.3608
+            },
+            "vision": {
+              "acc": 0.528,
+              "cost": 8961.703,
+              "sampling_failure": 0.10599999999999998,
+              "selection_failure": 0.366
+            },
+            "vision_rwc": {
+              "acc": 0.629,
+              "cost": 8961.703,
+              "sampling_failure": 0.10599999999999998,
+              "selection_failure": 0.265
+            },
+            "visconf": {
+              "acc": 0.571,
+              "cost": 8961.703,
+              "sampling_failure": 0.10599999999999998,
+              "selection_failure": 0.32300000000000006
+            },
+            "visconf_rwc": {
+              "acc": 0.631,
+              "cost": 8961.703,
+              "sampling_failure": 0.10599999999999998,
+              "selection_failure": 0.263
+            },
+            "visconf_token": {
+              "acc": 0.559,
+              "cost": 8961.703,
+              "sampling_failure": 0.10599999999999998,
+              "selection_failure": 0.33499999999999996
+            },
+            "visconf_token_rwc": {
+              "acc": 0.627,
+              "cost": 8961.703,
+              "sampling_failure": 0.10599999999999998,
+              "selection_failure": 0.267
+            }
+          }
+        }
+      }
+    }
+  },
+  "bootstrap_eval": {
+    "resamples": 1000,
+    "unit": "question (after averaging over orders)",
+    "differences": {
+      "1": {
+        "first-sc": {
+          "diff": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "logp-sc": {
+          "diff": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "logp_rwc-sc": {
+          "diff": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "selfcert-sc": {
+          "diff": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "selfcert_rwc-sc": {
+          "diff": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "shortest-sc": {
+          "diff": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "vision-sc": {
+          "diff": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "vision_rwc-sc": {
+          "diff": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "visconf-sc": {
+          "diff": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "visconf_rwc-sc": {
+          "diff": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "visconf_token-sc": {
+          "diff": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "visconf_token_rwc-sc": {
+          "diff": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "sc-first": {
+          "diff": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "logp-first": {
+          "diff": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "logp_rwc-first": {
+          "diff": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "selfcert-first": {
+          "diff": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "selfcert_rwc-first": {
+          "diff": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "shortest-first": {
+          "diff": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "vision-first": {
+          "diff": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "vision_rwc-first": {
+          "diff": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "visconf-first": {
+          "diff": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "visconf_rwc-first": {
+          "diff": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "visconf_token-first": {
+          "diff": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "visconf_token_rwc-first": {
+          "diff": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        }
+      },
+      "2": {
+        "first-sc": {
+          "diff": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "logp-sc": {
+          "diff": 0.0051249999999999985,
+          "lo": -0.0037500000000000007,
+          "hi": 0.013378124999999998
+        },
+        "logp_rwc-sc": {
+          "diff": 0.0051249999999999985,
+          "lo": -0.0037500000000000007,
+          "hi": 0.013378124999999998
+        },
+        "selfcert-sc": {
+          "diff": 0.013999999999999999,
+          "lo": 0.005250000000000001,
+          "hi": 0.02275
+        },
+        "selfcert_rwc-sc": {
+          "diff": 0.013999999999999999,
+          "lo": 0.005250000000000001,
+          "hi": 0.02275
+        },
+        "shortest-sc": {
+          "diff": 0.008874999999999997,
+          "lo": -0.00012812500000000196,
+          "hi": 0.01787812499999999
+        },
+        "vision-sc": {
+          "diff": 0.0085,
+          "lo": -0.0006250000000000022,
+          "hi": 0.017124999999999998
+        },
+        "vision_rwc-sc": {
+          "diff": 0.0085,
+          "lo": -0.0006250000000000022,
+          "hi": 0.017124999999999998
+        },
+        "visconf-sc": {
+          "diff": 0.02025,
+          "lo": 0.01225,
+          "hi": 0.028003124999999993
+        },
+        "visconf_rwc-sc": {
+          "diff": 0.02025,
+          "lo": 0.01225,
+          "hi": 0.028003124999999993
+        },
+        "visconf_token-sc": {
+          "diff": 0.017625,
+          "lo": 0.009000000000000001,
+          "hi": 0.025999999999999995
+        },
+        "visconf_token_rwc-sc": {
+          "diff": 0.017625,
+          "lo": 0.009000000000000001,
+          "hi": 0.025999999999999995
+        },
+        "sc-first": {
+          "diff": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "logp-first": {
+          "diff": 0.0051249999999999985,
+          "lo": -0.0037500000000000007,
+          "hi": 0.013378124999999998
+        },
+        "logp_rwc-first": {
+          "diff": 0.0051249999999999985,
+          "lo": -0.0037500000000000007,
+          "hi": 0.013378124999999998
+        },
+        "selfcert-first": {
+          "diff": 0.013999999999999999,
+          "lo": 0.005250000000000001,
+          "hi": 0.02275
+        },
+        "selfcert_rwc-first": {
+          "diff": 0.013999999999999999,
+          "lo": 0.005250000000000001,
+          "hi": 0.02275
+        },
+        "shortest-first": {
+          "diff": 0.008874999999999997,
+          "lo": -0.00012812500000000196,
+          "hi": 0.01787812499999999
+        },
+        "vision-first": {
+          "diff": 0.0085,
+          "lo": -0.0006250000000000022,
+          "hi": 0.017124999999999998
+        },
+        "vision_rwc-first": {
+          "diff": 0.0085,
+          "lo": -0.0006250000000000022,
+          "hi": 0.017124999999999998
+        },
+        "visconf-first": {
+          "diff": 0.02025,
+          "lo": 0.01225,
+          "hi": 0.028003124999999993
+        },
+        "visconf_rwc-first": {
+          "diff": 0.02025,
+          "lo": 0.01225,
+          "hi": 0.028003124999999993
+        },
+        "visconf_token-first": {
+          "diff": 0.017625,
+          "lo": 0.009000000000000001,
+          "hi": 0.025999999999999995
+        },
+        "visconf_token_rwc-first": {
+          "diff": 0.017625,
+          "lo": 0.009000000000000001,
+          "hi": 0.025999999999999995
+        }
+      },
+      "4": {
+        "first-sc": {
+          "diff": -0.046875,
+          "lo": -0.055253125,
+          "hi": -0.037493750000000006
+        },
+        "logp-sc": {
+          "diff": -0.0455,
+          "lo": -0.056374999999999995,
+          "hi": -0.033
+        },
+        "logp_rwc-sc": {
+          "diff": -0.023625000000000004,
+          "lo": -0.03163124999999999,
+          "hi": -0.015246875000000005
+        },
+        "selfcert-sc": {
+          "diff": -0.032625,
+          "lo": -0.04275,
+          "hi": -0.021625000000000005
+        },
+        "selfcert_rwc-sc": {
+          "diff": -0.013875,
+          "lo": -0.021374999999999998,
+          "hi": -0.005746875000000003
+        },
+        "shortest-sc": {
+          "diff": -0.039624999999999994,
+          "lo": -0.05199999999999999,
+          "hi": -0.0275
+        },
+        "vision-sc": {
+          "diff": -0.042875,
+          "lo": -0.056125,
+          "hi": -0.030250000000000003
+        },
+        "vision_rwc-sc": {
+          "diff": -0.016124999999999997,
+          "lo": -0.025003125,
+          "hi": -0.007625000000000001
+        },
+        "visconf-sc": {
+          "diff": -0.018499999999999996,
+          "lo": -0.030128125000000002,
+          "hi": -0.006996875000000002
+        },
+        "visconf_rwc-sc": {
+          "diff": -0.005874999999999999,
+          "lo": -0.014128125,
+          "hi": 0.0023781249999999957
+        },
+        "visconf_token-sc": {
+          "diff": -0.0195,
+          "lo": -0.030384374999999995,
+          "hi": -0.0073687500000000055
+        },
+        "visconf_token_rwc-sc": {
+          "diff": -0.00475,
+          "lo": -0.012374999999999999,
+          "hi": 0.0036312499999999934
+        },
+        "sc-first": {
+          "diff": 0.046875,
+          "lo": 0.03749375,
+          "hi": 0.055253125
+        },
+        "logp-first": {
+          "diff": 0.001374999999999998,
+          "lo": -0.009753125000000001,
+          "hi": 0.012624999999999997
+        },
+        "logp_rwc-first": {
+          "diff": 0.023249999999999996,
+          "lo": 0.013249999999999994,
+          "hi": 0.032624999999999994
+        },
+        "selfcert-first": {
+          "diff": 0.014249999999999999,
+          "lo": 0.0033718749999999973,
+          "hi": 0.025625
+        },
+        "selfcert_rwc-first": {
+          "diff": 0.033,
+          "lo": 0.023874999999999997,
+          "hi": 0.042374999999999996
+        },
+        "shortest-first": {
+          "diff": 0.0072499999999999995,
+          "lo": -0.004503125000000001,
+          "hi": 0.019503124999999993
+        },
+        "vision-first": {
+          "diff": 0.003999999999999997,
+          "lo": -0.008500000000000002,
+          "hi": 0.0165
+        },
+        "vision_rwc-first": {
+          "diff": 0.030750000000000003,
+          "lo": 0.020621874999999994,
+          "hi": 0.040374999999999994
+        },
+        "visconf-first": {
+          "diff": 0.028374999999999997,
+          "lo": 0.01675,
+          "hi": 0.040125
+        },
+        "visconf_rwc-first": {
+          "diff": 0.040999999999999995,
+          "lo": 0.0315,
+          "hi": 0.050875
+        },
+        "visconf_token-first": {
+          "diff": 0.027374999999999997,
+          "lo": 0.01586875,
+          "hi": 0.03937499999999999
+        },
+        "visconf_token_rwc-first": {
+          "diff": 0.042125,
+          "lo": 0.032249999999999994,
+          "hi": 0.052003125000000004
+        }
+      },
+      "8": {
+        "first-sc": {
+          "diff": -0.06187499999999999,
+          "lo": -0.073753125,
+          "hi": -0.04935937500000002
+        },
+        "logp-sc": {
+          "diff": -0.07775,
+          "lo": -0.09262812499999999,
+          "hi": -0.060625
+        },
+        "logp_rwc-sc": {
+          "diff": -0.014375,
+          "lo": -0.022,
+          "hi": -0.006996875000000002
+        },
+        "selfcert-sc": {
+          "diff": -0.046875,
+          "lo": -0.06087812499999999,
+          "hi": -0.031746875
+        },
+        "selfcert_rwc-sc": {
+          "diff": -0.0041249999999999985,
+          "lo": -0.011503125,
+          "hi": 0.0035031249999999967
+        },
+        "shortest-sc": {
+          "diff": -0.05425,
+          "lo": -0.070378125,
+          "hi": -0.03774999999999999
+        },
+        "vision-sc": {
+          "diff": -0.061500000000000006,
+          "lo": -0.077503125,
+          "hi": -0.045125
+        },
+        "vision_rwc-sc": {
+          "diff": 0.0006250000000000006,
+          "lo": -0.007124999999999999,
+          "hi": 0.009000000000000001
+        },
+        "visconf-sc": {
+          "diff": -0.034625,
+          "lo": -0.048759375,
+          "hi": -0.019996875000000004
+        },
+        "visconf_rwc-sc": {
+          "diff": 0.006750000000000001,
+          "lo": -0.0007562499999999998,
+          "hi": 0.014125
+        },
+        "visconf_token-sc": {
+          "diff": -0.042125,
+          "lo": -0.05538125000000001,
+          "hi": -0.027500000000000004
+        },
+        "visconf_token_rwc-sc": {
+          "diff": 0.005750000000000002,
+          "lo": -0.0015031249999999995,
+          "hi": 0.012875000000000001
+        },
+        "sc-first": {
+          "diff": 0.06187499999999999,
+          "lo": 0.049359375000000004,
+          "hi": 0.07375312499999999
+        },
+        "logp-first": {
+          "diff": -0.015875000000000007,
+          "lo": -0.029503125,
+          "hi": -0.0012500000000000028
+        },
+        "logp_rwc-first": {
+          "diff": 0.047499999999999994,
+          "lo": 0.034496874999999996,
+          "hi": 0.06025624999999999
+        },
+        "selfcert-first": {
+          "diff": 0.014999999999999998,
+          "lo": 0.0009999999999999987,
+          "hi": 0.02975312499999999
+        },
+        "selfcert_rwc-first": {
+          "diff": 0.057749999999999996,
+          "lo": 0.043746875,
+          "hi": 0.070378125
+        },
+        "shortest-first": {
+          "diff": 0.007625,
+          "lo": -0.00650625,
+          "hi": 0.02275
+        },
+        "vision-first": {
+          "diff": 0.00037499999999999865,
+          "lo": -0.014128125,
+          "hi": 0.015381249999999996
+        },
+        "vision_rwc-first": {
+          "diff": 0.0625,
+          "lo": 0.049493749999999996,
+          "hi": 0.07537812499999999
+        },
+        "visconf-first": {
+          "diff": 0.027249999999999996,
+          "lo": 0.01335,
+          "hi": 0.041374999999999995
+        },
+        "visconf_rwc-first": {
+          "diff": 0.06862499999999999,
+          "lo": 0.054375,
+          "hi": 0.08225312499999998
+        },
+        "visconf_token-first": {
+          "diff": 0.019749999999999993,
+          "lo": 0.006371874999999996,
+          "hi": 0.033624999999999995
+        },
+        "visconf_token_rwc-first": {
+          "diff": 0.06762499999999999,
+          "lo": 0.054121875,
+          "hi": 0.080628125
+        }
+      },
+      "16": {
+        "first-sc": {
+          "diff": -0.07475,
+          "lo": -0.089378125,
+          "hi": -0.058996875
+        },
+        "logp-sc": {
+          "diff": -0.10825,
+          "lo": -0.12937812499999998,
+          "hi": -0.08600000000000002
+        },
+        "logp_rwc-sc": {
+          "diff": -0.010124999999999997,
+          "lo": -0.01825,
+          "hi": -0.0021249999999999993
+        },
+        "selfcert-sc": {
+          "diff": -0.06912499999999999,
+          "lo": -0.088521875,
+          "hi": -0.048496874999999995
+        },
+        "selfcert_rwc-sc": {
+          "diff": 0.00425,
+          "lo": -0.0033750000000000004,
+          "hi": 0.0115
+        },
+        "shortest-sc": {
+          "diff": -0.06875,
+          "lo": -0.09138437500000002,
+          "hi": -0.0482375
+        },
+        "vision-sc": {
+          "diff": -0.073875,
+          "lo": -0.09525,
+          "hi": -0.050371875
+        },
+        "vision_rwc-sc": {
+          "diff": 0.00425,
+          "lo": -0.004378125,
+          "hi": 0.014124999999999997
+        },
+        "visconf-sc": {
+          "diff": -0.04075,
+          "lo": -0.05950312499999999,
+          "hi": -0.021000000000000005
+        },
+        "visconf_rwc-sc": {
+          "diff": 0.009625000000000002,
+          "lo": 0.0018718750000000027,
+          "hi": 0.018000000000000002
+        },
+        "visconf_token-sc": {
+          "diff": -0.048249999999999994,
+          "lo": -0.06675,
+          "hi": -0.0285
+        },
+        "visconf_token_rwc-sc": {
+          "diff": 0.0075,
+          "lo": -0.0008749999999999997,
+          "hi": 0.016375
+        },
+        "sc-first": {
+          "diff": 0.07475,
+          "lo": 0.058996875,
+          "hi": 0.08937812499999999
+        },
+        "logp-first": {
+          "diff": -0.0335,
+          "lo": -0.050628125,
+          "hi": -0.015621875000000006
+        },
+        "logp_rwc-first": {
+          "diff": 0.064625,
+          "lo": 0.048496874999999995,
+          "hi": 0.0815
+        },
+        "selfcert-first": {
+          "diff": 0.0056250000000000015,
+          "lo": -0.01188125,
+          "hi": 0.024753124999999997
+        },
+        "selfcert_rwc-first": {
+          "diff": 0.079,
+          "lo": 0.0625,
+          "hi": 0.094753125
+        },
+        "shortest-first": {
+          "diff": 0.005999999999999997,
+          "lo": -0.012124999999999999,
+          "hi": 0.025506249999999994
+        },
+        "vision-first": {
+          "diff": 0.0008749999999999986,
+          "lo": -0.017375,
+          "hi": 0.020253124999999997
+        },
+        "vision_rwc-first": {
+          "diff": 0.079,
+          "lo": 0.062871875,
+          "hi": 0.09462812499999998
+        },
+        "visconf-first": {
+          "diff": 0.034,
+          "lo": 0.016999999999999998,
+          "hi": 0.051625
+        },
+        "visconf_rwc-first": {
+          "diff": 0.084375,
+          "lo": 0.06799062499999999,
+          "hi": 0.10037812499999998
+        },
+        "visconf_token-first": {
+          "diff": 0.0265,
+          "lo": 0.009371875000000002,
+          "hi": 0.044375
+        },
+        "visconf_token_rwc-first": {
+          "diff": 0.08224999999999999,
+          "lo": 0.065375,
+          "hi": 0.09837499999999999
+        }
+      },
+      "32": {
+        "first-sc": {
+          "diff": -0.07862499999999999,
+          "lo": -0.09800625,
+          "hi": -0.05887187499999999
+        },
+        "logp-sc": {
+          "diff": -0.13475,
+          "lo": -0.16537812500000001,
+          "hi": -0.10349375
+        },
+        "logp_rwc-sc": {
+          "diff": -0.008499999999999999,
+          "lo": -0.021253125,
+          "hi": 0.005506249999999995
+        },
+        "selfcert-sc": {
+          "diff": -0.06974999999999999,
+          "lo": -0.100259375,
+          "hi": -0.037250000000000005
+        },
+        "selfcert_rwc-sc": {
+          "diff": 0.009000000000000001,
+          "lo": -0.004003125,
+          "hi": 0.022503124999999995
+        },
+        "shortest-sc": {
+          "diff": -0.07725,
+          "lo": -0.10801250000000001,
+          "hi": -0.047624999999999994
+        },
+        "vision-sc": {
+          "diff": -0.07975,
+          "lo": -0.10975625,
+          "hi": -0.047496875
+        },
+        "vision_rwc-sc": {
+          "diff": 0.012750000000000001,
+          "lo": -0.003003125,
+          "hi": 0.029378124999999995
+        },
+        "visconf-sc": {
+          "diff": -0.0385,
+          "lo": -0.06612812500000001,
+          "hi": -0.008865625000000009
+        },
+        "visconf_rwc-sc": {
+          "diff": 0.015250000000000001,
+          "lo": 0.001121875,
+          "hi": 0.029878125
+        },
+        "visconf_token-sc": {
+          "diff": -0.053500000000000006,
+          "lo": -0.08075624999999999,
+          "hi": -0.021865625000000007
+        },
+        "visconf_token_rwc-sc": {
+          "diff": 0.010249999999999999,
+          "lo": -0.0038749999999999995,
+          "hi": 0.024503124999999997
+        },
+        "sc-first": {
+          "diff": 0.07862499999999999,
+          "lo": 0.05887187499999999,
+          "hi": 0.09800625
+        },
+        "logp-first": {
+          "diff": -0.05612500000000001,
+          "lo": -0.082009375,
+          "hi": -0.030375000000000006
+        },
+        "logp_rwc-first": {
+          "diff": 0.07012499999999999,
+          "lo": 0.049246874999999996,
+          "hi": 0.08938749999999998
+        },
+        "selfcert-first": {
+          "diff": 0.008874999999999997,
+          "lo": -0.017259375,
+          "hi": 0.03550624999999999
+        },
+        "selfcert_rwc-first": {
+          "diff": 0.087625,
+          "lo": 0.065996875,
+          "hi": 0.107875
+        },
+        "shortest-first": {
+          "diff": 0.0013749999999999962,
+          "lo": -0.023134375000000002,
+          "hi": 0.026881249999999992
+        },
+        "vision-first": {
+          "diff": -0.0011250000000000032,
+          "lo": -0.026875,
+          "hi": 0.025778124999999978
+        },
+        "vision_rwc-first": {
+          "diff": 0.091375,
+          "lo": 0.06949999999999999,
+          "hi": 0.11113749999999999
+        },
+        "visconf-first": {
+          "diff": 0.040124999999999994,
+          "lo": 0.015496874999999998,
+          "hi": 0.06488437499999998
+        },
+        "visconf_rwc-first": {
+          "diff": 0.09387499999999999,
+          "lo": 0.07386875,
+          "hi": 0.113625
+        },
+        "visconf_token-first": {
+          "diff": 0.025124999999999998,
+          "lo": -3.125000000002004e-06,
+          "hi": 0.050134374999999995
+        },
+        "visconf_token_rwc-first": {
+          "diff": 0.088875,
+          "lo": 0.06849999999999999,
+          "hi": 0.10838124999999998
+        }
+      }
+    }
+  },
+  "seconds": 39.195781699963845
+}

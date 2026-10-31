@@ -1,0 +1,30 @@
+{
+  "rows": {
+    "generations": 32000,
+    "probability": 32000,
+    "joined": 32000
+  },
+  "questions": 1000,
+  "rollouts_per_question_all_32": true,
+  "token_ids_eq_length": 32000,
+  "logp_eq_length": 32000,
+  "kl_eq_length": 32000,
+  "zero_length_rollouts": 0,
+  "hit_max_new_tokens": 523,
+  "null_extracted": 521,
+  "retained_tokens": 20742094,
+  "all_aligned": true,
+  "timeouts_string_fallback": [
+    "test:4928"
+  ],
+  "mixed_correctness_groups": 0,
+  "status_counts": {
+    "ok": 31479,
+    "missing": 521
+  },
+  "no_answer_rollouts": 521,
+  "seconds": 186.4288668000372,
+  "pass_at_32": 0.919,
+  "rollout_accuracy": 0.6631875,
+  "zero_denominator_tokens": 0
+}

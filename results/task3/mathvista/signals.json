@@ -1,0 +1,71 @@
+{
+  "split": "eval",
+  "n_questions": 800,
+  "n_mixed": 634,
+  "quartile": "top 8 vs bottom 8 of 32 rollouts by score, ties by rollout_id",
+  "scores": {
+    "calibrated_conf": {
+      "mean_spearman_with_correct_mixed": 0.048454985024995435,
+      "quartile_gap_all": 0.03828125,
+      "quartile_gap_mixed": 0.04830441640378549,
+      "mean_spearman_with_length": 0.34690601446077507
+    },
+    "length": {
+      "mean_spearman_with_correct_mixed": -0.05039063043904237,
+      "quartile_gap_all": -0.039375,
+      "quartile_gap_mixed": -0.04968454258675079,
+      "mean_spearman_with_length": null
+    },
+    "logp": {
+      "mean_spearman_with_correct_mixed": 0.02868328825953539,
+      "quartile_gap_all": 0.0159375,
+      "quartile_gap_mixed": 0.020110410094637224,
+      "mean_spearman_with_length": 0.32898145589581074
+    },
+    "selfcert": {
+      "mean_spearman_with_correct_mixed": 0.04766502267939455,
+      "quartile_gap_all": 0.03484375,
+      "quartile_gap_mixed": 0.04396687697160883,
+      "mean_spearman_with_length": 0.3493334725284418
+    },
+    "visconf": {
+      "mean_spearman_with_correct_mixed": 0.08880111648426187,
+      "quartile_gap_all": 0.07390625,
+      "quartile_gap_mixed": 0.09325709779179811,
+      "mean_spearman_with_length": -0.2750367811900654
+    },
+    "visconf_token": {
+      "mean_spearman_with_correct_mixed": 0.08046815838543267,
+      "quartile_gap_all": 0.07234375,
+      "quartile_gap_mixed": 0.09128548895899054,
+      "mean_spearman_with_length": -0.32180257067151957
+    },
+    "vision": {
+      "mean_spearman_with_correct_mixed": 0.04124393736872655,
+      "quartile_gap_all": 0.0378125,
+      "quartile_gap_mixed": 0.04771293375394322,
+      "mean_spearman_with_length": -0.6857520445845515
+    }
+  },
+  "confidence_vision": {
+    "calibration": "token KL pooled over all 32 rollouts of the question, 5th/95th percentiles",
+    "per_rollout_corr": {
+      "mean": -0.2106680740183363,
+      "median": -0.20848316371101716,
+      "q25": -0.33268180874189923,
+      "q75": -0.07400594685689413,
+      "frac_positive": 0.14715313624276552,
+      "n_rollouts": 25572
+    },
+    "per_question_mean_corr": {
+      "mean": -0.21099388014225517,
+      "median": -0.21154463296936793
+    },
+    "corr_by_correctness": {
+      "False": -0.22049682079643418,
+      "True": -0.20220818566512958
+    },
+    "mean_cov": -0.0022514017639192743,
+    "identity_max_abs_error": 1.8686544811519212e-09
+  }
+}
