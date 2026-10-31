@@ -1,0 +1,26 @@
+{
+  "template": {
+    "template_matches": true,
+    "reference": "<|im_start|>user\n@@IMG@@\nHow many dogs are there?\nAnswer the question using a single word or phrase.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+  },
+  "n_visual": 49,
+  "frozen_llm_params_requiring_grad": 0,
+  "stages": {
+    "0": {
+      "connector_grad_norm": NaN,
+      "lora_grad_norm": null,
+      "trainable_params": 1837056
+    },
+    "1": {
+      "connector_grad_norm": 6.102705478668213,
+      "lora_grad_norm": 29.067909240722656,
+      "trainable_params": 6424576
+    },
+    "2": {
+      "connector_grad_norm": 2.508690118789673,
+      "lora_grad_norm": 8.913117408752441,
+      "trainable_params": 6424576
+    }
+  },
+  "base_weights_unchanged": true
+}

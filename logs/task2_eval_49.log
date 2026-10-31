@@ -21,3 +21,7 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
 Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<02:38,  1.95it/s]Loading weights:  76%|███████▌  | 235/311 [00:00<00:00, 506.22it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 424.63it/s]
 grounding_test {'correct': 0.406, 'swap': 0.359, 'mismatched': 0.422, 'none': 0.383} pair {'correct': 0.094, 'swap': 0.047, 'mismatched': 0.125, 'none': 0.0}
 vqa_test {'correct': 0.359, 'swap': 0.386, 'mismatched': 0.372, 'none': 0.336} pair {'correct': 0.031, 'swap': 0.052, 'mismatched': 0.042, 'none': 0.0}
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<02:16,  2.28it/s]Loading weights:  58%|█████▊    | 180/311 [00:00<00:00, 438.31it/s]Loading weights:  91%|█████████ | 283/311 [00:00<00:00, 463.90it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 396.33it/s]
+grounding_test {'correct': 0.648, 'swap': 0.156, 'mismatched': 0.367, 'none': 0.398} pair {'correct': 0.484, 'swap': 0.031, 'mismatched': 0.062, 'none': 0.0}
+vqa_test {'correct': 0.493, 'swap': 0.309, 'mismatched': 0.347, 'none': 0.334} pair {'correct': 0.188, 'swap': 0.052, 'mismatched': 0.042, 'none': 0.0}

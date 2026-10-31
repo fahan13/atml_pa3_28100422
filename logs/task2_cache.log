@@ -7,3 +7,6 @@ AttributeError: 'SiglipVisionModel' object has no attribute 'vision_model'
 Notes:
 - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
 cached 9264 images in 43s, LN check {'max_abs_diff_last_vs_LN_once': 0.0, 'max_abs_diff_last_vs_LN_twice': 104.0, 'shape': [128, 196, 768]}
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+cached 9264 images in 394s, LN check {'max_abs_diff_last_vs_LN_once': 0.0, 'max_abs_diff_last_vs_LN_twice': 104.0, 'shape': [128, 196, 768]}

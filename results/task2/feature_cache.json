@@ -7,9 +7,9 @@
   ],
   "dtype": "float16",
   "file_gb": 2.788982912,
-  "encode_seconds": 42.608000687000185,
-  "images_per_second": 217.42395443648383,
-  "file_index_seconds": 70.80979765499978,
+  "encode_seconds": 393.56704587,
+  "images_per_second": 23.538556129671516,
+  "file_index_seconds": 12.734212786999933,
   "layernorm_check": {
     "max_abs_diff_last_vs_LN_once": 0.0,
     "max_abs_diff_last_vs_LN_twice": 104.0,

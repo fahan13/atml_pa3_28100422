@@ -1,0 +1,185 @@
+{
+  "name": "vlm196",
+  "n_visual": 196,
+  "updates": 4500,
+  "elapsed_s": {
+    "1": 2826.216695119,
+    "2": 2186.9370044770003,
+    "3": 1078.003920708
+  },
+  "stages": [
+    {
+      "stage": 1,
+      "updates": 2250,
+      "seconds_this_session": 2826.22573252,
+      "trainable_params": 1837056,
+      "peak_allocated_gb": 1.6774656,
+      "peak_reserved_gb": 1.788870656
+    },
+    {
+      "stage": 2,
+      "updates": 1500,
+      "seconds_this_session": 2186.9920020729996,
+      "trainable_params": 6424576,
+      "peak_allocated_gb": 1.69046528,
+      "peak_reserved_gb": 1.879048192
+    },
+    {
+      "stage": 3,
+      "updates": 750,
+      "seconds_this_session": 1078.0511323189994,
+      "trainable_params": 6424576,
+      "peak_allocated_gb": 1.72716544,
+      "peak_reserved_gb": 1.916796928
+    }
+  ],
+  "skipped_updates": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "examples_presented": 72000,
+  "env": {
+    "python": "3.13.15",
+    "torch": "2.11.0+cu128",
+    "transformers": "5.8.0",
+    "cuda": "12.8",
+    "gpu": "Tesla T4",
+    "cuda_visible_devices": "0"
+  },
+  "config": {
+    "seed": 6304,
+    "name": "vlm196",
+    "model": "Qwen/Qwen3-0.6B",
+    "vision": "google/siglip-base-patch16-224",
+    "n_visual": 196,
+    "results": "results/task2",
+    "paths": {
+      "downloads": "data/task2/downloads",
+      "built": "outputs/task2/data/built.json",
+      "features": "outputs/task2/features",
+      "runs": "outputs/task2",
+      "input_roots": []
+    },
+    "urls": {
+      "coco_annotations": "http://images.cocodataset.org/annotations/annotations_trainval2014.zip",
+      "vqa_questions_train": "https://s3.amazonaws.com/cvmlp/vqa/mscoco/vqa/v2_Questions_Train_mscoco.zip",
+      "vqa_questions_val": "https://s3.amazonaws.com/cvmlp/vqa/mscoco/vqa/v2_Questions_Val_mscoco.zip",
+      "vqa_annotations_train": "https://s3.amazonaws.com/cvmlp/vqa/mscoco/vqa/v2_Annotations_Train_mscoco.zip",
+      "vqa_annotations_val": "https://s3.amazonaws.com/cvmlp/vqa/mscoco/vqa/v2_Annotations_Val_mscoco.zip",
+      "vqa_pairs_train": "https://s3.amazonaws.com/cvmlp/vqa/mscoco/vqa/v2_Complementary_Pairs_Train_mscoco.zip",
+      "vqa_pairs_val": "https://s3.amazonaws.com/cvmlp/vqa/mscoco/vqa/v2_Complementary_Pairs_Val_mscoco.zip"
+    },
+    "data": {
+      "caption_train_images": 6000,
+      "captions_per_train_image": 3,
+      "caption_dev_images": 96,
+      "presence_pool_pairs": 3000,
+      "counting_pool_pairs": 3000,
+      "grounding_dev": {
+        "presence": 12,
+        "counting": 12
+      },
+      "grounding_test": {
+        "presence": 32,
+        "counting": 32
+      },
+      "vqa_train": {
+        "yes/no": 640,
+        "number": 256,
+        "other": 640
+      },
+      "vqa_dev": {
+        "yes/no": 12,
+        "number": 8,
+        "other": 12
+      },
+      "vqa_test": {
+        "yes/no": 36,
+        "number": 24,
+        "other": 36
+      },
+      "min_consensus": 8,
+      "min_object_area": 1024,
+      "count_range": [
+        1,
+        4
+      ]
+    },
+    "caps": {
+      "question": 80,
+      "caption": 64,
+      "answer": 16
+    },
+    "prompts": {
+      "caption": "Describe this image in one sentence.",
+      "answer": "Answer the question using a single word or phrase."
+    },
+    "calibration": {
+      "n_text": 2000,
+      "n_images": 256
+    },
+    "lora": {
+      "r": 16,
+      "alpha": 32,
+      "dropout": 0.05,
+      "targets": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj"
+      ]
+    },
+    "train": {
+      "micro_batch": 8,
+      "grad_accum": 2,
+      "weight_decay": 0.01,
+      "max_grad_norm": 1.0,
+      "warmup_frac": 0.05,
+      "final_lr_frac": 0.1,
+      "grad_checkpointing": true,
+      "checkpoint_every": 250,
+      "dev_every": 500,
+      "stages": [
+        {
+          "name": "caption_alignment",
+          "updates": 2250,
+          "lr_connector": 0.001,
+          "lr_lora": null,
+          "mix": {
+            "caption": 1.0
+          }
+        },
+        {
+          "name": "visual_instruction",
+          "updates": 1500,
+          "lr_connector": 0.0001,
+          "lr_lora": 2e-05,
+          "mix": {
+            "presence": 0.5,
+            "counting": 0.25,
+            "caption": 0.25
+          }
+        },
+        {
+          "name": "natural_vqa",
+          "updates": 750,
+          "lr_connector": 5e-05,
+          "lr_lora": 1e-05,
+          "mix": {
+            "vqa": 0.7,
+            "presence": 0.1,
+            "counting": 0.1,
+            "caption": 0.1
+          }
+        }
+      ]
+    },
+    "eval": {
+      "max_new_tokens": 16,
+      "batch_size": 8,
+      "bootstrap": 4000
+    }
+  }
+}

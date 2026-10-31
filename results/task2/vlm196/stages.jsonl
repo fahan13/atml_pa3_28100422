@@ -1,0 +1,3 @@
+{"stage": 1, "updates": 2250, "seconds_this_session": 2826.22573252, "trainable_params": 1837056, "peak_allocated_gb": 1.6774656, "peak_reserved_gb": 1.788870656}
+{"stage": 2, "updates": 1500, "seconds_this_session": 2186.9920020729996, "trainable_params": 6424576, "peak_allocated_gb": 1.69046528, "peak_reserved_gb": 1.879048192}
+{"stage": 3, "updates": 750, "seconds_this_session": 1078.0511323189994, "trainable_params": 6424576, "peak_allocated_gb": 1.72716544, "peak_reserved_gb": 1.916796928}
