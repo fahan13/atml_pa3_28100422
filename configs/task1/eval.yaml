@@ -1,0 +1,16 @@
+base: base.yaml
+eval:
+  conditions:
+    baseline: {kind: base}
+    full_ft_mid: {kind: full, run: full_ft, update: 625}
+    full_ft: {kind: full, run: full_ft, update: 1250}
+    l2sp: {kind: full, run: l2sp, update: 1250}
+    lora4: {kind: adapter, run: lora4, update: 1250}
+    lora16: {kind: adapter, run: lora16, update: 1250}
+    oplora16: {kind: adapter, run: oplora16, update: 1250}
+  merged_root: outputs/task1/merged
+  results: results/task1/eval
+  gsm8k: {task: gsm8k_cot, max_gen_toks: 1024, batch_size: 32, truncation_tokens: 1024}
+  loglik: {tasks: [hellaswag, boolq, arc_easy], batch_size: 16}
+  qualitative: {file: configs/task1/first_plot_questions.yaml, max_new_tokens: 512, batch_size: 24, results: results/task1/qualitative}
+  diagnostics: {n_math: 32, n_nonmath: 32, protect_k: 128, results: results/task1/diagnostics}
