@@ -1,0 +1,29 @@
+{
+  "python": "3.13.15",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.8.0",
+  "cuda": "12.8",
+  "gpu": "Tesla T4",
+  "cuda_visible_devices": null,
+  "packages": {
+    "transformers": "5.8.0",
+    "accelerate": "1.14.0",
+    "datasets": "4.8.5",
+    "safetensors": "0.8.0",
+    "numpy": "2.1.3",
+    "pandas": "2.3.3",
+    "lm_eval": null,
+    "math-verify": null,
+    "pycocotools": "2.0.11"
+  },
+  "gpus": [
+    "Tesla T4",
+    "Tesla T4"
+  ],
+  "gpu_mem_gb": [
+    15.636037632,
+    15.636037632
+  ],
+  "disk_free_gb": 20.939440128,
+  "nvidia_smi": "Tesla T4, 580.178.04\nTesla T4, 580.178.04"
+}

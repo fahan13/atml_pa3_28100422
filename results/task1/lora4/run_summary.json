@@ -1,0 +1,124 @@
+{
+  "name": "lora4",
+  "method": "lora",
+  "lr": 0.0002,
+  "lambda_l2sp": 0.0,
+  "updates_done": 1250,
+  "updates_total": 1250,
+  "trainable_params": 2523136,
+  "skipped_updates": [],
+  "recovery_checkpoints": [
+    {
+      "update": 312,
+      "gb": 0.030751789
+    },
+    {
+      "update": 625,
+      "gb": 0.030751789
+    },
+    {
+      "update": 937,
+      "gb": 0.030751789
+    },
+    {
+      "update": 1250,
+      "gb": 0.030753365
+    }
+  ],
+  "exports": [
+    {
+      "update": 1250,
+      "adapter_raw_gb": 0.010124088,
+      "export_s": 0.026697970999521203
+    }
+  ],
+  "elapsed": {
+    "train_s": 8891.553880184996,
+    "checkpoint_s": 0.5116928869992989,
+    "export_s": 0.026697970999521203
+  },
+  "wall_this_session_s": 8902.004591994,
+  "peak_allocated_gb": 5.046529024,
+  "peak_reserved_gb": 5.758779392,
+  "init_A_hash": "0b3cc69602efe1ada1e70a36e15043522d243949",
+  "env": {
+    "python": "3.13.15",
+    "torch": "2.11.0+cu128",
+    "transformers": "5.8.0",
+    "cuda": "12.8",
+    "gpu": "Tesla T4",
+    "cuda_visible_devices": "0"
+  },
+  "config": {
+    "seed": 6304,
+    "model": "Qwen/Qwen3-0.6B",
+    "out_root": "outputs/task1",
+    "results_root": "results/task1",
+    "data": {
+      "source": "meta-math/MetaMathQA",
+      "gsm8k": "openai/gsm8k",
+      "n_train": 40000,
+      "max_length": 2048,
+      "cache": "outputs/task1/data/metamath_40k.pt",
+      "results": "results/task1/data"
+    },
+    "method": "lora",
+    "lr": 0.0002,
+    "lambda_l2sp": 0.0,
+    "ref_device": "cuda",
+    "train": {
+      "micro_batch": 2,
+      "grad_accum": 16,
+      "updates": 1250,
+      "warmup": 38,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0.01,
+      "max_grad_norm": 1.0,
+      "grad_checkpointing": true,
+      "checkpoint_updates": [
+        312,
+        625,
+        937,
+        1250
+      ],
+      "export_updates": [
+        1250
+      ],
+      "keep_recovery": 1
+    },
+    "lora": {
+      "r": 4,
+      "alpha": 8,
+      "dropout": 0.05,
+      "targets": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj",
+        "gate_proj",
+        "up_proj",
+        "down_proj"
+      ],
+      "protect_k": 0
+    },
+    "diag_layers": [
+      0,
+      13,
+      27
+    ],
+    "name": "lora4"
+  },
+  "sessions": [
+    {
+      "start_update": 0,
+      "end_update": 1250,
+      "wall_s": 8902.005024054999,
+      "peak_allocated_gb": 5.046529024,
+      "peak_reserved_gb": 5.758779392
+    }
+  ]
+}
