@@ -1,0 +1,40 @@
+seed: 6304
+model: Qwen/Qwen3-0.6B
+out_root: outputs/task1
+results_root: results/task1
+
+data:
+  source: meta-math/MetaMathQA
+  gsm8k: openai/gsm8k
+  n_train: 40000
+  max_length: 2048
+  cache: outputs/task1/data/metamath_40k.pt
+  results: results/task1/data
+
+method: full
+lr: 2.0e-5
+lambda_l2sp: 0.0
+ref_device: cuda
+
+train:
+  micro_batch: 2
+  grad_accum: 16
+  updates: 1250
+  warmup: 38
+  betas: [0.9, 0.999]
+  eps: 1.0e-8
+  weight_decay: 0.01
+  max_grad_norm: 1.0
+  grad_checkpointing: true
+  checkpoint_updates: [312, 625, 937, 1250]
+  export_updates: [1250]
+  keep_recovery: 1
+
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.05
+  targets: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
+  protect_k: 0
+
+diag_layers: [0, 13, 27]

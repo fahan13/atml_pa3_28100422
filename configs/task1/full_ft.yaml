@@ -1,0 +1,7 @@
+base: base.yaml
+name: full_ft
+method: full
+lr: 2.0e-5
+lambda_l2sp: 0.0
+train:
+  export_updates: [625, 1250]

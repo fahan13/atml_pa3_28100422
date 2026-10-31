@@ -1,0 +1,8 @@
+base: base.yaml
+name: oplora16
+method: oplora
+lr: 2.0e-4
+lora:
+  r: 16
+  alpha: 32
+  protect_k: 128
