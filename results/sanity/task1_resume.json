@@ -1,0 +1,35 @@
+{
+  "config": "configs/task1/lora16.yaml",
+  "updates_compared": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "max_loss_abs_diff": 0.00010145032728048342,
+  "loss_abs_diff": {
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.00010145032728048342,
+    "4": 1.4216821320522932e-05
+  },
+  "final_update": 4,
+  "max_param_abs_diff": 1.305752812186256e-05,
+  "resumed_sessions": [
+    {
+      "start_update": 0,
+      "end_update": 2,
+      "wall_s": 28.293032184000026,
+      "peak_allocated_gb": 2.653637632,
+      "peak_reserved_gb": 4.605345792
+    },
+    {
+      "start_update": 2,
+      "end_update": 4,
+      "wall_s": 24.575353727999982,
+      "peak_allocated_gb": 2.440320512,
+      "peak_reserved_gb": 4.490002432
+    }
+  ],
+  "pass": true
+}

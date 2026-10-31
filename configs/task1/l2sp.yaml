@@ -3,4 +3,4 @@ name: l2sp
 method: full
 lr: 2.0e-5
 lambda_l2sp: 1.0e-3
-ref_device: cuda
+ref_device: cpu

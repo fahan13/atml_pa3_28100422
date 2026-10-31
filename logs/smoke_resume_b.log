@@ -1,0 +1,9 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<04:37,  1.12it/s]Loading weights:  72%|███████▏  | 225/311 [00:00<00:00, 308.62it/s]Loading weights: 100%|██████████| 311/311 [00:01<00:00, 258.77it/s]
+[smoke_resume_b] update 1/1250 loss 1.0286 lr 0.00e+00 gn 4.135 9.6s/upd skipped 0
+done smoke_resume_b: 2 updates, peak 2.65 GB
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<02:27,  2.11it/s]Loading weights:  66%|██████▌   | 204/311 [00:00<00:00, 470.91it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 419.20it/s]
+resumed smoke_resume_b from /kaggle/working/repo/outputs/task1/smoke_resume_b/ckpt/update_2.pt at update 2
+[smoke_resume_b] update 3/1250 loss 1.0203 lr 1.05e-05 gn 3.936 8.0s/upd skipped 0
+done smoke_resume_b: 4 updates, peak 2.44 GB

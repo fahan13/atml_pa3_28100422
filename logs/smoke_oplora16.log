@@ -1,0 +1,4 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<02:11,  2.37it/s]Loading weights:  61%|██████▏   | 191/311 [00:00<00:00, 480.74it/s]Loading weights:  97%|█████████▋| 303/311 [00:00<00:00, 528.53it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 437.28it/s]
+[smoke_oplora16] update 1/1250 loss 1.0286 lr 0.00e+00 gn 3.680 11.8s/upd skipped 0
+done smoke_oplora16: 6 updates, peak 3.72 GB

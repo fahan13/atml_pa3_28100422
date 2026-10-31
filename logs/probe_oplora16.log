@@ -1,0 +1,3 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<04:52,  1.06it/s]Loading weights:  60%|██████    | 188/311 [00:01<00:00, 244.11it/s]Loading weights:  94%|█████████▎| 291/311 [00:01<00:00, 288.11it/s]Loading weights: 100%|██████████| 311/311 [00:01<00:00, 227.55it/s]
+{'name': 'oplora16', 'longest_tokens': [1941, 1741], 'seconds': 3.0142882739999095, 'trainable_params': 10092544, 'peak_allocated_gb': 7.962609152, 'peak_reserved_gb': 9.328132096, 'init_A_hash': '51eef9f4564cc12c79451af7269512964c84fa1e', 'basis_preprocess_s': 30.685538641999983, 'basis_bytes': 322961408}

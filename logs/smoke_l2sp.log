@@ -1,0 +1,5 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<02:59,  1.72it/s]Loading weights:  62%|██████▏   | 193/311 [00:00<00:00, 374.95it/s]Loading weights:  96%|█████████▌| 299/311 [00:00<00:00, 414.95it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 337.86it/s]
+[smoke_l2sp] update 1/1250 loss 1.0285 lr 0.00e+00 gn 33.290 7.5s/upd skipped 0
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  1.63it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  1.63it/s]
+done smoke_l2sp: 6 updates, peak 14.65 GB

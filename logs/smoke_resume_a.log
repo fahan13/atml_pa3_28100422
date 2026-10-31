@@ -1,0 +1,4 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<04:23,  1.18it/s]Loading weights:  70%|███████   | 219/311 [00:00<00:00, 312.95it/s]Loading weights: 100%|██████████| 311/311 [00:01<00:00, 280.27it/s]
+[smoke_resume_a] update 1/1250 loss 1.0286 lr 0.00e+00 gn 4.135 9.4s/upd skipped 0
+done smoke_resume_a: 4 updates, peak 2.65 GB

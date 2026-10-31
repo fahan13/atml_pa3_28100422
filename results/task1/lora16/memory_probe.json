@@ -1,0 +1,12 @@
+{
+  "name": "lora16",
+  "longest_tokens": [
+    1941,
+    1741
+  ],
+  "seconds": 3.0436481290000756,
+  "trainable_params": 10092544,
+  "peak_allocated_gb": 7.638435328,
+  "peak_reserved_gb": 9.003073536,
+  "init_A_hash": "51eef9f4564cc12c79451af7269512964c84fa1e"
+}

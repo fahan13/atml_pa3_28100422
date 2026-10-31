@@ -163,7 +163,7 @@ def export(cfg, model, wrapped, tok, update: int, out_dir, res_dir, refs, ref_na
     layers = [int(x) for x in cfg["diag_layers"]]
     if cfg["method"] == "full":
         d = out_dir / f"export_u{update}"
-        sd = {k: v.detach().half().cpu() for k, v in model.state_dict().items()}
+        sd = {k: v.detach().cpu().half() for k, v in model.state_dict().items()}
         model.save_pretrained(d, state_dict=sd, safe_serialization=True)
         tok.save_pretrained(d)
         diag = {f"{i}.down_proj.W": model.model.layers[i].mlp.down_proj.weight.detach().float().cpu() for i in layers}
@@ -249,7 +249,10 @@ def main() -> None:
     refs = None
     if lam > 0:
         t = Timer()
+        pin = cfg.get("ref_device", "cuda") == "cpu" and torch.cuda.is_available()
         refs = [p.detach().clone().to(cfg.get("ref_device", "cuda")) for p in params]
+        if pin:
+            refs = [r.pin_memory() for r in refs]
         extra["ref_bytes"] = sum(r.numel() * r.element_size() for r in refs)
         extra["ref_copy_s"] = t()
         extra["ref_device"] = cfg.get("ref_device", "cuda")
@@ -318,7 +321,11 @@ def main() -> None:
             scaler.scale(ls / n_tok).backward()
             sft_sum += float(ls.detach())
         scaler.unscale_(opt)
+        tl = Timer()
         omega = l2sp_grad(params, refs, lam) if lam > 0 else 0.0
+        if device.type == "cuda":
+            torch.cuda.synchronize()
+        l2sp_s = tl()
         gnorm = float(torch.nn.utils.clip_grad_norm_(params, float(tcfg["max_grad_norm"])))
         scale_before = scaler.get_scale()
         scaler.step(opt)
@@ -336,7 +343,7 @@ def main() -> None:
                "grad_norm": gnorm if math.isfinite(gnorm) else None, "loss_scale": scale_before,
                "skipped": bool(skipped), "target_tokens": n_tok, "tokens": seq_tokens, "seconds": dt}
         if lam > 0:
-            rec.update({"omega": omega, "lambda_omega": lam * omega, "total_loss": sft + lam * omega})
+            rec.update({"omega": omega, "lambda_omega": lam * omega, "total_loss": sft + lam * omega, "l2sp_s": l2sp_s})
         append_jsonl(log_path, rec)
         if (u + 1) % 10 == 0 or u == start:
             print(f"[{cfg['name']}] update {u + 1}/{total} loss {sft:.4f} lr {lr:.2e} gn {gnorm:.3f} "

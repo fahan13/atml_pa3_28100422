@@ -1,0 +1,4 @@
+{"update": 1, "examples_seen": 32, "sft_loss": 1.0286214163873475, "lr": 0.0, "grad_norm": 4.134892463684082, "loss_scale": 65536.0, "skipped": false, "target_tokens": 4939, "tokens": 6946, "seconds": 9.364313455000001}
+{"update": 2, "examples_seen": 64, "sft_loss": 0.9537944437252728, "lr": 5.263157894736842e-06, "grad_norm": 3.8866288661956787, "loss_scale": 65536.0, "skipped": false, "target_tokens": 5458, "tokens": 7756, "seconds": 7.390580289999889}
+{"update": 3, "examples_seen": 96, "sft_loss": 1.0202061077495952, "lr": 1.0526315789473684e-05, "grad_norm": 3.9340384006500244, "loss_scale": 65536.0, "skipped": false, "target_tokens": 4884, "tokens": 6962, "seconds": 7.509231851999971}
+{"update": 4, "examples_seen": 128, "sft_loss": 0.9544384607223435, "lr": 1.5789473684210526e-05, "grad_norm": 3.681346893310547, "loss_scale": 65536.0, "skipped": false, "target_tokens": 5433, "tokens": 7845, "seconds": 7.889088625999989}

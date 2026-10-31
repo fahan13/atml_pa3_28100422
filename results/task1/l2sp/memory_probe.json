@@ -1,0 +1,14 @@
+{
+  "name": "l2sp",
+  "longest_tokens": [
+    1941,
+    1741
+  ],
+  "seconds": 4.778818720999993,
+  "trainable_params": 596049920,
+  "peak_allocated_gb": 14.34197504,
+  "peak_reserved_gb": 14.520680448,
+  "ref_bytes": 2384199680,
+  "ref_copy_s": 0.026649621000046864,
+  "ref_device": "cuda"
+}

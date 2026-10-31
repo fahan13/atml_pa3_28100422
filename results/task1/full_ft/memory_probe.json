@@ -1,0 +1,11 @@
+{
+  "name": "full_ft",
+  "longest_tokens": [
+    1941,
+    1741
+  ],
+  "seconds": 4.805346664000012,
+  "trainable_params": 596049920,
+  "peak_allocated_gb": 11.957251072,
+  "peak_reserved_gb": 12.136218624
+}

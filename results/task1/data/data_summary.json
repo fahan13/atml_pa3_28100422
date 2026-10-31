@@ -1,0 +1,34 @@
+{
+  "rows_scanned": 40002,
+  "kept": 40000,
+  "excluded_counts": {
+    "empty": 0,
+    "gsm8k_test": 0,
+    "too_long": 2
+  },
+  "excluded_index": {
+    "empty": [],
+    "gsm8k_test": [],
+    "too_long": [
+      26704,
+      30481
+    ]
+  },
+  "gsm8k_test_questions": 1319,
+  "type_counts": {
+    "MATH_AnsAug": 7580,
+    "GSM_Rephrased": 8044,
+    "GSM_SV": 4100,
+    "GSM_FOBAR": 4043,
+    "GSM_AnsAug": 8140,
+    "MATH_FOBAR": 1574,
+    "MATH_Rephrased": 5015,
+    "MATH_SV": 1504
+  },
+  "tokens_total_mean": 247.7105712890625,
+  "tokens_total_median": 219,
+  "tokens_total_max": 1941,
+  "response_tokens_mean": 177.50140380859375,
+  "response_tokens_sum": 7100056,
+  "chat_template_enable_thinking": false
+}

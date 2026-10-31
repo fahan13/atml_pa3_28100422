@@ -1,0 +1,5 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Generating train split:   0%|          | 0/7473 [00:00<?, ? examples/s]Generating train split:  13%|█▎        | 1000/7473 [00:00<00:01, 5859.99 examples/s]Generating train split: 100%|██████████| 7473/7473 [00:00<00:00, 42144.54 examples/s]
+Generating test split:   0%|          | 0/1319 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 1319/1319 [00:00<00:00, 274923.57 examples/s]
+Generating train split:   0%|          | 0/395000 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 395000/395000 [00:06<00:00, 63497.42 examples/s]Generating train split: 100%|██████████| 395000/395000 [00:06<00:00, 62981.41 examples/s]
+kept 40000 of 40002 scanned; excluded {'empty': 0, 'gsm8k_test': 0, 'too_long': 2}
