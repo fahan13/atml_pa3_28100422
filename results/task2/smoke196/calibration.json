@@ -1,0 +1,9 @@
+{
+  "rule": "scale = mean L2 norm of Qwen input embeddings of training-text tokens / mean L2 norm of unscaled connector outputs at initialization on training images",
+  "text_tokens": 19825,
+  "n_texts": 2000,
+  "n_images": 256,
+  "text_embedding_norm": 0.8714693188667297,
+  "connector_output_norm_init": 16.39523696899414,
+  "scale": 0.05315381049476804
+}

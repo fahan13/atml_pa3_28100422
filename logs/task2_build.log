@@ -1,0 +1,32 @@
+{
+ "counts": {
+  "captions_train": 18000,
+  "captions_dev": 96,
+  "presence_pool": 3000,
+  "counting_pool": 3000,
+  "vqa_train": 1536,
+  "vqa_dev": 32,
+  "vqa_test": 96,
+  "grounding_dev": 24,
+  "grounding_test": 64
+ },
+ "images": {
+  "train": 8736,
+  "dev": 208,
+  "test": 320,
+  "caption_train": 6000
+ },
+ "checks": {
+  "train_dev_overlap": 0,
+  "train_test_overlap": 0,
+  "dev_test_overlap": 0,
+  "eval_images_unique_within_split": {
+   "dev": true,
+   "test": true
+  },
+  "train_images_all_train2014": true,
+  "eval_images_all_val2014": true
+ }
+}
+built data exists, skipping
+built data exists, skipping

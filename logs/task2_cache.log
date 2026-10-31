@@ -1,0 +1,9 @@
+  File "/kaggle/working/repo/task2_vlm/cache_features.py", line 75, in main
+    raise FileNotFoundError(f"{len(missing)} images not found, e.g. {missing[:5]}")
+FileNotFoundError: 9264 images not found, e.g. [9, 49, 89, 394, 436]
+        f"'{type(self).__name__}' object has no attribute '{name}'"
+    )
+AttributeError: 'SiglipVisionModel' object has no attribute 'vision_model'
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+cached 9264 images in 43s, LN check {'max_abs_diff_last_vs_LN_once': 0.0, 'max_abs_diff_last_vs_LN_twice': 104.0, 'shape': [128, 196, 768]}

@@ -1,0 +1,195 @@
+{
+  "counts": {
+    "captions_train": 18000,
+    "captions_dev": 96,
+    "presence_pool": 3000,
+    "counting_pool": 3000,
+    "vqa_train": 1536,
+    "vqa_dev": 32,
+    "vqa_test": 96,
+    "grounding_dev": 24,
+    "grounding_test": 64
+  },
+  "vqa_types": {
+    "vqa_train": {
+      "yes/no": 640,
+      "number": 256,
+      "other": 640
+    },
+    "vqa_dev": {
+      "yes/no": 12,
+      "number": 8,
+      "other": 12
+    },
+    "vqa_test": {
+      "yes/no": 36,
+      "number": 24,
+      "other": 36
+    }
+  },
+  "grounding_types": {
+    "presence_pool": {
+      "presence": 3000
+    },
+    "counting_pool": {
+      "counting": 3000
+    },
+    "grounding_dev": {
+      "presence": 12,
+      "counting": 12
+    },
+    "grounding_test": {
+      "presence": 32,
+      "counting": 32
+    }
+  },
+  "vqa_candidates": {
+    "train": {
+      "other": 17375,
+      "yes/no": 44033,
+      "number": 10561
+    },
+    "val": {
+      "yes/no": 20963,
+      "other": 8039,
+      "number": 4923
+    }
+  },
+  "images": {
+    "train": 8736,
+    "dev": 208,
+    "test": 320,
+    "caption_train": 6000
+  },
+  "count_answer_distribution": {
+    "counting_pool": {
+      "2": 1625,
+      "1": 1834,
+      "4": 1160,
+      "3": 1381
+    },
+    "grounding_dev": {
+      "1": 6,
+      "3": 8,
+      "4": 3,
+      "2": 7
+    },
+    "grounding_test": {
+      "4": 13,
+      "2": 19,
+      "1": 17,
+      "3": 15
+    }
+  },
+  "pool_categories": {
+    "broccoli": 96,
+    "tennis racket": 95,
+    "cup": 94,
+    "scissors": 92,
+    "cat": 91,
+    "oven": 90,
+    "zebra": 89,
+    "teddy bear": 88,
+    "banana": 87,
+    "dog": 85,
+    "chair": 84,
+    "refrigerator": 83,
+    "backpack": 83,
+    "potted plant": 83,
+    "knife": 83,
+    "toilet": 83,
+    "sports ball": 83,
+    "cow": 83,
+    "traffic light": 82,
+    "cell phone": 82,
+    "airplane": 82,
+    "book": 82,
+    "motorcycle": 81,
+    "tie": 81,
+    "wine glass": 81,
+    "skateboard": 79,
+    "kite": 79,
+    "snowboard": 79,
+    "donut": 79,
+    "skis": 79,
+    "microwave": 79,
+    "bicycle": 79,
+    "vase": 78,
+    "cake": 77,
+    "clock": 77,
+    "umbrella": 77,
+    "remote": 77,
+    "couch": 77,
+    "pizza": 76,
+    "surfboard": 76,
+    "bird": 76,
+    "sink": 75,
+    "fire hydrant": 75,
+    "boat": 75,
+    "sandwich": 75,
+    "dining table": 75,
+    "keyboard": 75,
+    "truck": 74,
+    "baseball glove": 73,
+    "bowl": 73,
+    "bench": 73,
+    "train": 73,
+    "stop sign": 73,
+    "mouse": 73,
+    "tv": 72,
+    "fork": 72,
+    "elephant": 71,
+    "hot dog": 71,
+    "sheep": 71,
+    "horse": 70,
+    "parking meter": 70,
+    "apple": 70,
+    "bottle": 70,
+    "bus": 69,
+    "carrot": 68,
+    "person": 67,
+    "bear": 67,
+    "suitcase": 67,
+    "baseball bat": 66,
+    "toothbrush": 66,
+    "giraffe": 66,
+    "car": 65,
+    "handbag": 63,
+    "laptop": 61,
+    "spoon": 60,
+    "orange": 58,
+    "bed": 58,
+    "hair drier": 42,
+    "toaster": 40,
+    "frisbee": 31
+  },
+  "checks": {
+    "train_dev_overlap": 0,
+    "train_test_overlap": 0,
+    "dev_test_overlap": 0,
+    "eval_images_unique_within_split": {
+      "dev": true,
+      "test": true
+    },
+    "train_images_all_train2014": true,
+    "eval_images_all_val2014": true
+  },
+  "source_sha1": {
+    "captions_train2014.json": "ffb8aa0007dc149b21943a2e374fc43d347088d1",
+    "captions_val2014.json": "8a28eaa3b4f9adfa846b0493054210e9690ae945",
+    "instances_train2014.json": "6df2cc5f1a1d4d8bd227f0ed049af7d930fd107e",
+    "instances_val2014.json": "256cd432a9407b79b660442e4b295d995f0341c5",
+    "v2_OpenEnded_mscoco_train2014_questions.json": "4a1220c2473df4d2c4f32575b578f977fd27bd88",
+    "v2_mscoco_train2014_annotations.json": "08bdb3c9b76d0f46a21221334e3db70c6ec44f32",
+    "v2_mscoco_train2014_complementary_pairs.json": "489714da65e7a82ce9b1d6cfea74d5758d75b2f2",
+    "v2_OpenEnded_mscoco_val2014_questions.json": "9bfd2e42baaae498d2ab94bc96a77f4f6e90b074",
+    "v2_mscoco_val2014_annotations.json": "9461ce8dbdb9308ff7dc9994f40c69084577d73c",
+    "v2_mscoco_val2014_complementary_pairs.json": "c899f470c38da2a82af82c83aced151653778136"
+  },
+  "rules": {
+    "presence_positive": "at least one non-crowd instance with area >= 1024 px",
+    "presence_negative": "no annotation of the category at all",
+    "counting": "all instances of the category non-crowd with area >= 1024 px; count in [1, 4]",
+    "vqa": "complementary pair, both questions >= 8/10 annotators agree after normalization, different consensus answers, same answer_type"
+  }
+}
