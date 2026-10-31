@@ -11,3 +11,4 @@ scipy>=1.11
 matplotlib>=3.8
 tqdm>=4.66
 lm_eval==0.4.13
+typing_extensions>=4.13

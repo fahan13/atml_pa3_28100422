@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import re
 
 import torch
 
@@ -12,6 +13,27 @@ def _first(x):
     while isinstance(x, (list, tuple)) and x:
         x = x[0]
     return x
+
+
+NUM = re.compile(r"-?\d[\d,]*(?:\.\d+)?")
+BOXED = re.compile(r"\\boxed\{([^{}]*)\}")
+
+
+def to_number(text):
+    if text is None:
+        return None
+    m = NUM.findall(str(text))
+    if not m:
+        return None
+    try:
+        return float(m[-1].replace(",", ""))
+    except ValueError:
+        return None
+
+
+def lenient_answer(response: str):
+    boxed = [b for b in BOXED.findall(response) if NUM.search(b)]
+    return to_number(boxed[-1]) if boxed else to_number(response)
 
 
 def gsm8k_rows(samples, tok, trunc: int) -> list[dict]:
@@ -30,6 +52,10 @@ def gsm8k_rows(samples, tok, trunc: int) -> list[dict]:
         r["truncated"] = n >= trunc - 2
         r["extractable_flexible"] = r.get("extracted_flexible") not in (None, "", "[invalid]")
         r["extractable_strict"] = r.get("extracted_strict") not in (None, "", "[invalid]")
+        r["flexible_has_digit"] = bool(re.search(r"\d", str(r.get("extracted_flexible") or "")))
+        gold = to_number(r["target"])
+        r["lenient_answer"] = lenient_answer(r["response"])
+        r["em_lenient"] = float(gold is not None and r["lenient_answer"] is not None and abs(r["lenient_answer"] - gold) < 1e-6)
         rows.append(r)
     return sorted(rows, key=lambda r: r["doc_id"])
 
@@ -100,6 +126,8 @@ def main() -> None:
                 "extractable_flexible": sum(r["extractable_flexible"] for r in rows) / len(rows),
                 "extractable_strict": sum(r["extractable_strict"] for r in rows) / len(rows),
                 "truncated": sum(r["truncated"] for r in rows) / len(rows),
+                "flexible_nondigit": sum(not r["flexible_has_digit"] for r in rows) / len(rows),
+                "lenient_em_supplementary": sum(r["em_lenient"] for r in rows) / len(rows),
                 "mean_tokens": sum(r["n_tokens"] for r in rows) / len(rows),
             },
         }
