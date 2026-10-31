@@ -1,0 +1,3 @@
+base: base.yaml
+name: vlm49
+n_visual: 49

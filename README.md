@@ -18,6 +18,8 @@ common/      shared helpers (config loading, seeding, IO, timing, memory)
 configs/     one YAML per run; task1/base.yaml holds the shared recipe
 task1_ft/    data.py (MetaMathQA selection), lora.py (LoRA / OPLoRA), train.py (all five variants),
              merge.py, evaluate.py, qualitative.py, diagnostics.py
+task2_vlm/   vqa_norm.py, build_data.py, cache_features.py, model.py (connector, sequence construction, greedy decoding),
+             train.py (curriculum), evaluate.py (image conditions, pair metrics, bootstrap)
 task3_ttc/   answers.py (math-verify / MathVista normalization), prepare.py, select.py, offline.py,
              signals.py, adaptive.py, live_generate.py, live_analyze.py
 tests/       sanity checks; outputs in results/sanity/
@@ -68,7 +70,16 @@ Training resumes from the latest recovery checkpoint in `outputs/task1/<run>/ckp
 
 ### Task 2
 
-To be added.
+```bash
+python -m task2_vlm.build_data --roots <COCO 2014 folder>          # captions, template grounding pairs, VQAv2 complementary pairs, image-disjoint splits
+python -m task2_vlm.cache_features --roots <COCO 2014 folder>      # SigLIP 196x768 patch features, FP16
+python -m task2_vlm.train                                          # 3-stage curriculum, 196 visual tokens
+python -m task2_vlm.evaluate                                       # final test suites under four image conditions
+python -m task2_vlm.train --config configs/task2/compress49.yaml   # optional 49-token run
+python -m task2_vlm.evaluate --config configs/task2/compress49.yaml
+```
+
+On Kaggle, `COCO_ROOTS=<input dir> bash scripts/run_task2.sh` runs all of the above, with the two runs on separate GPUs. VQAv2 questions, annotations and complementary pairs and the COCO 2014 annotations are downloaded from the official servers if they are not found under the given roots.
 
 ### Task 3
 
@@ -93,5 +104,6 @@ python -m task3_ttc.live_analyze
 - `configs/task1/first_plot_questions.yaml`: the 24 qualitative prompts from the Emergent Misalignment evaluation suite (github.com/emergent-misalignment/emergent-misalignment, `evaluation/first_plot_questions.yaml`, commit `80c1196`).
 - Models and datasets are loaded from the Hugging Face Hub: `Qwen/Qwen3-0.6B`, `meta-math/MetaMathQA`, `openai/gsm8k`, `Rowan/hellaswag`.
 - Benchmarks use EleutherAI lm-evaluation-harness 0.4.13 with stock task definitions (`gsm8k_cot`, `hellaswag`, `boolq`, `arc_easy`). The HellaSwag context preprocessing in `task1_ft/diagnostics.py` reproduces the harness's `hellaswag/utils.py` so probe prompts match the benchmark format.
+- Task 2 answer normalization (`task2_vlm/vqa_norm.py`) ports `processPunctuation`, `processDigitArticle` and the contraction, number and article lists from the official VQA evaluation code (github.com/GT-Vision-Lab/VQA, `PythonEvaluationTools/vqaEvaluation/vqaEval.py`, commit `a013f00`); it is applied to every answer, and the soft accuracy follows the leave-one-out formula in the manual. Data: COCO 2014 (captions, instances), VQAv2 (questions, annotations, complementary pairs); models `google/siglip-base-patch16-224` and `Qwen/Qwen3-0.6B`.
 - Task 3 MATH equivalence uses `math-verify` 0.9.0. MathVista normalization in `task3_ttc/answers.py` ports `normalize_extracted_answer` and `get_most_similar` from the official MathVista evaluation code (github.com/lupantech/MathVista, `evaluation/calculate_score.py`); question metadata is the official `data/testmini.json` at commit `c5acd37`, downloaded and checksum-verified by `task3_ttc/prepare.py`.
 - The LoRA and OPLoRA layers in `task1_ft/lora.py` are written for this assignment. The A-matrix initialization follows the uniform bound used by Hu et al. (LoRA) and PEFT; the projection follows Xiong and Xie (OPLoRA), Sections 3.2–3.3.
