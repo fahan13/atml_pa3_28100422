@@ -76,6 +76,7 @@ def main() -> None:
 
     proc = AutoImageProcessor.from_pretrained(cfg["vision"])
     model = SiglipVisionModel.from_pretrained(cfg["vision"], dtype=torch.float16).to("cuda").eval()
+    post_ln = next(m for n, m in model.named_modules() if n.endswith("post_layernorm"))
     out_dir.mkdir(parents=True, exist_ok=True)
     feats = np.lib.format.open_memmap(feat_path, mode="w+", dtype=np.float16, shape=(len(paths), 196, 768))
     loader = DataLoader(Images(paths, proc), batch_size=args.batch_size, num_workers=args.workers, shuffle=False)
@@ -89,8 +90,8 @@ def main() -> None:
             h = out.last_hidden_state
             if ln_check is None:
                 pre = out.hidden_states[-1]
-                once = model.vision_model.post_layernorm(pre)
-                twice = model.vision_model.post_layernorm(once)
+                once = post_ln(pre)
+                twice = post_ln(once)
                 ln_check = {"max_abs_diff_last_vs_LN_once": float((h - once).abs().max()),
                             "max_abs_diff_last_vs_LN_twice": float((h - twice).abs().max()),
                             "shape": list(h.shape)}
