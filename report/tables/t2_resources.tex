@@ -1,0 +1,13 @@
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}l rr rr rrr rr rr@{}}
+\toprule
+ & \multicolumn{2}{c}{Accuracy (\%)} & \multicolumn{2}{c}{Adv. vs swap (pp)} & \multicolumn{3}{c}{Train time (min)} & \multicolumn{2}{c}{Peak mem. (GB)} & \multicolumn{2}{c}{ms / answer} \\ \cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-8} \cmidrule(lr){9-10} \cmidrule(lr){11-12}
+Visual tokens & Grd. & VQA & Grd. & VQA & S1 & S2 & S3 & train & eval & image & none \\
+\midrule
+196 & 68.0 & 56.7 & 53.9 & 28.8 & 47 & 36 & 18 & 1.73 & 1.61 & 39 & 21 \\
+49 (2$\times$2 pool) & 64.8 & 49.3 & 49.2 & 18.3 & 20 & 20 & 10 & 1.63 & 1.36 & 24 & 20 \\
+\midrule
+\multicolumn{12}{@{}l}{Trainable parameters: S1 connector 1.84M; S2--S3 connector + LoRA 6.42M.} \\
+\multicolumn{12}{@{}l}{SigLIP feature cache (shared): 9,264 images, 2.79 GB, encoded once in 394 s.} \\
+\bottomrule
+\end{tabular}
