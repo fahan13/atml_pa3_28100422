@@ -1,0 +1,9 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<02:31,  2.05it/s]Loading weights:  76%|███████▌  | 236/311 [00:00<00:00, 533.91it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 452.00it/s]
+baseline: 24 responses in 28s, truncated 1
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:  78%|███████▊  | 244/311 [00:00<00:00, 2419.38it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 2450.64it/s]
+full_ft_mid: 24 responses in 28s, truncated 4
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:  81%|████████▏ | 253/311 [00:00<00:00, 2498.82it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 2604.99it/s]
+full_ft: 24 responses in 28s, truncated 5
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights:  86%|████████▌ | 266/310 [00:00<00:00, 2656.43it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 2693.76it/s]
+lora4: 24 responses in 28s, truncated 3

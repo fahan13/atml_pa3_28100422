@@ -1,0 +1,11 @@
+{
+  "name": "lora16",
+  "factors": "raw",
+  "scaling": 2.0,
+  "positions": 125,
+  "max_abs_logit_diff": 0.109375,
+  "mean_abs_logit_diff": 0.0067009334452450275,
+  "argmax_agreement": 1.0,
+  "merge_s": 5.636659573000088,
+  "merged_gb": 1.203564092
+}

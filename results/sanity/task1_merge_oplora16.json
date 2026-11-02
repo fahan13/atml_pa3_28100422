@@ -1,0 +1,21 @@
+{
+  "name": "oplora16",
+  "factors": "projected",
+  "scaling": 2.0,
+  "positions": 125,
+  "max_abs_logit_diff": 0.115234375,
+  "mean_abs_logit_diff": 0.006965541746467352,
+  "argmax_agreement": 1.0,
+  "merge_s": 5.6659830959997635,
+  "oplora_constraints": {
+    "name": "oplora16",
+    "protect_k": 0,
+    "max_relative_norm": {
+      "rel_UtB": 0.0,
+      "rel_AV": 0.0,
+      "proj_consistency": 0.03997427970170975
+    },
+    "note": "rel_UtB = ||U_k^T B~||_F / ||B~||_F, rel_AV = ||A~ V_k||_F / ||A~||_F, bases recomputed from W0 in fp32"
+  },
+  "merged_gb": 1.203564092
+}

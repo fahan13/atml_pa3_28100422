@@ -5,7 +5,7 @@ import argparse
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-from common.utils import Timer, load_config, repo_path, save_json, size_gb
+from common.utils import Timer, load_config, load_json, repo_path, save_json, size_gb
 from task1_ft import lora as L
 from task1_ft.conditions import adapter_factors, condition, model_path
 from task1_ft.data import chat_prompt
@@ -56,13 +56,14 @@ def oplora_constraints(cfg, name, device) -> dict:
     d = run_dir(cfg, name)
     raw = load_file(str(d / f"adapter_raw_u{c['update']}.safetensors"))
     proj = load_file(str(d / f"adapter_projected_u{c['update']}.safetensors"))
-    base = AutoModelForCausalLM.from_pretrained(cfg["model"], dtype=torch.float32)
-    k = int(cfg["lora"]["protect_k"])
+    base = AutoModelForCausalLM.from_pretrained(cfg["model"], dtype=torch.float16)
+    k = int(load_json(d / "adapter_meta.json")["protect_k"])
+    assert k > 0
     worst = {"rel_UtB": 0.0, "rel_AV": 0.0, "proj_consistency": 0.0}
     for key in sorted({x.rsplit(".", 1)[0] for x in proj}):
         i, mname = key.split(".")
         layer = base.model.layers[int(i)]
-        w = getattr(layer.self_attn if mname in L.ATTN else layer.mlp, mname).weight.to(device)
+        w = getattr(layer.self_attn if mname in L.ATTN else layer.mlp, mname).weight.to(device).float()
         u, _, vh = torch.linalg.svd(w, full_matrices=False)
         U, V = u[:, :k], vh[:k].T
         a, b = proj[f"{key}.A"].to(device), proj[f"{key}.B"].to(device)
@@ -72,16 +73,25 @@ def oplora_constraints(cfg, name, device) -> dict:
         pa, pb = ra - (ra @ V) @ V.T, rb - U @ (U.T @ rb)
         worst["proj_consistency"] = max(worst["proj_consistency"], float((pa - a).abs().max()), float((pb - b).abs().max()))
     return {"name": name, "protect_k": k, "max_relative_norm": worst,
-            "note": "rel_UtB = ||U_k^T B~||_F / ||B~||_F, rel_AV = ||A~ V_k||_F / ||A~||_F, bases recomputed from W0 in fp32"}
+            "note": "rel_UtB = ||U_k^T B~||_F / ||B~||_F, rel_AV = ||A~ V_k||_F / ||A~||_F, bases recomputed by fp32 SVD of the fp16 W0 used in training"}
 
 
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", default="configs/task1/eval.yaml")
     ap.add_argument("--conditions", default="lora4,lora16,oplora16")
+    ap.add_argument("--constraints_only", action="store_true")
     args = ap.parse_args()
     cfg = load_config(args.config)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    if args.constraints_only:
+        for name in args.conditions.split(","):
+            path = repo_path(f"results/sanity/task1_merge_{name}.json")
+            res = load_json(path)
+            res["oplora_constraints"] = oplora_constraints(cfg, name, device)
+            save_json(path, res)
+            print(res["oplora_constraints"])
+        return
     tok = AutoTokenizer.from_pretrained(cfg["model"])
     for name in args.conditions.split(","):
         out = repo_path(model_path(cfg, name))

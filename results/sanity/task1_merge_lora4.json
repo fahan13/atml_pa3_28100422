@@ -1,0 +1,11 @@
+{
+  "name": "lora4",
+  "factors": "raw",
+  "scaling": 2.0,
+  "positions": 125,
+  "max_abs_logit_diff": 0.125,
+  "mean_abs_logit_diff": 0.007118584588170052,
+  "argmax_agreement": 1.0,
+  "merge_s": 17.066491936000148,
+  "merged_gb": 1.203564092
+}

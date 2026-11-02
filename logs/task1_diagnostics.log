@@ -1,0 +1,20 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<02:15,  2.29it/s]Loading weights:  54%|█████▍    | 169/311 [00:00<00:00, 411.24it/s]Loading weights:  85%|████████▍ | 264/311 [00:00<00:00, 447.45it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 383.27it/s]
+{'condition': 'full_ft_mid', 'layer': 0, 'rho_k': 0.13307, 'rho_k_input': 0.04658, 'rho_k_isotropic': 0.125, 'eta': 0.01318, 'delta_fro': 0.61349, 'w0_fro': 46.54251}
+{'condition': 'full_ft_mid', 'layer': 13, 'rho_k': 0.148, 'rho_k_input': 0.04041, 'rho_k_isotropic': 0.125, 'eta': 0.01543, 'delta_fro': 0.65712, 'w0_fro': 42.5876}
+{'condition': 'full_ft_mid', 'layer': 27, 'rho_k': 0.1158, 'rho_k_input': 0.05326, 'rho_k_isotropic': 0.125, 'eta': 0.01246, 'delta_fro': 0.5962, 'w0_fro': 47.85205}
+{'condition': 'full_ft', 'layer': 0, 'rho_k': 0.13295, 'rho_k_input': 0.04654, 'rho_k_isotropic': 0.125, 'eta': 0.01364, 'delta_fro': 0.63482, 'w0_fro': 46.54251}
+{'condition': 'full_ft', 'layer': 13, 'rho_k': 0.14798, 'rho_k_input': 0.04041, 'rho_k_isotropic': 0.125, 'eta': 0.01605, 'delta_fro': 0.68355, 'w0_fro': 42.5876}
+{'condition': 'full_ft', 'layer': 27, 'rho_k': 0.11508, 'rho_k_input': 0.05242, 'rho_k_isotropic': 0.125, 'eta': 0.01295, 'delta_fro': 0.61977, 'w0_fro': 47.85205}
+{'condition': 'l2sp', 'layer': 0, 'rho_k': 0.13237, 'rho_k_input': 0.04648, 'rho_k_isotropic': 0.125, 'eta': 0.01118, 'delta_fro': 0.52045, 'w0_fro': 46.54251}
+{'condition': 'l2sp', 'layer': 13, 'rho_k': 0.14979, 'rho_k_input': 0.03882, 'rho_k_isotropic': 0.125, 'eta': 0.01371, 'delta_fro': 0.58402, 'w0_fro': 42.5876}
+{'condition': 'l2sp', 'layer': 27, 'rho_k': 0.10678, 'rho_k_input': 0.04242, 'rho_k_isotropic': 0.125, 'eta': 0.00787, 'delta_fro': 0.37673, 'w0_fro': 47.85205}
+{'condition': 'lora4', 'layer': 0, 'rho_k': 0.13797, 'rho_k_input': 0.04505, 'rho_k_isotropic': 0.125, 'eta': 0.00933, 'delta_fro': 0.43422, 'w0_fro': 46.54251}
+{'condition': 'lora4', 'layer': 13, 'rho_k': 0.14067, 'rho_k_input': 0.04023, 'rho_k_isotropic': 0.125, 'eta': 0.01011, 'delta_fro': 0.43052, 'w0_fro': 42.5876}
+{'condition': 'lora4', 'layer': 27, 'rho_k': 0.10543, 'rho_k_input': 0.0408, 'rho_k_isotropic': 0.125, 'eta': 0.00683, 'delta_fro': 0.32661, 'w0_fro': 47.85205}
+{'condition': 'lora16', 'layer': 0, 'rho_k': 0.14655, 'rho_k_input': 0.04567, 'rho_k_isotropic': 0.125, 'eta': 0.01466, 'delta_fro': 0.68247, 'w0_fro': 46.54251}
+{'condition': 'lora16', 'layer': 13, 'rho_k': 0.14038, 'rho_k_input': 0.04161, 'rho_k_isotropic': 0.125, 'eta': 0.0182, 'delta_fro': 0.77526, 'w0_fro': 42.5876}
+{'condition': 'lora16', 'layer': 27, 'rho_k': 0.11587, 'rho_k_input': 0.04418, 'rho_k_isotropic': 0.125, 'eta': 0.01147, 'delta_fro': 0.54881, 'w0_fro': 47.85205}
+{'condition': 'oplora16', 'layer': 0, 'rho_k': 0.0, 'rho_k_input': 0.0, 'rho_k_isotropic': 0.125, 'eta': 0.01458, 'delta_fro': 0.67859, 'w0_fro': 46.54251}
+{'condition': 'oplora16', 'layer': 13, 'rho_k': 0.0, 'rho_k_input': 0.0, 'rho_k_isotropic': 0.125, 'eta': 0.01858, 'delta_fro': 0.79144, 'w0_fro': 42.5876}
+{'condition': 'oplora16', 'layer': 27, 'rho_k': 0.0, 'rho_k_input': 0.0, 'rho_k_isotropic': 0.125, 'eta': 0.00942, 'delta_fro': 0.45082, 'w0_fro': 47.85205}
