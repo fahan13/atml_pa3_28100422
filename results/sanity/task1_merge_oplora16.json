@@ -9,13 +9,13 @@
   "merge_s": 5.6659830959997635,
   "oplora_constraints": {
     "name": "oplora16",
-    "protect_k": 0,
+    "protect_k": 128,
     "max_relative_norm": {
-      "rel_UtB": 0.0,
-      "rel_AV": 0.0,
-      "proj_consistency": 0.03997427970170975
+      "rel_UtB": 0.003955004271119833,
+      "rel_AV": 0.003756605088710785,
+      "proj_consistency": 0.0006914781406521797
     },
-    "note": "rel_UtB = ||U_k^T B~||_F / ||B~||_F, rel_AV = ||A~ V_k||_F / ||A~||_F, bases recomputed from W0 in fp32"
+    "note": "rel_UtB = ||U_k^T B~||_F / ||B~||_F, rel_AV = ||A~ V_k||_F / ||A~||_F, bases recomputed by fp32 SVD of the fp16 W0 used in training"
   },
   "merged_gb": 1.203564092
 }
