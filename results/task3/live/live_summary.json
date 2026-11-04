@@ -1,0 +1,86 @@
+{
+  "n_questions": 50,
+  "allowance_tokens": 3072,
+  "strategies": {
+    "single": {
+      "accuracy": 0.62,
+      "correct": 31,
+      "mean_input_tokens": 108.38,
+      "mean_output_tokens": 685.42,
+      "mean_seconds": 36.65710050549999,
+      "total_seconds": 1832.8550252749997,
+      "truncation_rate": 0.04,
+      "extraction_rate": 0.96
+    },
+    "parallel": {
+      "accuracy": 0.66,
+      "correct": 33,
+      "mean_input_tokens": 325.14,
+      "mean_output_tokens": 1860.8,
+      "mean_seconds": 98.66735499105992,
+      "total_seconds": 4933.367749552996,
+      "truncation_rate_per_call": 0.12666666666666668,
+      "extraction_rate_per_call": 0.8733333333333333,
+      "oracle_any_of_3": 0.72,
+      "mean_distinct_groups": 1.46,
+      "winner_no_answer_rate": 0.1
+    },
+    "refine": {
+      "accuracy": 0.64,
+      "correct": 32,
+      "mean_input_tokens": 863.6,
+      "mean_output_tokens": 1166.8,
+      "mean_seconds": 62.35609874803998,
+      "total_seconds": 3117.8049374019993,
+      "initial_accuracy": 0.6,
+      "initial_truncation_rate": 0.12,
+      "revision_truncation_rate": 0.0,
+      "revision_extraction_rate": 1.0,
+      "mean_revision_input_tokens": 755.22,
+      "answer_changed_rate": 0.14
+    }
+  },
+  "transitions_initial_to_revised": {
+    "wrong_to_correct": 2,
+    "correct_to_wrong": 0,
+    "correct_to_correct": 30,
+    "wrong_to_wrong": 18
+  },
+  "paired_bootstrap": {
+    "parallel-single": {
+      "diff": 0.04,
+      "lo": -0.06,
+      "hi": 0.14
+    },
+    "refine-single": {
+      "diff": 0.02,
+      "lo": -0.08,
+      "hi": 0.12
+    },
+    "refine-parallel": {
+      "diff": -0.02,
+      "lo": -0.08,
+      "hi": 0.06
+    }
+  },
+  "env": [
+    {
+      "python": "3.13.16",
+      "torch": "2.11.0+cu130",
+      "transformers": "5.8.0",
+      "cuda": "13.0",
+      "gpu": "Tesla T4",
+      "cuda_visible_devices": "0",
+      "peak_allocated_gb": 6.621104128
+    },
+    {
+      "python": "3.13.16",
+      "torch": "2.11.0+cu130",
+      "transformers": "5.8.0",
+      "cuda": "13.0",
+      "gpu": "Tesla T4",
+      "cuda_visible_devices": "1",
+      "peak_allocated_gb": 6.609686528
+    }
+  ]
+}

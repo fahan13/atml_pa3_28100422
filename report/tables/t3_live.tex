@@ -1,0 +1,16 @@
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}l l r rr r rr@{}}
+\toprule
+Strategy & Budget (tokens) & Acc. & In & Out & s / q. & Trunc. & Extract. \\
+\midrule
+Single answer & $1\times3072$ & 62 & 108 & 685 & 36.7 & 4.0 & 96.0 \\
+Parallel + SC & $3\times1024$ & 66 & 325 & 1861 & 98.7 & 12.7 & 87.3 \\
+Draft + revision & $1024 + 2048$ & 64 & 864 & 1167 & 62.4 & 12 / 0 & 100.0 \\
+\midrule
+\multicolumn{8}{@{}l}{Parallel: any-of-3 correct 72\%; SC picks no answer 10\%.} \\
+\multicolumn{8}{@{}l}{Revision: draft acc.\ 60\%; answer changed 14\%.} \\
+\multicolumn{8}{@{}l}{Draft$\to$revision: W$\to$C 2, C$\to$W 0, C$\to$C 30, W$\to$W 18.} \\
+\multicolumn{8}{@{}l}{Paired bootstrap, parallel$-$single: +4 [$-$6, +14] pp.} \\
+\multicolumn{8}{@{}l}{Paired bootstrap, revision$-$single: +2 [$-$8, +12] pp.} \\
+\bottomrule
+\end{tabular}

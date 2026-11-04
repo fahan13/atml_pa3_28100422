@@ -1,0 +1,17 @@
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}l rrr rrr@{}}
+\toprule
+ & \multicolumn{3}{c}{MATH (469 mixed q.)} & \multicolumn{3}{c}{MathVista (634 mixed q.)} \\ \cmidrule(lr){2-4} \cmidrule(lr){5-7}
+Score & $\rho_{\mathrm{corr}}$ & top--bottom & $\rho_{\mathrm{len}}$ & $\rho_{\mathrm{corr}}$ & top--bottom & $\rho_{\mathrm{len}}$ \\
+\midrule
+Mean log-prob & +0.134 & +13.4 & +0.22 & +0.029 & +2.0 & +0.33 \\
+Self-certainty & +0.198 & +20.4 & $-$0.16 & +0.048 & +4.4 & +0.35 \\
+Length (tokens) & $-$0.076 & $-$7.8 & -- & $-$0.050 & $-$5.0 & -- \\
+Vision share &  & &  & +0.041 & +4.8 & $-$0.69 \\
+Calibrated confidence &  & &  & +0.048 & +4.8 & +0.35 \\
+VisConf &  & &  & +0.089 & +9.3 & $-$0.28 \\
+Token VisConf &  & &  & +0.080 & +9.1 & $-$0.32 \\
+\midrule
+\multicolumn{7}{@{}l}{MathVista corr$(c_t, v_t)$ within rollouts: mean $-$0.21, IQR [$-$0.33, $-$0.07], 15\% $>0$.} \\
+\bottomrule
+\end{tabular}

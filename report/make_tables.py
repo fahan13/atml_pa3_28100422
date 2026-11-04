@@ -75,10 +75,11 @@ def t1_benchmarks():
 
 
 def t1_resources():
-    """Trainable parameters, training time, peak GPU memory, checkpoint and export sizes, method overheads."""
-    out = [r"\begin{tabular}{@{}l r rr r rr l@{}}", r"\toprule",
-           r" & Trainable & \multicolumn{2}{c}{Training} & Peak mem. & \multicolumn{2}{c}{Size (GB)} & \\ \cmidrule(lr){3-4} \cmidrule(lr){6-7}",
-           r"Run & params (M) & h & s/upd. & (GB) & ckpt & final & Extra cost \\", r"\midrule"]
+    """Trainable parameters, training time, peak GPU memory, checkpoint/export sizes, displacement, method overheads."""
+    out = [r"\setlength{\tabcolsep}{4pt}", r"\begin{tabular}{@{}l r rr r rr r rr@{}}", r"\toprule",
+           r" & Trainable & \multicolumn{2}{c}{Training} & Peak & \multicolumn{2}{c}{Size (GB)} & & \multicolumn{2}{c}{Method overhead} \\ "
+           r"\cmidrule(lr){3-4} \cmidrule(lr){6-7} \cmidrule(lr){9-10}",
+           r"Run & params (M) & h & s/upd. & GB & ckpt & final & $\|\theta-\theta_0\|_2$ & state (GB) & time \\", r"\midrule"]
     for c, lab in RUNS:
         d = R / "task1" / c
         s = js(d / "run_summary.json")
@@ -87,14 +88,16 @@ def t1_resources():
         ck = jl(d / "checkpoints.jsonl")[-1]["gb"]
         ex = jl(d / "exports.jsonl")[-1]
         final = ex.get("export_gb", ex.get("adapter_projected_gb", ex.get("adapter_raw_gb")))
-        extra = ""
+        disp = f"{ex['displacement_l2']:.2f}" if "displacement_l2" in ex else "--"
+        state, extra_t = "--", "--"
         if c == "l2sp":
-            ls = sum(r["l2sp_s"] for r in log) / len(log)
-            extra = f"$\\theta_0$ {s['ref_bytes'] / 1e9:.2f} GB (CPU), {ls:.2f} s/upd."
+            state = f"{s['ref_bytes'] / 1e9:.2f} (CPU)"
+            extra_t = f"{sum(r['l2sp_s'] for r in log) / len(log):.2f} s/upd."
         if c == "oplora16":
-            extra = f"bases {s['basis_bytes'] / 1e9:.2f} GB, SVD {s['basis_preprocess_s']:.0f} s"
+            state = f"{s['basis_bytes'] / 1e9:.2f}"
+            extra_t = f"{s['basis_preprocess_s']:.0f} s once"
         out.append(f"{lab} & {s['trainable_params'] / 1e6:.1f} & {s['elapsed']['train_s'] / 3600:.2f} & {spu:.2f} & "
-                   f"{s['peak_allocated_gb']:.2f} & {ck:.3f} & {final:.3f} & {extra} \\\\")
+                   f"{s['peak_allocated_gb']:.2f} & {ck:.3f} & {final:.3f} & {disp} & {state} & {extra_t} \\\\")
     out += [r"\bottomrule", r"\end{tabular}"]
     write("t1_resources", out)
 
@@ -192,7 +195,130 @@ def t2_resources():
     write("t2_resources", out)
 
 
-TABLES = {f.__name__: f for f in (t1_benchmarks, t1_resources, t1_annotation, t2_results, t2_resources)}
+T3_METHODS = [("first", "First answer"), ("sc", "Self-consistency (SC)"), ("shortest", "Shortest rollout"),
+              ("logp", "Max mean log-prob"), ("logp_rwc", "Log-prob + RWC"), ("selfcert", "Max self-certainty"),
+              ("selfcert_rwc", "Self-certainty + RWC"), ("vision", "Max vision share"), ("vision_rwc", "Vision + RWC"),
+              ("visconf", "Max VisConf"), ("visconf_rwc", "VisConf + RWC"), ("visconf_token", "Max token VisConf"),
+              ("visconf_token_rwc", "Token VisConf + RWC")]
+
+
+def _sgn(v, nd=1):
+    return f"{'+' if v >= 0 else '$-$'}{abs(v):.{nd}f}"
+
+
+def t3_methods():
+    """Eval-split accuracy at N = 4 and 32, difference from SC at N = 32 with bootstrap CI, and selection failure."""
+    o = {ds: js(R / "task3" / ds / "offline_summary.json") for ds in ("math", "mathvista")}
+    out = [r"\setlength{\tabcolsep}{3pt}", r"\begin{tabular}{@{}l rrrr rrrr@{}}", r"\toprule",
+           r" & \multicolumn{4}{c}{MATH (800 q.)} & \multicolumn{4}{c}{MathVista (800 q.)} \\ \cmidrule(lr){2-5} \cmidrule(lr){6-9}",
+           r"Method & $N{=}4$ & $N{=}32$ & $\Delta_{\mathrm{SC}}$ [95\% CI] & sel.\ fail & "
+           r"$N{=}4$ & $N{=}32$ & $\Delta_{\mathrm{SC}}$ [95\% CI] & sel.\ fail \\", r"\midrule"]
+
+    def cells(ds, m):
+        e = o[ds]["splits"]["eval"]["by_N"]
+        if m not in e["32"]["methods"]:
+            return "& & & "
+        a4, a32 = e["4"]["methods"][m]["acc"], e["32"]["methods"][m]
+        if m == "sc":
+            dlt = "--"
+        else:
+            b = o[ds]["bootstrap_eval"]["differences"]["32"][f"{m}-sc"]
+            dlt = f"{_sgn(100 * b['diff'])} [{_sgn(100 * b['lo'])}, {_sgn(100 * b['hi'])}]"
+        return f"{pct(a4)} & {pct(a32['acc'])} & {dlt} & {pct(a32['selection_failure'])}"
+
+    for m, lab in T3_METHODS:
+        out.append(f"{lab} & {cells('math', m)} & {cells('mathvista', m)} \\\\")
+        if m in ("shortest", "selfcert_rwc"):
+            out.append(r"\addlinespace[2pt]")
+    orc = " & ".join(f"{pct(o[ds]['splits']['eval']['by_N']['4']['oracle'])} & {pct(o[ds]['splits']['eval']['by_N']['32']['oracle'])} & "
+                     f"\\multicolumn{{2}}{{l}}{{sampling fail {pct(1 - o[ds]['splits']['eval']['by_N']['32']['oracle'])}}}"
+                     for ds in ("math", "mathvista"))
+    out += [r"\midrule", f"Oracle (any correct) & {orc} \\\\", r"\bottomrule", r"\end{tabular}"]
+    write("t3_methods", out)
+
+
+def t3_signals():
+    """Within-question association of each score with correctness and with length (eval split, N = 32)."""
+    sg = {ds: js(R / "task3" / ds / "signals.json") for ds in ("math", "mathvista")}
+    rows = [("logp", "Mean log-prob"), ("selfcert", "Self-certainty"), ("length", "Length (tokens)"), ("vision", "Vision share"),
+            ("calibrated_conf", "Calibrated confidence"), ("visconf", "VisConf"), ("visconf_token", "Token VisConf")]
+    out = [r"\setlength{\tabcolsep}{4pt}", r"\begin{tabular}{@{}l rrr rrr@{}}", r"\toprule",
+           f" & \\multicolumn{{3}}{{c}}{{MATH ({sg['math']['n_mixed']} mixed q.)}} & \\multicolumn{{3}}{{c}}{{MathVista ({sg['mathvista']['n_mixed']} mixed q.)}} \\\\ "
+           r"\cmidrule(lr){2-4} \cmidrule(lr){5-7}",
+           r"Score & $\rho_{\mathrm{corr}}$ & top--bottom & $\rho_{\mathrm{len}}$ & $\rho_{\mathrm{corr}}$ & top--bottom & $\rho_{\mathrm{len}}$ \\", r"\midrule"]
+
+    def c(ds, k):
+        x = sg[ds]["scores"].get(k)
+        if x is None:
+            return " & & "
+        rl = "--" if x["mean_spearman_with_length"] is None else _sgn(x["mean_spearman_with_length"], 2)
+        return f"{_sgn(x['mean_spearman_with_correct_mixed'], 3)} & {_sgn(100 * x['quartile_gap_mixed'])} & {rl}"
+
+    for k, lab in rows:
+        out.append(f"{lab} & {c('math', k)} & {c('mathvista', k)} \\\\")
+    cv = sg["mathvista"]["confidence_vision"]["per_rollout_corr"]
+    out += [r"\midrule",
+            f"\\multicolumn{{7}}{{@{{}}l}}{{MathVista corr$(c_t, v_t)$ within rollouts: mean {_sgn(cv['mean'], 2)}, "
+            f"IQR [{_sgn(cv['q25'], 2)}, {_sgn(cv['q75'], 2)}], {100 * cv['frac_positive']:.0f}\\% $>0$.}} \\\\",
+            r"\bottomrule", r"\end{tabular}"]
+    write("t3_signals", out)
+
+
+def t3_adaptive():
+    """Dev-selected stopping rules on the eval split against fixed N = 32 SC."""
+    out = [r"\setlength{\tabcolsep}{4pt}", r"\begin{tabular}{@{}ll cc r l rr rrrr@{}}", r"\toprule",
+           r" & & & & & & & & \multicolumn{4}{c}{Stops at $n$ (\%)} \\ \cmidrule(lr){9-12}",
+           r"Data & Rule & $\tau$ & $\gamma$ & Acc. & $\Delta$ vs.\ $N{=}32$ [95\% CI] & Rollouts & Tokens & 4 & 8 & 16 & 32 \\"]
+    for ds, name in (("math", "MATH"), ("mathvista", "MathVista")):
+        a = js(R / "task3" / ds / "adaptive.json")
+        f = a["fixed32_sc"]["eval"]
+        out.append(r"\midrule")
+        out.append(f"{name} & fixed $N{{=}}32$ SC & & & {pct(f['acc'])} & & {f['mean_rollouts']:.1f} & {f['mean_cost']:,.0f} & & & & \\\\")
+        for fam, lab in (("agreement", "agreement"), ("quality_aware", f"+ {a['quality_score']}")):
+            x = a["families"][fam]
+            sel, e, dlt = x["selected"], x["eval"], x["eval_acc_diff_vs_fixed32"]
+            g = "--" if sel["gamma"] is None else f"{sel['gamma']:g}"
+            sd = e["stop_distribution"]
+            out.append(f" & {lab} & {sel['tau']:g} & {g} & {pct(e['acc'])} & {_sgn(100 * dlt['diff'], 2)} [{_sgn(100 * dlt['lo'], 2)}, {_sgn(100 * dlt['hi'], 2)}] & "
+                       f"{e['mean_rollouts']:.1f} & {e['mean_cost']:,.0f} & " + " & ".join(f"{100 * sd[k]:.0f}" for k in ("4", "8", "16", "32")) + r" \\")
+    out += [r"\bottomrule", r"\end{tabular}"]
+    write("t3_adaptive", out)
+
+
+def t3_live():
+    """Live Qwen2.5-3B-Instruct strategies on 50 MATH questions under a 3,072-token output allowance."""
+    L = js(R / "task3" / "live" / "live_summary.json")
+    st = L["strategies"]
+    out = [r"\setlength{\tabcolsep}{4pt}", r"\begin{tabular}{@{}l l r rr r rr@{}}", r"\toprule",
+           r"Strategy & Budget (tokens) & Acc. & In & Out & s / q. & Trunc. & Extract. \\", r"\midrule"]
+    rows = [("single", "Single answer", "$1\\times3072$", st["single"]["truncation_rate"], st["single"]["extraction_rate"]),
+            ("parallel", "Parallel + SC", "$3\\times1024$", st["parallel"]["truncation_rate_per_call"], st["parallel"]["extraction_rate_per_call"]),
+            ("refine", "Draft + revision", "$1024 + 2048$", None, st["refine"]["revision_extraction_rate"])]
+    for k, lab, bud, tr, ex in rows:
+        x = st[k]
+        trc = pct(tr, 1) if tr is not None else f"{pct(x['initial_truncation_rate'], 0)} / {pct(x['revision_truncation_rate'], 0)}"
+        out.append(f"{lab} & {bud} & {pct(x['accuracy'], 0)} & {x['mean_input_tokens']:.0f} & {x['mean_output_tokens']:.0f} & "
+                   f"{x['mean_seconds']:.1f} & {trc} & {pct(ex, 1)} \\\\")
+    t = L["transitions_initial_to_revised"]
+    pb = L["paired_bootstrap"]
+    par, ref = st["parallel"], st["refine"]
+
+    def bs(k):
+        return f"{_sgn(100 * pb[k]['diff'], 0)} [{_sgn(100 * pb[k]['lo'], 0)}, {_sgn(100 * pb[k]['hi'], 0)}]"
+
+    notes = [f"Parallel: any-of-3 correct {pct(par['oracle_any_of_3'], 0)}\\%; SC picks no answer {pct(par['winner_no_answer_rate'], 0)}\\%.",
+             f"Revision: draft acc.\\ {pct(ref['initial_accuracy'], 0)}\\%; answer changed {pct(ref['answer_changed_rate'], 0)}\\%.",
+             f"Draft$\\to$revision: W$\\to$C {t['wrong_to_correct']}, C$\\to$W {t['correct_to_wrong']}, C$\\to$C {t['correct_to_correct']}, W$\\to$W {t['wrong_to_wrong']}.",
+             f"Paired bootstrap, parallel$-$single: {bs('parallel-single')} pp.",
+             f"Paired bootstrap, revision$-$single: {bs('refine-single')} pp."]
+    out.append(r"\midrule")
+    out += [f"\\multicolumn{{8}}{{@{{}}l}}{{{n}}} \\\\" for n in notes]
+    out += [r"\bottomrule", r"\end{tabular}"]
+    write("t3_live", out)
+
+
+TABLES = {f.__name__: f for f in (t1_benchmarks, t1_resources, t1_annotation, t2_results, t2_resources,
+                                  t3_methods, t3_signals, t3_adaptive, t3_live)}
 
 
 def main(argv):

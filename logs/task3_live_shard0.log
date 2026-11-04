@@ -1,0 +1,28 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:17<00:17, 17.04s/it]Fetching 2 files: 100%|██████████| 2/2 [00:34<00:00, 17.17s/it]Fetching 2 files: 100%|██████████| 2/2 [00:34<00:00, 17.15s/it]
+Loading weights:   0%|          | 0/434 [00:00<?, ?it/s]Loading weights:   0%|          | 1/434 [00:02<14:35,  2.02s/it]Loading weights:  31%|███       | 135/434 [00:02<00:03, 86.43it/s]Loading weights:  44%|████▍     | 191/434 [00:02<00:02, 88.16it/s]Loading weights:  52%|█████▏    | 226/434 [00:03<00:02, 83.41it/s]Loading weights:  58%|█████▊    | 250/434 [00:03<00:02, 81.53it/s]Loading weights:  62%|██████▏   | 268/434 [00:03<00:02, 78.12it/s]Loading weights:  65%|██████▍   | 282/434 [00:04<00:01, 79.01it/s]Loading weights:  68%|██████▊   | 295/434 [00:04<00:01, 79.38it/s]Loading weights:  71%|███████   | 306/434 [00:04<00:01, 76.70it/s]Loading weights:  73%|███████▎  | 317/434 [00:04<00:01, 75.17it/s]Loading weights:  75%|███████▌  | 327/434 [00:04<00:01, 79.17it/s]Loading weights:  78%|███████▊  | 339/434 [00:04<00:01, 78.24it/s]Loading weights:  81%|████████  | 351/434 [00:04<00:00, 84.77it/s]Loading weights:  84%|████████▎ | 363/434 [00:05<00:00, 80.56it/s]Loading weights:  86%|████████▋ | 375/434 [00:05<00:00, 80.09it/s]Loading weights:  89%|████████▉ | 387/434 [00:05<00:00, 69.92it/s]Loading weights:  92%|█████████▏| 399/434 [00:05<00:00, 75.82it/s]Loading weights:  95%|█████████▍| 411/434 [00:05<00:00, 69.67it/s]Loading weights:  97%|█████████▋| 423/434 [00:05<00:00, 77.04it/s]Loading weights: 100%|██████████| 434/434 [00:05<00:00, 73.71it/s]
+shard 0: question 0 done
+shard 0: question 2 done
+shard 0: question 4 done
+shard 0: question 6 done
+shard 0: question 8 done
+shard 0: question 10 done
+shard 0: question 12 done
+shard 0: question 14 done
+shard 0: question 16 done
+shard 0: question 18 done
+shard 0: question 20 done
+shard 0: question 22 done
+shard 0: question 24 done
+shard 0: question 26 done
+shard 0: question 28 done
+shard 0: question 30 done
+shard 0: question 32 done
+shard 0: question 34 done
+shard 0: question 36 done
+shard 0: question 38 done
+shard 0: question 40 done
+shard 0: question 42 done
+shard 0: question 44 done
+shard 0: question 46 done
+shard 0: question 48 done

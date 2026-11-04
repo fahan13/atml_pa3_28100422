@@ -1,12 +1,13 @@
-\begin{tabular}{@{}l r rr r rr l@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}l r rr r rr r rr@{}}
 \toprule
- & Trainable & \multicolumn{2}{c}{Training} & Peak mem. & \multicolumn{2}{c}{Size (GB)} & \\ \cmidrule(lr){3-4} \cmidrule(lr){6-7}
-Run & params (M) & h & s/upd. & (GB) & ckpt & final & Extra cost \\
+ & Trainable & \multicolumn{2}{c}{Training} & Peak & \multicolumn{2}{c}{Size (GB)} & & \multicolumn{2}{c}{Method overhead} \\ \cmidrule(lr){3-4} \cmidrule(lr){6-7} \cmidrule(lr){9-10}
+Run & params (M) & h & s/upd. & GB & ckpt & final & $\|\theta-\theta_0\|_2$ & state (GB) & time \\
 \midrule
-Full FT & 596.0 & 2.23 & 6.43 & 13.91 & 7.153 & 1.515 &  \\
-Full FT + L2-SP & 596.0 & 2.35 & 6.78 & 13.91 & 7.153 & 1.515 & $\theta_0$ 2.38 GB (CPU), 0.32 s/upd. \\
-LoRA-4 & 2.5 & 2.47 & 7.11 & 5.05 & 0.031 & 0.010 &  \\
-LoRA-16 & 10.1 & 2.48 & 7.15 & 5.17 & 0.122 & 0.040 &  \\
-OPLoRA-16 & 10.1 & 3.34 & 9.61 & 5.49 & 0.122 & 0.040 & bases 0.32 GB, SVD 31 s \\
+Full FT & 596.0 & 2.23 & 6.43 & 13.91 & 7.153 & 1.515 & 10.67 & -- & -- \\
+Full FT + L2-SP & 596.0 & 2.35 & 6.78 & 13.91 & 7.153 & 1.515 & 6.28 & 2.38 (CPU) & 0.32 s/upd. \\
+LoRA-4 & 2.5 & 2.47 & 7.11 & 5.05 & 0.031 & 0.010 & -- & -- & -- \\
+LoRA-16 & 10.1 & 2.48 & 7.15 & 5.17 & 0.122 & 0.040 & -- & -- & -- \\
+OPLoRA-16 & 10.1 & 3.34 & 9.61 & 5.49 & 0.122 & 0.040 & -- & 0.32 & 31 s once \\
 \bottomrule
 \end{tabular}
