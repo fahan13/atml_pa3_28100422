@@ -47,29 +47,40 @@ def delta(v, b):
     return f"\\textsubscript{{{'+' if d >= 0 else '$-$'}{abs(d):.1f}}}"
 
 
+def _sgn(v, nd=1):
+    return f"{'+' if v >= 0 else '$-$'}{abs(v):.{nd}f}"
+
+
+def _br(v, nd=1):
+    return f"{'$-$' if v < 0 else ''}{abs(v):.{nd}f}"
+
+
 def t1_benchmarks():
-    """Seven conditions x four benchmarks, primary score with pp change from baseline; GSM8K lenient as a check."""
+    """Seven conditions x four benchmarks: primary score with pp change from baseline, raw accuracy alongside
+    normalized accuracy, and GSM8K lenient extraction as a check."""
     ev = {c: js(R / "task1" / "eval" / c / "scores.json") for c, _ in T1}
-    cols = [("gsm8k", "flexible_em"), ("gsm8k", "lenient_em_supplementary"), ("hellaswag", "acc_norm"),
-            ("boolq", "acc"), ("arc_easy", "acc_norm")]
+    cols = [("gsm8k", "flexible_em", True), ("gsm8k", "lenient_em_supplementary", True),
+            ("hellaswag", "acc_norm", True), ("hellaswag", "acc", False), ("boolq", "acc", True),
+            ("arc_easy", "acc_norm", True), ("arc_easy", "acc", False)]
     b = ev["baseline"]
-    out = [r"\begin{tabular}{@{}l rr rrr@{}}", r"\toprule",
-           r" & \multicolumn{2}{c}{GSM8K (EM)} & HellaSwag & BoolQ & ARC-E \\ \cmidrule(lr){2-3}",
-           r"Condition & flexible & lenient$^\dagger$ & acc\_norm & acc & acc\_norm \\", r"\midrule"]
+    out = [r"\setlength{\tabcolsep}{4pt}", r"\begin{tabular}{@{}l rr rr r rr@{}}", r"\toprule",
+           r" & \multicolumn{2}{c}{GSM8K (EM)} & \multicolumn{2}{c}{HellaSwag} & BoolQ & \multicolumn{2}{c}{ARC-Easy} \\ "
+           r"\cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){7-8}",
+           r"Condition & flexible & lenient$^\dagger$ & acc\_norm & acc & acc & acc\_norm & acc \\", r"\midrule"]
     for c, lab in T1:
         cells = []
-        for t, m in cols:
+        for t, m, d in cols:
             v = ev[c][t][m]
-            cells.append(pct(v) if c == "baseline" else f"{pct(v)}{delta(v, b[t][m])}")
+            cells.append(f"{pct(v)}{delta(v, b[t][m])}" if d and c != "baseline" else pct(v))
         out.append(f"{lab} & " + " & ".join(cells) + r" \\")
-        if c in ("full_ft_mid",):
+        if c == "full_ft_mid":
             out.append(r"\addlinespace[1pt]")
     n = {t: ev["baseline"][t]["n"] for t in ("gsm8k", "hellaswag", "boolq", "arc_easy")}
     sek = {"gsm8k": "flexible_em_stderr", "hellaswag": "acc_norm_stderr", "boolq": "acc_stderr", "arc_easy": "acc_norm_stderr"}
     se = {t: max(100 * ev[c][t][k] for c, _ in T1) for t, k in sek.items()}
     out += [r"\midrule",
-            f"$n$ / max s.e. & {n['gsm8k']} / {se['gsm8k']:.1f} & & {n['hellaswag']} / {se['hellaswag']:.1f} & "
-            f"{n['boolq']} / {se['boolq']:.1f} & {n['arc_easy']} / {se['arc_easy']:.1f} \\\\",
+            f"$n$ / max s.e. & \\multicolumn{{2}}{{c}}{{{n['gsm8k']} / {se['gsm8k']:.1f}}} & \\multicolumn{{2}}{{c}}{{{n['hellaswag']} / {se['hellaswag']:.1f}}} & "
+            f"{n['boolq']} / {se['boolq']:.1f} & \\multicolumn{{2}}{{c}}{{{n['arc_easy']} / {se['arc_easy']:.1f}}} \\\\",
             r"\bottomrule", r"\end{tabular}"]
     write("t1_benchmarks", out)
 
@@ -137,30 +148,38 @@ def ci(c, scale=100, nd=1):
 
 
 def t2_results():
-    """Both suites x four image conditions for the 196-token model, with question types, pair diagnostics, NLL, advantages."""
+    """Both suites x four image conditions for the 196-token model: accuracy, question types, pair diagnostics,
+    reference NLL, generation time, and correct-image advantages in accuracy and NLL with pair-bootstrap CIs."""
     d = js(R / "task2" / "vlm196" / "final_eval_stage3.json")
     names = {"correct": "Correct", "swap": "Swapped", "mismatched": "Mismatched", "none": "No image"}
     types = {"grounding_test": [("presence", "Pres."), ("counting", "Count."), (None, "")],
              "vqa_test": [("yes/no", "Y/N"), ("number", "Num."), ("other", "Other")]}
-    out = [r"\setlength{\tabcolsep}{3.5pt}", r"\begin{tabular}{@{}l rl rrr rrr r rl@{}}", r"\toprule",
-           r" & \multicolumn{2}{c}{Accuracy} & \multicolumn{3}{c}{By type} & Pair & Ident. & Follows & Ref. & "
-           r"\multicolumn{2}{c}{Correct-image adv.} \\ \cmidrule(lr){2-3} \cmidrule(lr){4-6} \cmidrule(lr){11-12}",
-           r"Image & \% & 95\% CI & & & & acc. & ans. & partner & NLL & pp & 95\% CI \\"]
+    out = [r"\setlength{\tabcolsep}{1.8pt}", r"\begin{tabular}{@{}l rl rrr rrr rr ll@{}}", r"\toprule",
+           r" & \multicolumn{2}{c}{Accuracy (\%)} & \multicolumn{3}{c}{By type (\%)} & Pair & Ident. & Follows & Ref. & ms / & "
+           r"\multicolumn{2}{c}{Correct-image advantage} \\ \cmidrule(lr){2-3} \cmidrule(lr){4-6} \cmidrule(lr){12-13}",
+           r"Image & mean & 95\% CI & & & & acc. & ans. & partner & NLL & ans. & acc. (pp) & NLL \\"]
+    empties = []
     for suite, sname in (("grounding_test", "Grounding"), ("vqa_test", "VQAv2")):
         s = d["suites"][suite]
         n = s["correct"]["n_questions"]
         tlabels = " & ".join(t[1] for t in types[suite])
-        out += [r"\midrule", f"\\multicolumn{{3}}{{@{{}}l}}{{\\textit{{{sname}}} ({n} q., {n // 2} pairs)}} & {tlabels} & & & & & & \\\\"]
+        out += [r"\midrule", f"\\multicolumn{{3}}{{@{{}}l}}{{\\textit{{{sname}}} ({n} q., {n // 2} pairs)}} & {tlabels} & & & & & & & \\\\"]
         for c in ("correct", "swap", "mismatched", "none"):
             x = s[c]
+            empties.append(x["empty_answer_rate"])
             tv = " & ".join(pct(x["by_type"][t]) if t else "" for t, _ in types[suite])
             if c == "correct":
                 adv = " & "
             else:
-                a = s["advantages"][f"correct_vs_{c}"]["accuracy_advantage"]
-                adv = f"{100 * a['mean']:+.1f} & {ci(a)}"
+                a = s["advantages"][f"correct_vs_{c}"]
+                aa, an = a["accuracy_advantage"], a["nll_advantage"]
+                adv = (f"{_sgn(100 * aa['mean'])} [{_br(100 * aa['lo'])}, {_br(100 * aa['hi'])}] & "
+                       f"{_sgn(an['mean'], 2)} [{_br(an['lo'], 2)}, {_br(an['hi'], 2)}]")
             out.append(f"{names[c]} & {pct(x['accuracy'])} & {ci(x['ci']['accuracy'])} & {tv} & {pct(x['pair_accuracy'])} & "
-                       f"{pct(x['identical_answer_rate'])} & {pct(x['follows_partner_rate'])} & {x['mean_reference_nll']:.2f} & {adv} \\\\")
+                       f"{pct(x['identical_answer_rate'])} & {pct(x['follows_partner_rate'])} & {x['mean_reference_nll']:.2f} & "
+                       f"{1000 * x['seconds_per_answer']:.0f} & {adv} \\\\")
+    emp = "0\\% in every suite and condition" if max(empties) == 0 else f"at most {pct(max(empties))}\\% (suite and condition maximum)"
+    out += [r"\midrule", f"\\multicolumn{{13}}{{@{{}}l}}{{Empty-answer rate: {emp}.}} \\\\"]
     out += [r"\bottomrule", r"\end{tabular}"]
     write("t2_results", out)
 
@@ -200,10 +219,6 @@ T3_METHODS = [("first", "First answer"), ("sc", "Self-consistency (SC)"), ("shor
               ("selfcert_rwc", "Self-certainty + RWC"), ("vision", "Max vision share"), ("vision_rwc", "Vision + RWC"),
               ("visconf", "Max VisConf"), ("visconf_rwc", "VisConf + RWC"), ("visconf_token", "Max token VisConf"),
               ("visconf_token_rwc", "Token VisConf + RWC")]
-
-
-def _sgn(v, nd=1):
-    return f"{'+' if v >= 0 else '$-$'}{abs(v):.{nd}f}"
 
 
 def t3_methods():
@@ -272,8 +287,12 @@ def t3_adaptive():
     for ds, name in (("math", "MATH"), ("mathvista", "MathVista")):
         a = js(R / "task3" / ds / "adaptive.json")
         f = a["fixed32_sc"]["eval"]
+        byn = js(R / "task3" / ds / "offline_summary.json")["splits"]["eval"]["by_N"]
         out.append(r"\midrule")
-        out.append(f"{name} & fixed $N{{=}}32$ SC & & & {pct(f['acc'])} & & {f['mean_rollouts']:.1f} & {f['mean_cost']:,.0f} & & & & \\\\")
+        for nfix in ("8", "16"):
+            m = byn[nfix]["methods"]["sc"]
+            out.append(f"{name if nfix == '8' else ''} & fixed $N{{=}}{nfix}$ SC & & & {pct(m['acc'])} & & {float(nfix):.1f} & {m['cost']:,.0f} & & & & \\\\")
+        out.append(f" & fixed $N{{=}}32$ SC & & & {pct(f['acc'])} & & {f['mean_rollouts']:.1f} & {f['mean_cost']:,.0f} & & & & \\\\")
         for fam, lab in (("agreement", "agreement"), ("quality_aware", f"+ {a['quality_score']}")):
             x = a["families"][fam]
             sel, e, dlt = x["selected"], x["eval"], x["eval_acc_diff_vs_fixed32"]

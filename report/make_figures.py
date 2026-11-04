@@ -262,7 +262,57 @@ def t3_scaling():
     save(fig, "t3_scaling")
 
 
-FIGS = {f.__name__: f for f in (t1_training, t1_diagnostics, t2_curves, t3_scaling)}
+def _coco(image_id):
+    import urllib.request
+    d = ROOT / "outputs" / "coco_examples"
+    d.mkdir(parents=True, exist_ok=True)
+    name = f"COCO_val2014_{int(image_id):012d}.jpg"
+    path = d / name
+    if not path.exists():
+        urllib.request.urlretrieve(f"http://images.cocodataset.org/val2014/{name}", path)
+    return path
+
+
+def t2_pairs():
+    """Complementary pairs: the first pair of each question type in the saved final-test order (both suites),
+    with references and the 196-token model's answers under the correct and swapped image."""
+    import textwrap
+    from PIL import Image
+    rows = jl(R / "task2" / "vlm196" / "final_eval_stage3_examples.jsonl")
+    by = {}
+    for r in rows:
+        by.setdefault((r["suite"], r["pair_id"]), {}).setdefault(r["condition"], {})[r["position"]] = r
+    chosen = []
+    for suite in ("grounding_test", "vqa_test"):
+        seen = set()
+        for p in sorted({p for s_, p in by if s_ == suite}, key=lambda p: int(p.rsplit("-", 1)[1])):
+            t = by[(suite, p)]["correct"][0]["type"]
+            if t not in seen:
+                seen.add(t)
+                chosen.append(by[(suite, p)])
+    fig, ax = plt.subplots(2, len(chosen), figsize=(W, 2.9), gridspec_kw={"hspace": 0.42, "wspace": 0.1})
+    for j, e in enumerate(chosen):
+        q = e["correct"][0]["question"]
+        ax[0, j].set_title("\n".join([e["correct"][0]["type"]] + textwrap.wrap(q, 22)), fontsize=6, color=INK)
+        for i in (0, 1):
+            a = ax[i, j]
+            im = Image.open(_coco(e["correct"][i]["image_id"])).convert("RGB")
+            w, h = im.size
+            m = min(w, h)
+            im = im.crop(((w - m) // 2, (h - m) // 2, (w - m) // 2 + m, (h - m) // 2 + m)).resize((256, 256))
+            a.imshow(im)
+            a.set_xticks([])
+            a.set_yticks([])
+            for sp in a.spines.values():
+                sp.set_visible(False)
+            c, sw = e["correct"][i], e["swap"][i]
+            ok = r"$\checkmark$" if c["score"] >= 0.999 else r"$\times$"
+            a.set_xlabel(f"ref {c['canonical']}  |  pred {c['prediction'] or '(empty)'} {ok}\nswapped image: {sw['prediction'] or '(empty)'}",
+                         fontsize=6, labelpad=2, color=INK)
+    save(fig, "t2_pairs")
+
+
+FIGS = {f.__name__: f for f in (t1_training, t1_diagnostics, t2_curves, t2_pairs, t3_scaling)}
 
 
 def main(argv):

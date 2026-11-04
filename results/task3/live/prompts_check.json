@@ -1,0 +1,6 @@
+{
+  "n_prompts": 250,
+  "n_calls": 250,
+  "input_token_mismatches": [],
+  "rule": "prompts rebuilt with the generation chat template; token counts compared with calls_shard*.jsonl"
+}

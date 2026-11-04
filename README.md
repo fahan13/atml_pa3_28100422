@@ -111,7 +111,8 @@ Live generation (GPU) and its analysis (CPU):
 
 ```bash
 bash scripts/run_task3_live.sh          # Kaggle, one shard of the 50 questions per T4
-python -m task3_ttc.live_analyze
+python -m task3_ttc.live_analyze        # grading, strategy summaries, revision transitions, paired bootstrap
+python -m task3_ttc.live_prompts        # rebuilds every prompt and checks it against the recorded input-token count
 ```
 
 Selection and stopping rules use only the revealed rollouts' answers and scores; gold answers are used only for
@@ -122,8 +123,11 @@ grading.
 ```bash
 python report/make_figures.py           # all figures -> report/figures/<name>.pdf (+ .png preview)
 python report/make_tables.py            # all tables  -> report/tables/<name>.tex (booktabs tabular)
+python report/make_examples.py          # qualitative examples -> report/examples/
 python report/make_figures.py --list    # names; pass a name to build one
 ```
+
+`t2_pairs` downloads the few COCO val2014 images it shows from images.cocodataset.org into `outputs/coco_examples/`.
 
 | Output | Contents | Source files |
 |---|---|---|
@@ -140,6 +144,9 @@ python report/make_figures.py --list    # names; pass a name to build one
 | `t3_signals` | score–correctness and score–length associations, confidence–vision correlation | `results/task3/<ds>/signals.json` |
 | `t3_adaptive` | dev-selected stopping rules on the eval split | `results/task3/<ds>/adaptive.json` |
 | `t3_live` | single answer vs. parallel sampling vs. revision | `results/task3/live/live_summary.json` |
+| `t2_pairs` | first complementary pair of each question type: images, references, answers | `results/task2/vlm196/final_eval_stage3_examples.jsonl` |
+| `examples/t2_pairs.tex` | the same pairs under all four image conditions | `results/task2/vlm196/final_eval_stage3_examples.jsonl` |
+| `examples/t3_examples.md` | selection disagreements, revisions, premature stops (selection rule stated with each) | `results/task3/<ds>/`, `results/task3/live/` |
 
 Sanity checks are in `results/sanity/`: response-only loss masking, resume equivalence, merged-vs-unmerged logits and
 OPLoRA constraints (Task 1); chat-template equality, frozen base weights and connector/LoRA gradients (Task 2).

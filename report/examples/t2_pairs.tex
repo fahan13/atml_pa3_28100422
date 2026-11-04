@@ -1,0 +1,23 @@
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}l l l l llll@{}}
+\toprule
+Type & Question & Image & Ref. & Correct & Swapped & Mismatched & No image \\
+\midrule
+presence & Does this image contain an orange? & 169111 & yes & yes$^\checkmark$ & no$^\dagger$ & no & yes$^\checkmark$ \\
+ &  & 462890 & no & no$^\checkmark$ & yes$^\dagger$ & no$^\checkmark$ & yes \\
+\addlinespace[2pt]
+counting & How many potted plants can you see? & 221094 & 4 & 2 & 1 & 1 & plant \\
+ &  & 392892 & 2 & 1 & 2$^\checkmark$ & 2$^\checkmark$ & plant \\
+\addlinespace[2pt]
+yes/no & Is it nighttime? & 20004 & yes & yes$^\checkmark$ & yes$^\checkmark$ & no & no \\
+ &  & 153283 & no & yes & yes$^\dagger$ & no$^\checkmark$ & no$^\checkmark$ \\
+\addlinespace[2pt]
+number & How many sinks? & 38314 & 2 & 4 & 1$^\dagger$ & 0 & 1 \\
+ &  & 11727 & 1 & 1$^\checkmark$ & 4 & 0 & 1$^\checkmark$ \\
+\addlinespace[2pt]
+other & Is he looking over his right or left shoulder? & 243914 & left & right & right$^\dagger$ & left$^\checkmark$ & left$^\checkmark$ \\
+ &  & 217622 & right & right$^\checkmark$ & right$^\checkmark$ & right$^\checkmark$ & left \\
+\midrule
+\multicolumn{8}{@{}l}{$^\checkmark$ full credit against the original reference; $^\dagger$ swapped-image answer matches the partner image's reference.} \\
+\bottomrule
+\end{tabular}

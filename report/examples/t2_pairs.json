@@ -1,0 +1,47 @@
+[
+ {
+  "suite": "grounding_test",
+  "pair_id": "grounding_test-0",
+  "type": "presence",
+  "image_ids": [
+   169111,
+   462890
+  ]
+ },
+ {
+  "suite": "grounding_test",
+  "pair_id": "grounding_test-32",
+  "type": "counting",
+  "image_ids": [
+   221094,
+   392892
+  ]
+ },
+ {
+  "suite": "vqa_test",
+  "pair_id": "vqa_test-0",
+  "type": "yes/no",
+  "image_ids": [
+   20004,
+   153283
+  ]
+ },
+ {
+  "suite": "vqa_test",
+  "pair_id": "vqa_test-36",
+  "type": "number",
+  "image_ids": [
+   38314,
+   11727
+  ]
+ },
+ {
+  "suite": "vqa_test",
+  "pair_id": "vqa_test-60",
+  "type": "other",
+  "image_ids": [
+   243914,
+   217622
+  ]
+ }
+]
