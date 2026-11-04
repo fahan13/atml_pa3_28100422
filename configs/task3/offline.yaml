@@ -1,5 +1,4 @@
 seed: 6304
-order_seed: 6305
 data_root: data/ATML-PA3-Data
 results: results/task3
 cache: outputs/task3

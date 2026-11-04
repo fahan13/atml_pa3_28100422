@@ -155,9 +155,14 @@ def t3_examples():
         ad = js(R / "task3" / ds / "adaptive.json")["families"]["agreement"]
         tau = ad["selected"]["tau"]
         md += ["", f"## Premature stopping ({name}, agreement rule, τ = {tau:g})", "",
-               "Rule: the first 3 entries of `adaptive.json` → `incorrect_early_stops.examples_first10` (eval split order), "
-               "i.e. early stops with a wrong answer that fixed N = 32 self-consistency gets right.", ""]
-        for ex in ad["incorrect_early_stops"]["examples_first10"][:3]:
+               "Rule: the first 3 distinct questions in `adaptive.json` → `incorrect_early_stops.examples_first10` (eval split "
+               "order, first listed order of each), i.e. early stops with a wrong answer that fixed N = 32 self-consistency gets right.", ""]
+        picked, seen = [], set()
+        for ex in ad["incorrect_early_stops"]["examples_first10"]:
+            if ex["sample_id"] not in seen and len(picked) < 3:
+                seen.add(ex["sample_id"])
+                picked.append(ex)
+        for ex in picked:
             q, o, k = ex["sample_id"], ex["order"], ex["stopped_at"]
             order = orders[qindex[q], o]
             w_n, d_n = dist(pool, q, order[:k])

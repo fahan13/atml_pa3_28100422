@@ -139,7 +139,7 @@ def splits(cfg: dict, qids: list[str]) -> dict:
 
 
 def orders(cfg: dict, qids: list[str]) -> np.ndarray:
-    rng = np.random.default_rng(int(cfg["order_seed"]))
+    rng = np.random.default_rng(int(cfg["seed"]))
     return np.stack([np.stack([rng.permutation(32) for _ in range(int(cfg["n_orders"]))]) for _ in sorted(qids)])
 
 
@@ -148,8 +148,16 @@ def main() -> None:
     ap.add_argument("--config", default="configs/task3/offline.yaml")
     ap.add_argument("--datasets", default="math,mathvista")
     ap.add_argument("--timeout", type=float, default=120.0)
+    ap.add_argument("--orders_only", action="store_true")
     args = ap.parse_args()
     cfg = load_config(args.config)
+    if args.orders_only:
+        for ds in args.datasets.split(","):
+            res = repo_path(cfg["results"]) / ds
+            qids = load_json(res / "orders_index.json")
+            np.save(res / "orders.npy", orders(cfg, qids))
+            print(ds, "orders regenerated", len(qids), "questions")
+        return
     meta = fetch_mathvista_meta(cfg)
     split_path = repo_path(cfg["results"]) / "splits.json"
     all_splits = load_json(split_path) if split_path.exists() else {}
