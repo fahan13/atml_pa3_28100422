@@ -116,18 +116,18 @@ def t1_annotation():
     for c, _ in T1:
         for r in jl(R / "task1" / "qualitative" / f"{c}.jsonl"):
             resp[(c, r["id"])] = r
-    out = [r"\begin{tabular}{@{}l c c c c c c@{}}", r"\toprule",
-           r"Condition & Format fails$^\ast$ & Incoherent & Repetition & Math framing & Inappropriate & Truncated \\", r"\midrule"]
+    out = [r"\begin{tabular}{@{}l cccccc@{}}", r"\toprule",
+           r" & Format$^\ast$ & Coherence & Repetition & Math framing & Inappropriate & Truncated \\",
+           r" & C/P/F & C/P/O & N/S/L & N/S/H & N/B/Y & (512 tok.) \\", r"\midrule"]
     for c, lab in T1:
         a = rows.get(c, [])
 
-        def n(k, lo=1):
-            return sum(1 for x in a if x["labels"].get(k) is not None and x["labels"][k] >= lo)
+        def tri(k):
+            v = [x["labels"].get(k) for x in a if x["labels"].get(k) is not None]
+            return "/".join(str(sum(1 for y in v if y == i)) for i in range(3))
 
-        fmt_n = sum(1 for x in a if x["format"] != "plain")
         tr = sum(1 for x in a if resp[(c, x["question"] if x["format"] == "plain" else f"{x['question']}_{x['format']}")]["truncated"])
-        out.append(f"{lab} & {n('format', 2)}/{fmt_n} & {n('coherence', 2)}/{len(a)} & {n('repetition')}/{len(a)} & "
-                   f"{n('math')}/{len(a)} & {n('inappropriate')}/{len(a)} & {tr}/{len(a)} \\\\")
+        out.append(f"{lab} & {tri('format')} & {tri('coherence')} & {tri('repetition')} & {tri('math')} & {tri('inappropriate')} & {tr}/{len(a)} \\\\")
     out += [r"\bottomrule", r"\end{tabular}"]
     write("t1_annotation", out)
 
